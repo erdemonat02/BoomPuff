@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<!-- BOOMPUFF v9 — uygulama ikonu / açılış ekranı / mağaza tanıtım görseli üretici.
+     Oyunun kendi çizim fonksiyonlarını (drawAnimal, drawLogo) gizli bir iframe içinden kullanır; görseller oyundaki karakter çizimleriyle birebir aynı stildedir.
+     Kullanım (proje kökü bir sunucuda yayınlanırken): tools/brand.html?mode=icon&size=1024
+     mode: icon | fg (adaptive ön katman) | bg (adaptive arka katman) | maskable | splash | feature -->
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@800&display=swap"><style>html,body{margin:0;background:transparent;overflow:hidden}canvas{display:block}iframe{position:absolute;left:-9999px;width:400px;height:300px;border:0}</style></head>
+<body><canvas id="out"></canvas><iframe id="g" src="../www/index.html?nosw"></iframe>
+<script>
+const q=new URLSearchParams(location.search),mode=q.get('mode')||'icon';
+const sizes={icon:[1024,1024],fg:[1024,1024],bg:[1024,1024],maskable:[512,512],splash:[2732,2732],feature:[1024,500]};
+let [W,H]=sizes[mode]||sizes.icon;if(q.get('size')){W=H=+q.get('size')}
+const out=document.getElementById('out');out.width=W;out.height=H;out.style.width=W+'px';out.style.height=H+'px';
+const x=out.getContext('2d');
+function bg(c,w,h){const g=c.createRadialGradient(w/2,h*.46,0,w/2,h*.5,Math.max(w,h)*.75);g.addColorStop(0,'#ffd23f');g.addColorStop(.18,'#ff8a2f');g.addColorStop(.42,'#a64bd6');g.addColorStop(1,'#16206e');c.fillStyle=g;c.fillRect(0,0,w,h);
+ c.save();c.translate(w/2,h*.47);for(let i=0;i<18;i++){c.rotate(Math.PI*2/18);c.fillStyle=i%2?'rgba(255,255,255,.10)':'rgba(255,230,140,.12)';c.beginPath();c.moveTo(0,0);c.lineTo(Math.max(w,h),-Math.max(w,h)*.12);c.lineTo(Math.max(w,h),Math.max(w,h)*.12);c.fill()}c.restore()}
+function hero(F,c,cx,cy,s){const S=F.__SPECIES;
+ // patlama bulutu
+ c.save();c.translate(cx,cy);c.fillStyle='#fff3c4';for(let i=0;i<9;i++){const a=i/9*Math.PI*2;c.beginPath();c.arc(Math.cos(a)*s*.42,Math.sin(a)*s*.30+s*.06,s*.17,0,7);c.fill()}c.fillStyle='#ffd23f';c.beginPath();c.arc(0,s*.06,s*.36,0,7);c.fill();c.restore();
+ c.save();c.translate(cx,cy+s*.33);c.scale(s/54,s/54);F.__drawAnimal(c,S.rabbit,'rabbit','#ff4d5a',{facing:1,t:1.3,pose:'win'});c.restore();
+ // bomba
+ c.save();c.translate(cx+s*.42,cy+s*.30);c.rotate(-.3);c.fillStyle='#2b2236';c.beginPath();c.arc(0,0,s*.13,0,7);c.fill();c.fillStyle='#4a3e5c';c.beginPath();c.arc(-s*.04,-s*.04,s*.04,0,7);c.fill();c.fillStyle='#777';c.fillRect(-s*.03,-s*.18,s*.06,s*.06);c.strokeStyle='#ffd23f';c.lineWidth=s*.02;c.beginPath();c.moveTo(0,-s*.18);c.quadraticCurveTo(s*.06,-s*.27,s*.12,-s*.24);c.stroke();c.fillStyle='#fff';c.beginPath();c.arc(s*.13,-s*.24,s*.03,0,7);c.fill();c.restore()}
+function logo(F,c,cx,cy,w){const d=F.document,lc=d.createElement('canvas');lc.style.cssText=`position:absolute;left:0;top:0;width:${w}px;height:${w/4}px`;d.body.appendChild(lc);F.__drawLogo(lc);c.drawImage(lc,cx-w/2,cy-w/8,w,w/4);lc.remove()}
+function run(){const F=document.getElementById('g').contentWindow;
+ if(mode==='bg'){bg(x,W,H)}
+ else if(mode==='fg'){hero(F,x,W/2,H*.47,W*.42)}
+ else if(mode==='icon'||mode==='maskable'){bg(x,W,H);hero(F,x,W/2,H*.47,W*(mode==='maskable'?.42:.56));if(mode==='icon'){}}
+ else if(mode==='splash'){x.fillStyle='#0b1630';x.fillRect(0,0,W,H);const g=x.createRadialGradient(W/2,H/2,0,W/2,H/2,W*.45);g.addColorStop(0,'rgba(166,75,214,.55)');g.addColorStop(1,'rgba(11,22,48,0)');x.fillStyle=g;x.fillRect(0,0,W,H);hero(F,x,W/2,H*.44,W*.2);logo(F,x,W/2,H*.62,W*.36)}
+ else if(mode==='feature'){bg(x,W,H);hero(F,x,W*.2,H*.42,H*.5);logo(F,x,W*.64,H*.4,W*.56);x.font='800 34px "Baloo 2",sans-serif';x.textAlign='center';x.fillStyle='#fff';x.strokeStyle='rgba(20,10,60,.6)';x.lineWidth=7;const t='Yıkılabilir adalarda topçu düellosu!';x.strokeText(t,W*.64,H*.72);x.fillText(t,W*.64,H*.72)}
+ document.title='READY'}
+document.getElementById('g').addEventListener('load',()=>{const F=document.getElementById('g').contentWindow;const wait=()=>{if(F.__drawAnimal&&F.document.fonts&&F.document.fonts.status==='loaded'&&document.fonts.status==='loaded')document.fonts.load('800 34px "Baloo 2"').then(()=>setTimeout(run,300));else setTimeout(wait,100)};wait()});
+</script></body></html>

@@ -1,0 +1,55 @@
+# BOOMPUFF v9 — Android debug APK + imzalı release AAB üretimi (GitHub Actions)
+# NOT: Bu iş akışı hazırlandı ancak bu teslimatta ÇALIŞTIRILMADI (geliştirme bilgisayarında Node/Android SDK yoktu).
+# İmzalama için depo ayarlarında (Settings → Secrets and variables → Actions) şu gizli değerleri tanımlayın:
+#   ANDROID_KEYSTORE_BASE64   (upload keystore dosyasının base64 hali)
+#   ANDROID_KEYSTORE_PASSWORD, ANDROID_KEY_ALIAS, ANDROID_KEY_PASSWORD
+# Gizli anahtarlar asla depoya yazılmaz.
+name: android
+on:
+  workflow_dispatch:
+  push:
+    tags: ['v*']
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      HAS_KEYSTORE: ${{ secrets.ANDROID_KEYSTORE_BASE64 != '' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - uses: actions/setup-java@v4
+        with: { distribution: temurin, java-version: 21 }
+      - uses: android-actions/setup-android@v3
+      - run: npm install
+      - name: Yazı tiplerini yerele al (dış bağlantısız sürüm)
+        shell: pwsh
+        run: ./tools/fetch-fonts.ps1
+      - run: npx cap add android
+      - name: Sürüm numaraları (versionCode = çalıştırma numarası, versionName = package.json)
+        run: |
+          VN=$(node -p "require('./package.json').version")
+          sed -i "s/versionCode .*/versionCode ${GITHUB_RUN_NUMBER}/; s/versionName .*/versionName \"${VN}\"/" android/app/build.gradle
+      - run: npx --yes @capacitor/assets@3 generate --android --iconBackgroundColor '#16206e' --splashBackgroundColor '#0b1630'
+      - run: npx cap sync android
+      - name: Debug APK
+        run: cd android && ./gradlew assembleDebug
+      - name: Release AAB (imzalı)
+        if: env.HAS_KEYSTORE == 'true'
+        env:
+          KS_PASS: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+          KEY_PASS: ${{ secrets.ANDROID_KEY_PASSWORD }}
+        run: |
+          echo "${{ secrets.ANDROID_KEYSTORE_BASE64 }}" | base64 -d > android/app/upload.jks
+          cd android && ./gradlew bundleRelease \
+            -Pandroid.injected.signing.store.file=$PWD/app/upload.jks \
+            -Pandroid.injected.signing.store.password=$KS_PASS \
+            -Pandroid.injected.signing.key.alias=$KEY_ALIAS \
+            -Pandroid.injected.signing.key.password=$KEY_PASS
+      - uses: actions/upload-artifact@v4
+        with:
+          name: boompuff-android
+          path: |
+            android/app/build/outputs/apk/debug/*.apk
+            android/app/build/outputs/bundle/release/*.aab

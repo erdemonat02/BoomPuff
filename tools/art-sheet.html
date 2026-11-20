@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<!-- weapon-art.js çizimlerini 6 sütunlu, hücre başı 512×512 px'lik şeffaf bir sayfaya döker (make-weapon-assets.ps1 dilimler). -->
+<html><head><meta charset="utf-8"><style>html,body{margin:0;background:transparent}canvas{display:block;width:1536px;height:1280px}</style></head>
+<body><canvas id="c" width="3072" height="2560"></canvas><script src="weapon-art.js"></script><script>
+const A=WEAPON_ART,list=[];
+for(const k of['rocket','grenade','heavy','cluster','air','push','sticky','ice','mine','bouncy'])list.push(['I',k]);
+for(const k of['rocket','grenade','heavy','cluster','bomb','push','sticky','ice','mine','bouncy','bomblet'])list.push(['P',k]);
+for(const k of['rocket','heavy','cluster'])list.push(['H',k]);
+for(const k of['health_50','shield'])list.push(['POW',k]);
+window.ORDER=list.map(e=>e.join(':'));document.title='ORDER:'+window.ORDER.join(',');
+const x=document.getElementById('c').getContext('2d');let n=0;
+list.forEach(([g,k],i)=>{const s=A[g][k](),im=new Image();im.onload=()=>{const cx=(i%6)*512,cy=Math.floor(i/6)*512,wide=g==='P'||g==='H';x.drawImage(im,cx,cy,512,wide?256:512);if(++n===list.length)document.title='READY '+document.title};im.src='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(s)});
+</script></body></html>

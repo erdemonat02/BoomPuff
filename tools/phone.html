@@ -1,0 +1,4 @@
+<!DOCTYPE html>
+<!-- Headless tarayıcıların ~500 px en küçük pencere genişliği sınırını aşmak için oyunu w×h boyutlu bir çerçevede açar (ekran görüntüsü aracı). -->
+<html><head><meta charset="utf-8"><style>html,body{margin:0;background:#000;overflow:hidden}iframe{position:absolute;left:0;top:0;border:0}</style></head>
+<body><script>const q=new URLSearchParams(location.search),f=document.createElement('iframe');f.width=q.get('w')||360;f.height=q.get('h')||640;f.src='../www/index.html?'+(q.get('q')||'nosw');document.body.appendChild(f)</script></body></html>

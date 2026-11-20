@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">BOOMPUFF</string>
+    <string name="title_activity_main">BOOMPUFF</string>
+    <string name="package_name">com.boompuff.game</string>
+    <string name="custom_url_scheme">com.boompuff.game</string>
+</resources>
