@@ -1,0 +1,15 @@
+{
+  "name": "boompuff-server",
+  "version": "10.0.0",
+  "private": true,
+  "description": "BOOMPUFF online oda sunucusu (WebSocket) + statik oyun dosyaları",
+  "main": "server.js",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "set STATIC_DIR=..&& node server.js"
+  },
+  "dependencies": {
+    "ws": "^8.18.0"
+  }
+}

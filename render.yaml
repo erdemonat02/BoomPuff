@@ -1,0 +1,18 @@
+# BOOMPUFF — Render Blueprint (tek web servisi: oyun + online oda sunucusu)
+# Render panelinde: New → Blueprint → bu depoyu seçin. Ücretsiz plan; kredi kartı gerekmez.
+services:
+  - type: web
+    name: boompuff
+    runtime: node
+    plan: free
+    region: frankfurt
+    rootDir: server
+    buildCommand: npm install --omit=dev
+    startCommand: npm start
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: STATIC_DIR
+        value: ../www
