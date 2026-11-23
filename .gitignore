@@ -9,3 +9,6 @@ dist/
 *.keystore
 keystore.properties
 .DS_Store
+# v11: işlenmiş ödeme kaydı ve hizmet hesabı anahtarları depoya girmez
+server/data/
+*service-account*.json

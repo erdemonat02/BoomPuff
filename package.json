@@ -1,6 +1,6 @@
 {
   "name": "boompuff",
-  "version": "10.0.0",
+  "version": "11.0.0",
   "private": true,
   "description": "BOOMPUFF — HTML5 Canvas topçu düellosu; Capacitor ile Android paketlemesi",
   "scripts": {
