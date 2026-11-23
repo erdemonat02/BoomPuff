@@ -19,7 +19,7 @@ const CHATF = require(path.join(__dirname, '..', 'www', 'chat-filter.js'));
 const CATALOG = require('./catalog'), IAP = require('./iap');
 const EMOJI = ['😀', '😂', '😎', '😡', '😭', '👍', '👏', '🔥', '💥', '❤️', '🎉', '🤔', '😱', '🙏', '💪', '🐵'];
 const QUICK = ['hi', 'gg', 'nice', 'oops', 'wait', 'go', 'thanks', 'sorry']; // hazır mesaj kimlikleri (metin istemcide, dil başına)
-const MIME = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css', '.json': 'application/json', '.webmanifest': 'application/manifest+json', '.png': 'image/png', '.svg': 'image/svg+xml', '.woff2': 'font/woff2', '.md': 'text/plain; charset=utf-8' };
+const MIME = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css', '.json': 'application/json', '.webmanifest': 'application/manifest+json', '.png': 'image/png', '.webp': 'image/webp', '.jpg': 'image/jpeg', '.svg': 'image/svg+xml', '.woff2': 'font/woff2', '.md': 'text/plain; charset=utf-8' };
 
 // ---------- statik dosyalar + sağlık kontrolü ----------
 const server = http.createServer((req, res) => {

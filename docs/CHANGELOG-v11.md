@@ -1,5 +1,14 @@
 # BOOMPUFF 11.0.0 — Yeni ana menü, karakter ilerlemesi, mağaza, sohbet, 200 HP, skorbord
 
+## 11.6.0 — Harita yükleme ekranı görselleri
+- `www/assets/maps/load_<harita>.webp` (jungle, volcano, city, ice, desert, harbor; Gemini, 16:9) maç öncesi yükleme ekranında kodla çizilen sahnenin yerini alıyor.
+  - Görsel inene kadar eski sahne görünüyor, inince 0,45 sn'lik geçişle görsele dönüyor. Yavaş yakınlaşma (Ken Burns) uygulanıyor.
+  - Buzul'da kar, Volkan'da kıvılcım animasyonu görselin üstüne çiziliyor.
+- Karakterler görseldeki düz zemine basıyor (`LDGY`: harita başına zemin oranı). Zemin ekranın %80'inden aşağı düşmesin diye görsel gerekirse yukarı kaydırılıyor; böylece alttaki ipucu kutusu karakterlerin üstüne binmiyor.
+- Görseller açılıştan 5 sn sonra boşta önceden yükleniyor; service worker önbelleğe alıyor.
+- `server.js`: `.webp` ve `.jpg` doğru içerik türüyle sunuluyor.
+- `APP_VER` 11.6.0, service worker önbelleği `boompuff-v11.6.0`, `server/package.json` 11.6.0.
+
 ## 11.5.0 — Oynanış revizeleri
 - **Son vuruş tekrarı:** artık ölümü gerçekten içeren kayıt oynatılıyor.
   - Hata: mermisiz anlık patlamalar (Şimşek, mayın) kayıt başlatmıyordu. Bu yüzden bir önceki turun kaydı oynatılıyordu; bu da çoğu zaman ölen oyuncunun kendi atışıydı.

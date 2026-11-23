@@ -3411,7 +3411,14 @@ function setPlaying(on){for(const id of['hud','top','bar'])$(id).classList.toggl
 // Gerçek oyun görüntüsü kullanılmaz: gökyüzü, uzak/orta/ön plan katmanları ve savaşçılar sahnenin içinde, zeminde durur.
 function ridge(x,w,h,y0,parts,col,step=8){x.fillStyle=col;x.beginPath();x.moveTo(0,h);for(let i=0;i<=w+step;i+=step){let y=y0;for(const[a,f,p]of parts)y+=Math.sin(i/w*f*6.283+p)*a;x.lineTo(i,y)}x.lineTo(w,h);x.closePath();x.fill()}
 function ridgeY(xx,w,y0,parts){let y=y0;for(const[a,f,p]of parts)y+=Math.sin(xx/w*f*6.283+p)*a;return y}
+// v11.6: harita yükleme görselleri (Gemini, 16:9). Görsel inene kadar eski çizim sahnesi görünür, inince yumuşak geçiş yapılır.
+// GY: görselde karakterlerin bastığı düz zeminin yüksekliği (görsel yüksekliğine oran).
+const LDIMG={},LDGY={jungle:.86,volcano:.84,city:.86,ice:.85,desert:.83,harbor:.85};
+function ldImg(id){if(!LDGY[id])return null;let im=LDIMG[id];if(!im){im=LDIMG[id]=new Image();im.decoding='async';im.onload=()=>{im._t=performance.now()};im.src='assets/maps/load_'+id+'.webp'}return im.complete&&im.naturalWidth?im:null}
+setTimeout(()=>{const go=()=>{for(const id in LDGY)ldImg(id)};window.requestIdleCallback?requestIdleCallback(go,{timeout:6000}):go()},5000); // önceden yükle (SW önbelleğe alır)
 function drawLoadScene(x,w,h,id,teams,t){const M=MAPS[id],U=Math.min(w,h*1.6)/1000;
+ const im=ldImg(id),ia=im?clamp((performance.now()-(im._t||0))/450,0,1):0;let fgy;
+ if(ia<1){
  const g=x.createLinearGradient(0,0,0,h);g.addColorStop(0,M.sky[0]);g.addColorStop(.55,M.sky[1]);g.addColorStop(1,M.sky[2]);x.fillStyle=g;x.fillRect(0,0,w,h);
  let fg=[[h*.035,1.2,.4],[h*.015,3.1,1]],fy=h*.8,fgc='#4f9e3c',fgc2='#8a5a32';
  if(id==='jungle'){drawSun(x,w*.8,h*.18,M,t);x.fillStyle='rgba(255,255,255,.85)';for(let i=0;i<4;i++){const cx=((i*.3+t*.01)%1.3-.15)*w,cy=h*(.12+i%2*.08);x.beginPath();x.arc(cx,cy,30*U,0,7);x.arc(cx+34*U,cy-14*U,38*U,0,7);x.arc(cx+74*U,cy,28*U,0,7);x.fill()}
@@ -3447,9 +3454,14 @@ function drawLoadScene(x,w,h,id,teams,t){const M=MAPS[id],U=Math.min(w,h*1.6)/10
   x.fillStyle='#14121c';x.beginPath();x.arc(sx-40*U,sy-150*U,14*U,0,7);x.fill();
   fgc='#7a5232';fgc2='#4a3020';fy=h*.82;fg=[[0,1,0]];const fsp=fogSpr();x.globalAlpha=.5;for(let i=0;i<5;i++)x.drawImage(fsp,((hash2(i,3)*w+t*20*(1+i%2))%(w+400))-300,h*(.55+i*.04),600*U,200*U);x.globalAlpha=1}
  // ön plan zemini
- const fgy=xx=>ridgeY(xx,w,fy,fg);ridge(x,w,h,fy,fg,fgc,6);x.strokeStyle=fgc2;x.lineWidth=4*U;x.beginPath();for(let i=0;i<=w;i+=6){const y=fgy(i);i?x.lineTo(i,y):x.moveTo(i,y)}x.stroke();
+ fgy=xx=>ridgeY(xx,w,fy,fg);ridge(x,w,h,fy,fg,fgc,6);x.strokeStyle=fgc2;x.lineWidth=4*U;x.beginPath();for(let i=0;i<=w;i+=6){const y=fgy(i);i?x.lineTo(i,y):x.moveTo(i,y)}x.stroke();
  if(id==='harbor'){x.strokeStyle='rgba(40,24,12,.6)';x.lineWidth=2;for(let i=0;i<w;i+=34*U){x.beginPath();x.moveTo(i,fy);x.lineTo(i,h);x.stroke()}x.fillStyle='#4a3020';for(let i=20;i<w;i+=w/6)x.fillRect(i,fy-26*U,8*U,26*U)}
  if(id==='city'){x.fillStyle='#3a3460';for(let i=0;i<4;i++)x.fillRect(w*(.08+i*.25),fy-22*U,40*U,22*U);x.strokeStyle='#8a8aa0';x.lineWidth=2;x.beginPath();x.moveTo(w*.92,fy);x.lineTo(w*.92,fy-70*U);x.stroke();x.fillStyle=Math.sin(t*4)>0?'#ff3355':'#551122';x.beginPath();x.arc(w*.92,fy-72*U,4*U,0,7);x.fill()}
+ }
+ if(ia>0){const W=im.naturalWidth,H=im.naturalHeight,s=Math.max(w/W,h/H)*(1.06-.06*Math.min(1,t/6)),dx=(w-W*s)/2,dy=Math.max(h-H*s,Math.min((h-H*s)/2,h*.8-LDGY[id]*H*s)); // yavaş yakınlaşma (Ken Burns); zemin alttaki ipucu/çubuk alanının üstünde kalsın (≤ %80)
+  x.globalAlpha=ia;x.drawImage(im,dx,dy,W*s,H*s);x.globalAlpha=1;if(ia>.5){const gy=dy+LDGY[id]*H*s;fgy=()=>gy}
+  if(id==='ice'){x.fillStyle='rgba(255,255,255,.85)';for(let i=0;i<60;i++){const sx=(hash2(i,4)*w+Math.sin(t+i)*20)%w,sy=(hash2(i,5)*h+t*40*(1+hash2(i,6)))%h;x.beginPath();x.arc(sx,sy,1.2+hash2(i,7)*2,0,7);x.fill()}}
+  else if(id==='volcano'){for(let i=0;i<24;i++){const k=(t*.25+hash2(i,3))%1;x.fillStyle=`rgba(255,${150+i*3},60,${.9*(1-k)})`;x.beginPath();x.arc(hash2(i,2)*w,h*(1-k*.8),(2+hash2(i,6)*2)*U*2,0,7);x.fill()}}}
  // savaşçılar: sahnenin içinde, zemine basarak; ortaya doğru dönük
  if(teams&&teams.length){const n=teams.length,span=n<=2?.36:n<=4?.6:.76,s=Math.min(h*.2/57,(w*span/n)/48);
   teams.forEach((tm,i)=>{const c=tm.chars[0],px=w*(.5+(n>1?(i/(n-1)-.5)*span:0)),py=fgy(px),ph=t*2+i*1.3,hop=i%2&&Math.sin(t*3+i)>.6?-Math.abs(Math.sin(t*9))*6*U:0;
@@ -3482,7 +3494,7 @@ const LOAD={tm:0,raf:0,ready:false,done:true,dur:2.4,
 // ================= v8: PROFİL, İLERLEME, ALTIN, KOSTÜM, GÖREV, BAŞARIM =================
 // v9: kayıt şeması v2 (v8 = v1). Anahtar adı aynı kaldı → eski kayıtlar korunur. Yedek: bp_profile_bak
 // Not: localStorage yalnızca bu cihaz/tarayıcıda saklanır; cihazlar arası senkronizasyon veya bulut kaydı YOKTUR.
-const SAVE_KEY='bp_profile',SAVE_BAK='bp_profile_bak',SAVE_VER=3,APP_VER='11.5.0';
+const SAVE_KEY='bp_profile',SAVE_BAK='bp_profile_bak',SAVE_VER=3,APP_VER='11.6.0';
 // Kozmetik katalog — tamamen görsel; oyun gücünü etkilemez. price: altın, ach: başarımla açılır
 const COSCAT=[['hat','Şapka'],['helmet','Kask'],['glasses','Gözlük'],['neck','Boyun'],['outfit','Kostüm'],['pattern','Renk & Desen'],['fx','Zafer Efekti']];
 const COS={
@@ -4270,7 +4282,7 @@ const STARTER={need(){return!META.p.starter&&!META.p.legacy},
 const NETDOT={tick(){const e=$('mNet');if(!e)return;const on=navigator.onLine!==false,ws=window.NET&&NET.ws&&NET.ws.readyState===1;e.className='tnet'+(!on?' off':ws?' ok':'');e.title=!on?'İnternet bağlantısı yok':ws?'Sunucuya bağlı':'İnternet var · sunucuya bağlı değil'}};
 setInterval(()=>NETDOT.tick(),2000);addEventListener('online',()=>NETDOT.tick());addEventListener('offline',()=>NETDOT.tick());NETDOT.tick();
 SETTINGS.init();if(STARTER.need())STARTER.open();
-window.__v11={CHAT,SHOP,IAP,SETTINGS,STARTER,CHSEL,scoreHtml,META,PROF,openQuests,get game(){return game}}; // test/debug kancası (oynanışı etkilemez)
+window.__v11={CHAT,SHOP,IAP,SETTINGS,STARTER,CHSEL,scoreHtml,META,PROF,openQuests,LOAD,get game(){return game}}; // test/debug kancası (oynanışı etkilemez)
 window.ONUI=ONUI;window.__WARD=WARD;$('bOnline').onclick=()=>ONUI.open();$('onClose').onclick=()=>{$('online').classList.add('hidden');if(NET.room&&!NET.inMatch){/* lobide kalmaya devam: arka planda oda korunur */}};
 $('onCreateBtn').onclick=()=>{ONUI.show('create');$('ocCap').innerHTML=[2,3,4,5,6,7,8].map(c=>`<button data-v="${c}"${c===4?' class="on"':''}>${c}</button>`).join('');ONUI.createMap=ONUI.createMap||'random';$('ocMapN').textContent=MAPNAME[ONUI.createMap];MAPCAR.build($('ocMapCar'),ONUI.createMap,id=>{ONUI.createMap=id;$('ocMapN').textContent=MAPNAME[id]})};
 seg('ocCap');seg('ocTurn');

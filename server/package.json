@@ -1,6 +1,6 @@
 {
   "name": "boompuff-server",
-  "version": "11.5.0",
+  "version": "11.6.0",
   "private": true,
   "description": "BOOMPUFF online oda sunucusu (WebSocket) + statik oyun dosyaları",
   "main": "server.js",
