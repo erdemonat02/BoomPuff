@@ -13,6 +13,9 @@
   - BAŞARILAR, Görevler ekranını Başarımlar sekmesinde açar.
   - MODLAR kutusu kaldırıldı; OYUNA KATIL aynı paneli açtığı için gizli tutuluyor (`#bPlay`).
 - **Yedek davranış:** görsel yüklenemezse eski menü değişmeden kalıyor; tüm yeni kurallar `.mbgx` sınıfına bağlı.
+- **Açılış ekranı (#boot):** Gemini yükleme arka planı eklendi: yatay `load_bg_land.webp`, dikey (oran < 0,85) `load_bg_port.webp`. Görsel gelene kadar eski mor geçiş görünüyor. Maç öncesi yükleme ekranı (#loading) haritayı gösterdiği için değişmedi.
+- **Zafer ekranı:** kazanınca skorbordun arkasında `victory_bg.webp` (konfeti, havai fişek, ışık hüzmesi) görünüyor. Mağlubiyet ve beraberlik renkleri aynı kaldı.
+- **Paneller (.mbg):** Oyuna Katıl, Görevler, Profil, Mağaza, Ayarlar, Gardırop ve Arkadaşlar ekranlarının arkasında koyu yeşil tropik yaprak deseni (`leaf_pattern.webp`, 560 px tekrar) var.
 - `APP_VER` 11.4.0, service worker önbelleği `boompuff-v11.4.0`.
 
 ## 11.3.0 — Görevler/Başarımlar ve Profil yeniden tasarımı (Tropik Macera)

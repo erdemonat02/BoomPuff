@@ -152,7 +152,7 @@ kbd{display:inline-block;min-width:24px;padding:0 6px;border-radius:6px;backgrou
 .sp img{width:34px;height:34px}
 
 /* ===== ANA MENÜ (v4) ===== */
-.mbg{align-items:center;background:radial-gradient(120% 80% at 20% 0%,rgba(140,205,255,.55),rgba(36,92,200,.78) 60%,rgba(18,46,120,.9));-webkit-backdrop-filter:blur(7px);backdrop-filter:blur(7px);align-items:flex-start;touch-action:pan-y;padding:max(10px,env(safe-area-inset-top)) max(10px,env(safe-area-inset-right)) max(10px,env(safe-area-inset-bottom)) max(10px,env(safe-area-inset-left))}
+.mbg{align-items:center;background:radial-gradient(120% 80% at 50% 30%,rgba(20,60,35,.1),rgba(5,20,12,.6)),url("assets/menu/leaf_pattern.webp") center/560px repeat,#12281a; /* v11.4: tropik yaprak deseni (Gemini) */-webkit-backdrop-filter:blur(7px);backdrop-filter:blur(7px);align-items:flex-start;touch-action:pan-y;padding:max(10px,env(safe-area-inset-top)) max(10px,env(safe-area-inset-right)) max(10px,env(safe-area-inset-bottom)) max(10px,env(safe-area-inset-left))}
 .mcard{position:relative;width:100%;max-width:440px;height:min(860px,calc(100dvh - 20px - env(safe-area-inset-top) - env(safe-area-inset-bottom)));display:flex;flex-direction:column;margin:auto;background:linear-gradient(#f6f9ff,#e5eefb);border-radius:30px;padding:6px 10px 14px;color:#22324d;box-shadow:0 22px 50px rgba(8,28,80,.4),inset 0 2px 0 #fff,inset 0 0 0 1px rgba(255,255,255,.7);animation:mIn .35s ease-out}
 @keyframes mIn{from{transform:translateY(14px) scale(.98);opacity:0}}
 .mlogo{text-align:center;flex:none}
@@ -552,6 +552,10 @@ body.touch #tip{bottom:12px;left:calc(clamp(136px,38vmin,176px) + 54px);right:10
 /* ===== v10.1: AÇILIŞ VE YÜKLENME EKRANI (yalnızca CSS animasyonları; JS ayrıştırılırken de oynar) ===== */
 #boot{position:fixed;inset:0;z-index:50;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;background:radial-gradient(120% 90% at 50% 42%,#3b2a8a 0%,#1d2a6e 45%,#0b1630 100%);overflow:hidden;transition:opacity .45s ease,transform .45s ease;padding:max(16px,env(safe-area-inset-top)) 16px max(16px,env(safe-area-inset-bottom))}
 #boot.out{opacity:0;transform:scale(1.04);pointer-events:none}
+/* v11.4: açılış ekranı — Gemini arka planı (yatay/dikey); görsel gelene kadar eski mor geçiş görünür */
+#boot{background:linear-gradient(rgba(10,30,20,0) 55%,rgba(10,30,20,.55)),url("assets/menu/load_bg_land.webp") center/cover no-repeat,radial-gradient(120% 90% at 50% 42%,#3b2a8a 0%,#1d2a6e 45%,#0b1630 100%)}
+@media (max-aspect-ratio:17/20){#boot{background:linear-gradient(rgba(10,30,20,0) 55%,rgba(10,30,20,.55)),url("assets/menu/load_bg_port.webp") center/cover no-repeat,radial-gradient(120% 90% at 50% 42%,#3b2a8a 0%,#1d2a6e 45%,#0b1630 100%)}}
+#boot .brays{opacity:.45}#boot .bmsg{color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.7)}#boot .bbar{background:rgba(0,0,0,.3)}
 #boot .brays{position:absolute;left:50%;top:42%;width:170vmax;height:170vmax;margin:-85vmax 0 0 -85vmax;background:repeating-conic-gradient(from 0deg,rgba(255,210,63,.09) 0 7deg,rgba(255,255,255,0) 7deg 20deg);animation:bSpin 26s linear infinite;-webkit-mask:radial-gradient(circle,#000 0,transparent 62%);mask:radial-gradient(circle,#000 0,transparent 62%)}
 @keyframes bSpin{to{transform:rotate(360deg)}}
 #boot .bstage{position:relative;width:min(78vw,420px);aspect-ratio:4/1.6;display:flex;align-items:center;justify-content:center}
@@ -577,6 +581,8 @@ body.touch #tip{bottom:12px;left:calc(clamp(136px,38vmin,176px) + 54px);right:10
 #boot .berr button{padding:10px 18px;border-radius:14px;font-weight:800;font-size:15px;color:#fff;background:linear-gradient(#ff8080,#e23c42);box-shadow:0 4px 0 #b8262f}#boot .berr button.alt{background:rgba(255,255,255,.15);box-shadow:none}
 @media (prefers-reduced-motion:reduce){#boot .brays,#boot .bspark,#boot .bglow{animation:none}}/* ===== v10.1: ZAFER / MAĞLUBİYET EKRANI ===== */
 #over{align-items:flex-start;padding:max(12px,env(safe-area-inset-top)) 12px max(12px,env(safe-area-inset-bottom));background:radial-gradient(120% 80% at 50% 25%,#ffb23f 0%,#ff6a3d 28%,#7b2fd0 62%,#1c1458 100%);overflow:auto}
+#over:not(.lose):not(.draw){background:radial-gradient(70% 55% at 50% 40%,rgba(255,240,190,0),rgba(40,20,0,.18)),url("assets/menu/victory_bg.webp") center/cover no-repeat,#ffb23f} /* v11.4: zafer sahnesi (Gemini) */
+#over:not(.lose):not(.draw) .orays{opacity:.5}
 #over.lose{background:radial-gradient(120% 80% at 50% 25%,#6c8fd8 0%,#3e4fa8 35%,#22246a 70%,#120f3a 100%)}
 #over.draw{background:radial-gradient(120% 80% at 50% 25%,#9b8fe8 0%,#5a44c8 45%,#1c1458 100%)}
 #over .ofx{position:fixed;inset:0;pointer-events:none;overflow:hidden}
