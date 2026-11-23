@@ -1,6 +1,6 @@
 # BOOMPUFF — Devam notu (yeni sohbet için)
 
-**Durum (23.11.2026):** sürüm **11.0.0**. v10.1–10.6 "Kapsamlı Oyun Geliştirme" + v11 "Yeni Ana Menü / Karakter / Mağaza / Sohbet / 200 HP / Skorbord" tamamlandı.
+**Durum (23.11.2026):** sürüm **11.3.0**: Görevler/Başarımlar ve Profil Tropik tasarım, ÖDÜLÜ AL akışı, sis görüş dairesi, silah kartı düzeltmesi (bkz. CHANGELOG-v11 "11.3.0"). Önceki sürüm 11.0.1 GitHub'a gönderildi (ec22c63); 11.3.0 henüz gönderilmedi. v10.1–10.6 "Kapsamlı Oyun Geliştirme" + v11 "Yeni Ana Menü / Karakter / Mağaza / Sohbet / 200 HP / Skorbord" tamamlandı.
 
 | Grup | Sürüm | İçerik | Ayrıntı |
 |---|---|---|---|

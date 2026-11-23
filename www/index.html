@@ -415,16 +415,108 @@ kbd{display:inline-block;min-width:24px;padding:0 6px;border-radius:6px;backgrou
 .cfcard b{font-size:19px}.cfcard span{font-weight:800;color:#b8860b;font-size:17px}.cfcard small{color:#55688a}
 .cfb{display:flex;gap:8px;width:100%;margin-top:6px}.cfb button{flex:1;padding:11px;border-radius:14px;font-weight:800;font-size:15px}
 .cfno{background:#eef2f9;color:#41526f}.cfyes{background:linear-gradient(#ff8080,#e23c42);color:#fff;box-shadow:0 3px 0 #b8262f}
-.pftop{display:flex;gap:12px;align-items:center}.pfinfo{flex:1;min-width:0}.pfinfo label{display:block;font-size:12px;font-weight:700;opacity:.75}
-#pfName{display:block;width:100%;margin-top:2px;padding:6px 10px;border-radius:10px;border:2px solid #cfdcf0;font:700 16px "Baloo 2",sans-serif;color:#22324d;-webkit-user-select:text;user-select:text}
-.pflv{display:flex;justify-content:space-between;align-items:center;margin-top:6px;font-weight:700}.pfxp{height:8px;border-radius:4px;background:#e3eaf5;overflow:hidden;margin:4px 0}.pfxp i{display:block;height:100%;background:linear-gradient(90deg,#7cff6b,#2fc46a)}
-#pfStats{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:10px}#pfStats div{background:#fff;border-radius:12px;padding:6px 8px;box-shadow:0 2px 6px rgba(40,80,160,.1)}#pfStats small{display:block;font-size:11px;opacity:.7}#pfStats b{font-size:17px}
-@media (max-width:420px){#pfStats{grid-template-columns:repeat(2,1fr)}}
-#qTabs{display:flex;gap:6px;margin-bottom:8px}#qTabs button{flex:1;padding:7px;border-radius:12px;background:#eef2f9;font-weight:800;color:#41526f}#qTabs button.on{background:linear-gradient(#45a0ff,#1f6ff0);color:#fff}
-#qList{overflow:auto;max-height:calc(100dvh - 150px);display:flex;flex-direction:column;gap:6px;padding-bottom:4px}
-.qi{display:flex;align-items:center;gap:8px;background:#fff;border-radius:14px;padding:6px 10px;box-shadow:0 2px 6px rgba(40,80,160,.1)}.qi.ok{background:#efffef}
-.qic{font-size:20px;width:28px;text-align:center}.qtx{flex:1;min-width:0}.qtx b{display:block;font-size:14px}.qtx small{font-size:11.5px;opacity:.8}
-.qbar{height:6px;border-radius:3px;background:#e3eaf5;overflow:hidden;margin-top:3px}.qbar i{display:block;height:100%;background:linear-gradient(90deg,#ffd23f,#ff8a2f)}.qi.ok .qbar i{background:#2fc46a}
+/* ===== v11.3: TROPİK PANEL TASARIM SİSTEMİ (Görevler & Başarımlar + Oyuncu Profili) ===== */
+.tpc{max-width:640px!important;height:auto!important;max-height:calc(100dvh - 44px);display:flex;flex-direction:column;overflow:visible!important;padding:0 12px 12px!important;margin-top:22px!important;
+ background:radial-gradient(120% 60% at 50% 0%,#fffbea,#f6efd6 55%,#e8f3d6)!important;border-radius:26px!important;
+ box-shadow:0 0 0 5px #a8692f,0 0 0 8px #6b3f17,0 0 0 10px rgba(255,255,255,.25),0 20px 46px rgba(10,40,20,.45),inset 0 2px 0 #fff!important}
+.tpc:before,.tpc:after{content:'';position:absolute;width:74px;height:58px;pointer-events:none;z-index:2;background:
+ radial-gradient(ellipse 40% 22% at 30% 40%,#3fb950 96%,transparent 100%),radial-gradient(ellipse 36% 20% at 62% 62%,#2a9a3f 96%,transparent 100%),radial-gradient(ellipse 30% 16% at 46% 22%,#57d16a 96%,transparent 100%);filter:drop-shadow(0 2px 1px rgba(0,0,0,.25))}
+.tpc:before{left:-40px;bottom:-30px;transform:rotate(-24deg)}.tpc:after{right:-40px;bottom:-30px;transform:scaleX(-1) rotate(-24deg)}
+@media (max-width:700px){.tpc:before,.tpc:after{display:none}}
+@media (max-width:440px){.tph .tpplank{padding:7px 14px 8px;max-width:calc(100% - 84px)}.tph .tpplank b{font-size:clamp(12px,3.6vw,19px);letter-spacing:0;-webkit-text-stroke-width:3px}#quests .tpi{display:none}.tpx{width:40px;height:40px;right:-2px}}
+.tph{position:relative;display:flex;justify-content:center;align-items:center;margin:-22px 0 8px;min-height:52px;flex:none;z-index:3}
+.tpplank{position:relative;display:flex;align-items:center;gap:8px;max-width:calc(100% - 96px);padding:7px 22px 8px;border-radius:14px;
+ background:repeating-linear-gradient(176deg,rgba(255,255,255,.07) 0 3px,rgba(0,0,0,.05) 3px 7px),linear-gradient(#d4934f,#a8692f 60%,#8a5222);border:3px solid #6b3f17;box-shadow:0 5px 0 #4e2c0e,0 8px 14px rgba(0,0,0,.25),inset 0 2px 0 rgba(255,230,180,.6)}
+.tpplank:before,.tpplank:after{content:'';position:absolute;top:50%;width:8px;height:8px;margin-top:-4px;border-radius:50%;background:#5a3412;box-shadow:inset 0 1px 0 rgba(255,255,255,.3)}.tpplank:before{left:7px}.tpplank:after{right:7px}
+.tpplank b{font:400 clamp(17px,4.6vw,25px)/1.05 "Lilita One","Baloo 2",sans-serif;color:#fff6dc;letter-spacing:.5px;-webkit-text-stroke:4px #5a3412;paint-order:stroke fill;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tpi{font-size:clamp(20px,5vw,28px);filter:drop-shadow(0 2px 0 #5a3412);flex:none}
+.tpx{position:absolute;right:-4px;top:4px;width:44px;height:44px;border-radius:14px;background:linear-gradient(#5aa8ff,#2f6fe0);color:#fff;font:900 22px/1 "Baloo 2",sans-serif;border:3px solid #fff;box-shadow:0 4px 0 #1c4aa8,0 6px 12px rgba(0,0,0,.25)}
+.tpx:active,.tpbtn:active,#qTabs button:active,.pfnav button:active{transform:translateY(3px)}
+.tpbtn{min-height:38px;padding:0 14px;border-radius:13px;font:800 14px "Baloo 2",sans-serif;color:#fff;white-space:nowrap;background:linear-gradient(#6ee26a,#2fb14a);box-shadow:0 4px 0 #1d7a33,0 5px 10px rgba(30,120,50,.25)}
+.tpbtn.gold{background:linear-gradient(#ffd85a,#ffa51f);color:#5a2a00;box-shadow:0 4px 0 #c46a0a}.tpbtn.blue{background:linear-gradient(#5aa8ff,#2f6fe0);box-shadow:0 4px 0 #1c4aa8}
+/* sekmeler */
+#qTabs{display:flex;gap:8px;margin-bottom:8px;flex:none}
+#qTabs button{position:relative;flex:1;display:flex;align-items:center;justify-content:center;gap:6px;min-height:46px;border-radius:16px;font:400 18px "Lilita One","Baloo 2",sans-serif;letter-spacing:.3px;color:#fff;background:linear-gradient(#3f8ae8,#2459b8);box-shadow:0 4px 0 #173d85,inset 0 2px 0 rgba(255,255,255,.3);-webkit-text-stroke:3px rgba(10,30,80,.55);paint-order:stroke fill}
+#qTabs button.on{background:linear-gradient(#ffd85a,#ffa51f);box-shadow:0 4px 0 #c46a0a,inset 0 2px 0 rgba(255,255,255,.5);-webkit-text-stroke:3px #8a4a00}
+#qTabs button i{font-style:normal;font-size:20px;-webkit-text-stroke:0}#qTabs em,.pfnav em{position:absolute;top:-7px;right:8px;min-width:22px;height:22px;border-radius:11px;background:#ff4d5a;color:#fff;font:800 12px/22px "Baloo 2",sans-serif;font-style:normal;-webkit-text-stroke:0;box-shadow:0 0 0 2px #fff;animation:qpulse 1.2s ease-in-out infinite}
+@keyframes qpulse{50%{transform:scale(1.15)}}
+.tico em.claim{background:#2fc46a;animation:qpulse 1.2s ease-in-out infinite}
+/* genel ilerleme */
+#qSum{flex:none;margin-bottom:8px}
+.qsum{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:4px 12px;padding:8px 12px;border-radius:18px;background:linear-gradient(#3aa856,#23843e);color:#fff;box-shadow:0 4px 0 #17602b,inset 0 2px 0 rgba(255,255,255,.3)}
+.qsum .qsn{grid-row:span 2;display:flex;flex-direction:column;align-items:center;justify-content:center;width:62px;height:62px;border-radius:50%;background:radial-gradient(#fff7d1,#ffd45a);color:#6b3f00;box-shadow:0 3px 0 #b8800f,inset 0 0 0 3px rgba(255,255,255,.7)}
+.qsn b{font:400 22px/1 "Lilita One","Baloo 2",sans-serif}.qsn small{font:800 10px/1 "Baloo 2",sans-serif;opacity:.8}
+.qsum .qst{font:800 14px/1.15 "Baloo 2",sans-serif;min-width:0}.qsum .qst small{display:block;font-size:11.5px;font-weight:700;opacity:.9}
+.qsum .qsb{grid-column:2;height:12px;border-radius:6px;background:rgba(0,0,0,.25);overflow:hidden;box-shadow:inset 0 2px 2px rgba(0,0,0,.2)}.qsum .qsb i{display:block;height:100%;border-radius:6px;background:linear-gradient(90deg,#fff36b,#ffc21f);transition:width .6s}
+.qsum .tpbtn{grid-row:span 2;grid-column:3}
+/* başarım filtreleri */
+#qFil{display:flex;gap:5px;flex:none;margin-bottom:8px;overflow-x:auto;scrollbar-width:none}#qFil::-webkit-scrollbar{display:none}
+#qFil button{flex:none;padding:5px 11px;border-radius:12px;background:#fff;color:#6b4a22;font:800 12.5px "Baloo 2",sans-serif;box-shadow:0 2px 0 #dccaa0}#qFil button b{margin-left:4px;opacity:.6}
+#qFil button.on{background:linear-gradient(#a86a32,#7d4a1d);color:#fff;box-shadow:0 2px 0 #4e2c0e}
+/* kart listesi */
+#qList{overflow:auto;min-height:0;flex:1 1 auto;display:flex;flex-direction:column;gap:8px;padding:2px 4px 8px;margin:0 -4px;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#c9a46a transparent}
+.qc{position:relative;display:grid;grid-template-columns:52px minmax(0,1fr) auto;align-items:center;gap:10px;padding:9px 10px;border-radius:18px;background:linear-gradient(#ffffff,#fbf5e4);box-shadow:0 3px 0 #e2cfa2,0 5px 10px rgba(110,80,20,.1);color:#3b2a12}
+.qic{position:relative;width:52px;height:52px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:27px;background:linear-gradient(var(--c1,#7fc4ff),var(--c2,#3a7fe0));box-shadow:0 3px 0 var(--c3,#2459b8),inset 0 2px 0 rgba(255,255,255,.45)}
+.qic .qok{position:absolute;right:-6px;bottom:-6px;width:24px;height:24px;border-radius:50%;background:#2fc46a;color:#fff;font:900 15px/24px "Baloo 2",sans-serif;text-align:center;box-shadow:0 0 0 2px #fff}
+.qtx{min-width:0}.qtx b{display:block;font:800 15px/1.15 "Baloo 2",sans-serif;color:#2b1d08}.qtx small{display:block;font-size:12px;line-height:1.25;color:#6f5a3a;margin-top:1px}
+.qtx .qul{display:inline-block;margin-top:3px;padding:0 7px;border-radius:8px;background:#efe3ff;color:#6a3fc1;font:800 10.5px/18px "Baloo 2",sans-serif}
+.qpr{display:flex;align-items:center;gap:7px;margin-top:5px}.qbar{flex:1;height:10px;border-radius:5px;background:#eadfc4;overflow:hidden;box-shadow:inset 0 1px 2px rgba(0,0,0,.15)}.qbar i{display:block;height:100%;border-radius:5px;background:linear-gradient(90deg,#ffd23f,#ff9a1f)}
+.qpr span{flex:none;font:800 12.5px "Baloo 2",sans-serif;color:#7a5a2a;min-width:38px;text-align:right}
+.qrw{display:flex;flex-direction:column;align-items:stretch;gap:4px;min-width:84px}
+.qchip{display:flex;align-items:center;justify-content:center;gap:4px;padding:2px 8px;border-radius:10px;font:800 13px/20px "Baloo 2",sans-serif;white-space:nowrap}.qchip.g{background:#fff1c2;color:#94600a}.qchip.x{background:#eee3ff;color:#6a3fc1}
+.qcl{min-height:38px;border-radius:12px;font:800 13px "Baloo 2",sans-serif;color:#fff;background:linear-gradient(#6ee26a,#2fb14a);box-shadow:0 3px 0 #1d7a33;animation:qpulse 1.2s ease-in-out infinite;white-space:nowrap}
+.qgot{display:flex;align-items:center;justify-content:center;gap:4px;min-height:30px;border-radius:12px;background:#d9f5d6;color:#23843e;font:800 12.5px "Baloo 2",sans-serif}
+.qc.done{background:linear-gradient(#f0ffe9,#dcf6d2);box-shadow:0 3px 0 #a9dc9a,0 5px 10px rgba(30,120,50,.12)}.qc.done .qbar i{background:linear-gradient(90deg,#7be26a,#2fb14a)}
+.qc.ready{box-shadow:0 3px 0 #7cc96c,0 0 0 2px #5bd16a,0 0 16px rgba(60,200,90,.45)}
+.qc.lock{background:linear-gradient(#f4f1ea,#e9e3d5)}.qc.lock .qic{filter:grayscale(.85) brightness(1.05);opacity:.75}.qc.lock .qtx b{color:#6b6255}
+.qc.lock .qic .qlk{position:absolute;right:-6px;bottom:-6px;width:24px;height:24px;border-radius:50%;background:#8a7f6c;font-size:12px;line-height:24px;text-align:center;box-shadow:0 0 0 2px #fff}
+.qc.flash{animation:qflash .7s ease-out}@keyframes qflash{0%{transform:scale(1)}30%{transform:scale(1.04);box-shadow:0 0 0 3px #ffd23f,0 0 26px rgba(255,200,0,.8)}100%{transform:scale(1)}}
+.qfly{position:fixed;z-index:30;font-size:22px;pointer-events:none;animation:qfly .9s ease-in forwards}@keyframes qfly{0%{opacity:1;transform:translate(0,0) scale(1)}100%{opacity:0;transform:translate(var(--dx),var(--dy)) scale(.6)}}
+.qempty{padding:22px 10px;text-align:center;color:#7a6a4a;font-weight:700}
+@media (max-width:460px){.qc{grid-template-columns:44px minmax(0,1fr);gap:8px}.qic{width:44px;height:44px;font-size:23px;border-radius:14px}.qrw{grid-column:1 / -1;flex-direction:row;flex-wrap:wrap;justify-content:flex-end;min-width:0}.qrw .qcl,.qrw .qgot{flex:1 1 120px}.qsum .qsn{width:52px;height:52px}.qsn b{font-size:19px}}
+/* ---- profil ---- */
+.pfhero{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:12px;padding:10px 12px;border-radius:20px;background:linear-gradient(#ffffff,#fdf6e1);box-shadow:0 3px 0 #e2cfa2,0 5px 12px rgba(110,80,20,.12);flex:none}
+.pfava{position:relative;width:96px;height:96px;border-radius:50%;background:radial-gradient(circle at 50% 35%,#bfe8ff,#6cb8f2);box-shadow:0 0 0 4px #fff,0 0 0 7px #3a7fe0,0 4px 10px rgba(0,0,0,.25)}
+.pfava canvas{width:100%;height:100%;border-radius:50%;display:block}
+.pfava.fr-gold{box-shadow:0 0 0 4px #fff3b0,0 0 0 8px #ffbf1f,0 0 18px #ffcf3f}.pfava.fr-tropic{box-shadow:0 0 0 4px #2fc46a,0 0 0 8px #ffd23f,0 4px 10px rgba(0,0,0,.25)}.pfava.fr-fire{box-shadow:0 0 0 4px #ffb03c,0 0 0 8px #ff4a1a,0 0 20px #ff8a3c}.pfava.fr-ice{box-shadow:0 0 0 4px #e8fbff,0 0 0 8px #63c6ff,0 0 20px #bfefff}.pfava.fr-royal{box-shadow:0 0 0 4px #ffd23f,0 0 0 8px #8a4dff,0 0 22px #a46bff}
+.pfavb{position:absolute;right:-4px;bottom:-2px;width:32px;height:32px;border-radius:50%;background:linear-gradient(#5aa8ff,#2f6fe0);border:2px solid #fff;font-size:14px;box-shadow:0 2px 0 #1c4aa8}
+.pfmid{min-width:0;display:flex;flex-direction:column;gap:6px}
+.pfnm{display:flex;align-items:center;gap:6px;max-width:100%;align-self:flex-start;padding:3px 12px;border-radius:12px;background:#f4ead0;box-shadow:inset 0 2px 0 rgba(0,0,0,.06);color:#2b1d08}.pfnm b{font:400 22px/1.1 "Lilita One","Baloo 2",sans-serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}.pfnm i{font-style:normal;font-size:14px}
+.pflvl{display:flex;align-items:center;gap:10px}
+.pfbadge{flex:none;display:flex;flex-direction:column;align-items:center;justify-content:center;width:58px;height:62px;clip-path:polygon(50% 0,100% 18%,100% 70%,50% 100%,0 70%,0 18%);background:linear-gradient(#ffd85a,#f08a10);color:#fff}
+.pfbadge small{font:800 9px/1 "Baloo 2",sans-serif;letter-spacing:.5px;color:#6b3a00}.pfbadge b{font:400 27px/1 "Lilita One","Baloo 2",sans-serif;-webkit-text-stroke:3px #8a4a00;paint-order:stroke fill}
+.pfxpw{flex:1;min-width:0}.pfxp{height:16px;border-radius:8px;background:#eadfc4;overflow:hidden;box-shadow:inset 0 2px 3px rgba(0,0,0,.18)}.pfxp i{display:block;height:100%;border-radius:8px;background:linear-gradient(90deg,#8ff06b,#2fb14a);box-shadow:inset 0 2px 0 rgba(255,255,255,.4);transition:width .6s}
+.pfxpw small{display:block;margin-top:3px;font:800 12.5px "Baloo 2",sans-serif;color:#6f5a3a}
+.pfcur{display:flex;flex-direction:column;gap:6px}.pfcur .tc{background:#2b4a7a}
+.pfbody{flex:1 1 auto;min-height:0;overflow:auto;margin:10px -4px 0;padding:2px 4px 8px;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#c9a46a transparent}
+.pfgrp{margin-bottom:10px}.pfgrp h4,.pfweap h4,.pfsec h4{margin:0 0 6px;font:400 15px "Lilita One","Baloo 2",sans-serif;letter-spacing:.3px;color:#6b3f17}
+.pfgg{display:grid;grid-template-columns:repeat(auto-fill,minmax(132px,1fr));gap:7px}
+.pfst{display:flex;align-items:center;gap:8px;padding:7px 9px;border-radius:15px;background:linear-gradient(#ffffff,#fbf5e4);box-shadow:0 3px 0 #e2cfa2;min-width:0}
+.pfst .si2{flex:none;width:36px;height:36px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:20px;background:linear-gradient(var(--c1),var(--c2));box-shadow:0 2px 0 var(--c3),inset 0 2px 0 rgba(255,255,255,.45)}
+.pfst div{min-width:0;line-height:1.1}.pfst small{display:block;font:700 11.5px/1.1 "Baloo 2",sans-serif;color:#7a6440;overflow-wrap:anywhere}.pfst b{font:400 19px "Lilita One","Baloo 2",sans-serif;color:#2b1d08}
+.pfweap{padding:9px 10px 10px;border-radius:18px;background:linear-gradient(#6a4fd8,#4a32b0);box-shadow:0 4px 0 #2f1f80;color:#fff}.pfweap h4{color:#fff;text-align:center}
+#pfWeap{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.pfw{display:flex;flex-direction:column;align-items:center;gap:2px;padding:6px 4px;border-radius:14px;background:rgba(255,255,255,.12);text-align:center;min-width:0}
+.pfw .wi2{position:relative;width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:radial-gradient(#8f7bff,#4a32b0);box-shadow:0 0 0 3px rgba(255,255,255,.6),0 0 14px rgba(160,140,255,.7)}.pfw .wi2 img,.pfw .wi2 svg{width:40px;height:40px;object-fit:contain}
+.pfw .wi2 em{position:absolute;top:-4px;left:-4px;width:20px;height:20px;border-radius:50%;background:#ffd23f;color:#6b3a00;font:800 12px/20px "Baloo 2",sans-serif;font-style:normal}
+.pfw b{font:400 19px "Lilita One","Baloo 2",sans-serif}.pfw small{font:700 11px/1.15 "Baloo 2",sans-serif;opacity:.85;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pfw.ph .wi2{background:rgba(255,255,255,.12);box-shadow:0 0 0 3px rgba(255,255,255,.25);font-size:22px}.pfwe{grid-column:1/-1;text-align:center;font:700 12.5px "Baloo 2",sans-serif;opacity:.9;margin-top:2px}
+.pfsec{padding:9px 10px;margin-bottom:9px;border-radius:18px;background:linear-gradient(#ffffff,#fbf5e4);box-shadow:0 3px 0 #e2cfa2}
+.pfnrow{display:flex;gap:8px}#pfName{flex:1;min-width:0;padding:7px 12px;border-radius:12px;border:2px solid #dccaa0;background:#fffdf6;font:700 17px "Baloo 2",sans-serif;color:#2b1d08;-webkit-user-select:text;user-select:text}
+.pfhint{display:block;margin-top:5px;font:700 11.5px "Baloo 2",sans-serif;color:#8a7350}
+.pfgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(76px,1fr));gap:7px}
+.pfit{position:relative;display:flex;flex-direction:column;align-items:center;gap:3px;padding:7px 4px 6px;border-radius:15px;background:#fff;box-shadow:0 2px 0 #e2cfa2;color:#3b2a12;font:800 11.5px/1.1 "Baloo 2",sans-serif;text-align:center;border:2px solid transparent}
+.pfit img{width:48px;height:48px;border-radius:50%;background:#dff1ff}.pfit.on{border-color:#2fb14a;background:#effbe9}.pfit.lk img{filter:grayscale(1) brightness(1.1);opacity:.6}.pfit.lk{color:#8a8070}
+.pfit em{position:absolute;top:-6px;left:50%;transform:translateX(-50%);white-space:nowrap;padding:0 6px;border-radius:8px;font:800 9.5px/16px "Baloo 2",sans-serif;font-style:normal;background:#2fb14a;color:#fff}.pfit em.lv{background:#8a7f6c}.pfit em.pr{background:#2f8cf6}
+.pfit small{font-size:10px;color:#8a7350}
+.pfcb{display:flex;align-items:center;gap:8px;margin-top:5px}.pfcb b{flex:none;width:96px;font:800 12.5px "Baloo 2",sans-serif;color:#4a3518}.pfcb .qbar{flex:1}.pfcb span{flex:none;min-width:40px;text-align:right;font:800 12px "Baloo 2",sans-serif;color:#7a5a2a}
+.pfeq{display:flex;flex-wrap:wrap;gap:5px;margin-top:4px}.pfeq span{padding:1px 9px;border-radius:10px;background:#fff1c2;color:#7a4a00;font:800 11.5px/20px "Baloo 2",sans-serif}.pfeq span.ac{background:#efe3ff;color:#6a3fc1}
+.pfnav{flex:none;display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-top:8px}
+.pfnav button{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;min-height:52px;padding:4px 3px;border-radius:15px;color:#fff;font:800 11.5px/1.05 "Baloo 2",sans-serif;background:linear-gradient(#5aa8ff,#2f6fe0);box-shadow:0 4px 0 #1c4aa8}
+.pfnav button i{font-style:normal;font-size:19px}.pfnav button[data-p="edit"]{background:linear-gradient(#6aa8ff,#3a6fd8)}.pfnav button[data-p="col"]{background:linear-gradient(#b07bff,#7a45e0);box-shadow:0 4px 0 #4e2aa0}.pfnav button[data-p="rew"]{background:linear-gradient(#6ee26a,#2fb14a);box-shadow:0 4px 0 #1d7a33}
+.pfnav button.on{box-shadow:0 4px 0 #8a4a00,0 0 0 3px #ffd23f;background:linear-gradient(#ffd85a,#ffa51f);color:#5a2a00}
+@media (max-width:560px){.pfhero{grid-template-columns:auto minmax(0,1fr);gap:10px;padding:9px}.pfcur{grid-column:1 / -1;flex-direction:row;justify-content:center}.pfava{width:78px;height:78px}.pfnm b{font-size:19px}.pfbadge{width:50px;height:54px}.pfbadge b{font-size:23px}.pfgg{grid-template-columns:repeat(2,minmax(0,1fr))}.pfnav button span{font-size:10px}}
+@media (orientation:landscape) and (max-height:520px){.tpc{margin-top:18px!important}.pfhero{padding:6px 10px}.pfava{width:66px;height:66px}.pfbadge{width:46px;height:50px}.pfbadge b{font-size:21px}.pfnav button{min-height:42px;flex-direction:row;gap:5px}.pfnav button i{font-size:16px}.qsum{padding:5px 10px}.qsum .qsn{width:46px;height:46px}#qTabs button{min-height:40px}}
 .qrw{text-align:right;font-weight:800;font-size:13px;white-space:nowrap}.qrw small{display:block;font-weight:700;font-size:10.5px;color:#b8860b}
 #oRew{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin:4px 0}#oRew span{background:#eef2f9;border-radius:10px;padding:2px 10px;font-weight:800}#oRew .lv{background:linear-gradient(#ffd23f,#ff8a2f);color:#fff}
 #toasts{position:fixed;top:max(10px,env(safe-area-inset-top));left:50%;transform:translateX(-50%);z-index:20;display:flex;flex-direction:column;gap:6px;pointer-events:none;width:min(420px,92vw)}
@@ -685,7 +777,7 @@ body.joyR #joy{left:auto;right:max(0px,env(safe-area-inset-right))}
 #bWeap{display:flex;align-items:center;gap:10px;width:100%;min-height:56px;padding:4px 12px 4px 6px;border-radius:12px;background:linear-gradient(#3b6fd6,#1f4fae);border:2px solid rgba(255,255,255,.25);color:#fff;text-align:left;box-shadow:inset 0 2px 0 rgba(255,255,255,.25)}
 #bWeap .wbi{width:46px;height:46px;border-radius:12px;background:rgba(255,255,255,.16);display:flex;align-items:center;justify-content:center;flex:none}#bWeap .wbi img,#bWeap .wbi svg{width:38px;height:38px;object-fit:contain}
 #bWeap .wbt{flex:1;min-width:0;line-height:1.1}#bWeap .wbt b{display:block;font-size:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}#bWeap .wbt small{font-size:11.5px;opacity:.8}
-#bWeap .wbo{flex:none;font:800 12px "Baloo 2",sans-serif;background:#ffd23f;color:#5a2a00;border-radius:10px;padding:5px 10px;box-shadow:0 3px 0 #b8860b}#bWeap.open .wbo{background:#fff}
+#bWeap .wbo{flex:none;font:800 12px "Baloo 2",sans-serif;background:#ffd23f;color:#5a2a00;border-radius:10px;padding:5px 10px;box-shadow:0 3px 0 #b8860b}#bWeap.open .wbo{background:#fff}#bWeap>*{pointer-events:none}#wpanel{cursor:pointer}
 #wpop{position:fixed;left:50%;bottom:calc(var(--bar) + env(safe-area-inset-bottom) + 8px);transform:translateX(-50%);width:min(560px,calc(100vw - 16px));z-index:7;background:rgba(13,34,89,.97);border:2px solid rgba(255,255,255,.25);border-radius:18px;padding:8px;box-shadow:0 12px 30px rgba(0,0,0,.45);animation:mIn .18s ease-out}
 .wph{display:flex;align-items:baseline;justify-content:space-between;gap:8px;padding:0 4px 6px}.wph b{font-size:15px;letter-spacing:.5px}.wph small{font-size:11px;opacity:.7}
 #wpop #wslots{display:grid;grid-template-columns:repeat(auto-fill,minmax(82px,1fr));gap:6px;overflow:visible}
@@ -923,18 +1015,42 @@ document.getElementById('bootSkip').onclick=function(){window.__bootDone=1;var b
 <!-- v10: satın alma onayı -->
 <div id="wdConf" class="overlay hidden" style="z-index:9"><div class="mcard cfcard"><canvas id="cfCv" width="96" height="96"></canvas><b id="cfName"></b><span id="cfPrice"></span><small id="cfBal"></small>
   <div class="cfb"><button class="cfno" id="cfNo">VAZGEÇ</button><button class="cfyes" id="cfYes">SATIN AL</button></div></div></div>
+<!-- v11.3: Tropik Macera — Oyuncu Profili -->
 <div id="profile" class="overlay mbg hidden">
-  <div class="mcard pcard">
-    <div class="whead"><b>OYUNCU PROFİLİ</b><button class="xb" id="pfClose">✕</button></div>
-    <div class="pftop"><canvas id="pfAv" style="width:96px;height:96px"></canvas><div class="pfinfo"><label>Oyuncu adı<input id="pfName" maxlength="14" autocomplete="off"></label>
-      <div class="pflv"><span>Seviye <b id="pfLv">1</b></span><span class="mgold">🪙 <b id="pfGold">0</b></span></div><div class="pfxp"><i id="pfXpB"></i></div><small id="pfXp"></small></div></div>
-    <div id="pfStats"></div>
+  <div class="mcard tpc pcard">
+    <div class="tph"><div class="tpplank"><span class="tpi">🧑‍🚀</span><b>OYUNCU PROFİLİ</b></div><button class="tpx" id="pfClose" aria-label="Kapat">✕</button></div>
+    <div class="pfhero">
+      <div class="pfava" id="pfAvW"><canvas id="pfAv"></canvas><button class="pfavb" id="pfAvEd" type="button" aria-label="Avatarı düzenle">✏️</button></div>
+      <div class="pfmid">
+        <button class="pfnm" id="pfNmB" type="button"><b id="pfNm">Oyuncu</b><i>✏️</i></button>
+        <div class="pflvl"><span class="pfbadge"><small>SEVİYE</small><b id="pfLv">1</b></span><div class="pfxpw"><div class="pfxp"><i id="pfXpB"></i></div><small id="pfXp"></small></div></div>
+      </div>
+      <div class="pfcur"><span class="tc gold"><i>🪙</i><b id="pfGold">0</b><button class="tplus" data-pshop="gold" aria-label="Altın satın al">+</button></span><span class="tc gem"><i>💎</i><b id="pfGem">0</b><button class="tplus" data-pshop="gem" aria-label="Elmas satın al">+</button></span></div>
+    </div>
+    <div class="pfbody" id="pfBody">
+      <div class="pfpane" data-p="stats"><div id="pfStats"></div><div class="pfweap"><h4>🔥 EN ÇOK KULLANILAN SİLAHLAR</h4><div id="pfWeap"></div></div></div>
+      <div class="pfpane hidden" data-p="col"><div id="pfCol"></div></div>
+      <div class="pfpane hidden" data-p="edit">
+        <div class="pfsec"><h4>✏️ Oyuncu adı</h4><div class="pfnrow"><input id="pfName" maxlength="14" autocomplete="off"><button class="tpbtn green" id="pfNmSave" type="button">KAYDET</button></div><small class="pfhint">En fazla 14 karakter · uygunsuz adlar online maçta değiştirilir</small></div>
+        <div class="pfsec"><h4>🙂 Avatar</h4><div class="pfgrid" id="pfAvList"></div></div>
+        <div class="pfsec"><h4>🖼️ Profil çerçevesi</h4><div class="pfgrid" id="pfFrList"></div><small class="pfhint">Yeni çerçeveler Mağaza → Profil sekmesinden alınır.</small></div>
+      </div>
+    </div>
+    <div class="pfnav" id="pfNav">
+      <button data-p="edit" type="button"><i>⚙️</i><span>PROFİLİ DÜZENLE</span></button>
+      <button data-p="stats" class="on" type="button"><i>📊</i><span>İSTATİSTİKLER</span></button>
+      <button data-p="col" type="button"><i>🎒</i><span>KOLEKSİYON</span></button>
+      <button data-p="rew" type="button"><i>🎁</i><span>ÖDÜLLERİM</span><em id="pfRewN" class="hidden">0</em></button>
+    </div>
   </div>
 </div>
+<!-- v11.3: Tropik Macera — Görevler & Başarımlar -->
 <div id="quests" class="overlay mbg hidden">
-  <div class="mcard qcard">
-    <div class="whead"><b>GÖREVLER &amp; BAŞARIMLAR</b><button class="xb" id="qClose">✕</button></div>
-    <div id="qTabs"><button data-t="mis" class="on">Görevler</button><button data-t="ach">Başarımlar</button></div>
+  <div class="mcard tpc qcard">
+    <div class="tph"><div class="tpplank"><span class="tpi">🏆</span><b>GÖREVLER &amp; BAŞARIMLAR</b></div><button class="tpx" id="qClose" aria-label="Kapat">✕</button></div>
+    <div id="qTabs"><button data-t="mis" class="on" type="button"><i>📋</i>Görevler<em class="hidden"></em></button><button data-t="ach" type="button"><i>⭐</i>Başarımlar<em class="hidden"></em></button></div>
+    <div id="qSum"></div>
+    <div id="qFil" class="hidden"></div>
     <div id="qList"></div>
   </div>
 </div>
@@ -1862,7 +1978,7 @@ class Game{
   if(team.ammo[w.id]>0)team.ammo[w.id]--;
   if(w.recoil){p.vx-=Math.cos(p.aim)*p.facing*w.recoil;p.vy-=120;p.onGround=false;p.knocked=true}
   this.lastFired=w.id;this.statW(p,w.id);p.fireT=.3;p.recoilT=.35;this.aiming=false;this.power=0;this.state='flight';this.cam.manual=false;this.stats.shots++;this.input.cancel();pr.fromX=p.x;pr.fromY=p.y;
-  if(this.isMe(team))META.stat('shots',1),w.id==='ice'&&META.stat('iceUse',1);
+  if(this.isMe(team))META.wuse(w.id),META.stat('shots',1),w.id==='ice'&&META.stat('iceUse',1);
   w.id==='grenade'||w.id==='push'||w.id==='mine'||w.id==='bouncy'?SFX.lob():SFX.launch();
   for(let i=0;i<8;i++)this.particle(pr.x,pr.y,(Math.random()-.5)*80,(Math.random()-.5)*80,.5,6,'rgba(230,230,230,.8)','smoke');
   this.ui.updateWeaponBtns();
@@ -1979,7 +2095,7 @@ class Game{
   if(mode==='bolt'){const w=this.weapon,hit=this.boltPoint(wx);if(this.net&&NET.host)NET.send({t:'ev',d:{k:'bolt',x:hit.x,y:hit.y}});this.strikeBolt(hit.x,hit.y);
    const pr={w,x:hit.x,y:hit.y,vx:0,vy:0,t:0,owner:p,dmgMul:(p.S.dmg||1)*(this.mega?2.5:1),radMul:(this.mega?1.5:1)*(p.S.rad||1),team:p.team,fromX:p.x,fromY:p.y};this.statW(p,'bolt');this.explode(hit.x,hit.y,pr);
    p.team.ammo.bolt--;this.mega=false;this.ui.banner('ŞİMŞEK!','',"#ffe14a");this.ui.updateWeaponBtns();this.targeting=null;this.state='flight';this.cam.manual=false;this.stats.shots++;this.input.cancel();
-   if(this.isMe(p.team))META.stat('shots',1);return true}
+   if(this.isMe(p.team))META.wuse('bolt'),META.stat('shots',1);return true}
   const sky=mode==='meteor'?SUB.meteor:SUB.bomb,count=mode==='meteor'?8:5;this.statW(p,mode==='meteor'?'meteor':'air');
   for(let i=0;i<count;i++){const off=mode==='meteor'?(this.rng()-.5)*440:(i-(count-1)/2)*42;const pr={w:sky,x:wx+off-this.wind*60,y:-120-i*(mode==='meteor'?70:55),vx:mode==='meteor'?60*(this.rng()-.5):0,vy:mode==='meteor'?420:300,t:0,owner:null,trail:0,dmgMul:(p.S.dmg||1)*(this.mega?2.5:1),radMul:1,team:p.team};this.projs.push(pr)}
   if(mode==='meteor'){p.team.ulti=0;this.ui.updateUlti();this.ui.banner('METEOR YAĞMURU!','',"#ffb23f");SFX.whistle()}else{p.team.ammo.air--;this.ui.banner('HAVA SALDIRISI!','',"#9be7ff");SFX.whistle();this.ui.updateWeaponBtns()}
@@ -2426,7 +2542,9 @@ class UI{
   if(this.me)this.$('pscore').textContent=`${this.me.dmg} hasar · ${this.me.kills} eleme`}
  buildWeapons(){this.$('wslots').innerHTML=WEAPONS.map((w,i)=>`<button class="wb" data-i="${i}" title="${w.desc||w.name}"><span class="hk">${i<9?i+1:i===9?0:'-'}</span><span class="am" id="am${i}"></span>${wIcon(w.id)}<span>${w.name}</span></button>`).join('');
   for(const b of this.$('wslots').querySelectorAll('.wb'))b.onclick=()=>{this.setWeapon(+b.dataset.i,true);this.weapPop(false)};
-  this.$('bWeap').onclick=()=>{SFX.init();SFX.ui();this.weapPop()};this.updateWeaponBtns()}
+  this.$('bWeap').onclick=e=>{e.stopPropagation();SFX.init();SFX.ui();this.weapPop()};
+  this.$('wpanel').onclick=e=>{if(this.$('wpop').contains(e.target))return;SFX.init();SFX.ui();this.weapPop()}; // v11.3: silah kartının tamamı (çerçeve dahil) açar
+  this.updateWeaponBtns()}
  updateWeaponBtns(){const g=this.g,team=g.active?.team;if(!team)return;WEAPONS.forEach((w,i)=>{const a=team.ammo[w.id];this.$('am'+i).textContent=a<0?'∞':'×'+a;this.$('wslots').children[i].disabled=a===0});this.setWeapon(WEAPONS.indexOf(g.weapon))}
  setWeapon(i,user){const g=this.g,w=WEAPONS[i],team=g.active?.team;if(user){if(!g.canAct()||g.aiming||!g.humanTurn())return;if(team&&team.ammo[w.id]===0){this.tip(w.name+' bitti');return}SFX.ui()}
   if(user&&g.netCli)NET.cmd({k:'wp',i});g.weapon=w;if(user)g.targeting=null;
@@ -2439,7 +2557,7 @@ class UI{
  closePanels(){this.$('ultiMenu').classList.add('hidden');this.weapPop(false)}
  // v11.1: silah seçimi açılır ızgarada; altta yalnızca seçili silah (ikon, ad, cephane) görünür
  weapPop(v){const p=this.$('wpop');if(!p)return;const open=v==null?p.classList.contains('hidden'):!!v;p.classList.toggle('hidden',!open);this.$('bWeap').classList.toggle('open',open)}
- weapBtn(){const g=this.g,w=g.weapon||WEAPONS[0],t=g.active&&g.active.team,a=t?t.ammo[w.id]:-1;this.$('bWeap').innerHTML=`<span class="wbi">${wIcon(w.id)}</span><span class="wbt"><b>${w.name}</b><small>${a<0?'∞ sınırsız':'×'+a+' cephane'}</small></span><span class="wbo">SİLAHLAR ▴</span>`}
+ weapBtn(){const g=this.g,w=g.weapon||WEAPONS[0],t=g.active&&g.active.team,a=t?t.ammo[w.id]:-1,h=`<span class="wbi">${wIcon(w.id)}</span><span class="wbt"><b>${w.name}</b><small>${a<0?'∞ sınırsız':'×'+a+' cephane'}</small></span><span class="wbo">SİLAHLAR ▴</span>`;if(this._wbH!==h){this._wbH=h;this.$('bWeap').innerHTML=h}} // v11.3: yalnızca değişince yeniden çiz (online anlık görüntülerde içerik her an yenilenip dokunuşu yutuyordu)
  banner(t,s,color){const b=this.$('banner');b.innerHTML=`<span style="color:${color}">${t}</span>${s?`<small>${s}</small>`:''}`;b.classList.add('show');clearTimeout(this.bt);this.bt=setTimeout(()=>b.classList.remove('show'),1500)}
  tip(t){this.tipMsg=t;this.tipT=2.5}
  frame(dt){const g=this.g;if(g.state==='menu')return;
@@ -3029,14 +3147,12 @@ function drawCompass(g,dt){const C=COMPASS,p=g.active;C.fire=Math.max(0,C.fire-d
 // v10.5: PUS BULUTU — sisli turda herkesin ekranında: karakter çevresi net, kenarlara doğru koyulaşan pus + yavaş süzülen sis bulutları.
 // Yoğunluk en fazla %65 (zaten sisli Lanetli Liman'da %50); yumuşak giriş/çıkış. Atış kompası ve arayüz üstte kalır.
 function drawHaze(g,dt){const on=g.hazed();g.hazeK=(g.hazeK||0)+((on?1:0)-(g.hazeK||0))*Math.min(1,dt*2.2);const k=g.hazeK;if(k<.01)return;
- const c=g.active,s=c&&c.alive?g.w2s(c.x,c.y-10):{x:VW/2,y:VH/2},D=(g.mapId==='harbor'?.5:.65)*k,R=Math.max(110,260*g.cam.zoom),t=g.time;ctx.save();
- // 1) koyulaşma (kararma) 2) açık gri pus katmanı — gece haritasında da seçilsin diye iki katman
- const dk=ctx.createRadialGradient(s.x,s.y,R*.45,s.x,s.y,R*1.7);dk.addColorStop(0,'rgba(20,22,34,0)');dk.addColorStop(1,`rgba(20,22,34,${D*.45})`);ctx.fillStyle=dk;ctx.fillRect(0,0,VW,VH);
- const gr=ctx.createRadialGradient(s.x,s.y,R*.45,s.x,s.y,R*1.7);gr.addColorStop(0,'rgba(170,178,200,0)');gr.addColorStop(.4,`rgba(170,178,200,${D*.5})`);gr.addColorStop(1,`rgba(150,158,182,${D*.85})`);ctx.fillStyle=gr;ctx.fillRect(0,0,VW,VH);
- for(let i=0;i<10;i++){const sp=.012+hash2(i,5)*.02,bx=(((hash2(i,3)+t*sp)%1.3)-.15)*VW,by=(hash2(i,9)*1.1-.05)*VH+Math.sin(t*.35+i)*24,br=(.22+hash2(i,7)*.28)*Math.max(VW,VH),dd=Math.hypot(bx-s.x,by-s.y),fall=clamp((dd-R*.45)/R,0,1);if(fall<=0)continue;
-  const g2=ctx.createRadialGradient(bx,by,0,bx,by,br);g2.addColorStop(0,`rgba(220,226,240,${.38*D*fall})`);g2.addColorStop(1,'rgba(220,226,240,0)');ctx.fillStyle=g2;ctx.fillRect(bx-br,by-br,br*2,br*2)}
- // kenarlardan gelen pus
- const e=ctx.createLinearGradient(0,0,0,VH);e.addColorStop(0,`rgba(180,188,210,${.32*D})`);e.addColorStop(.25,'rgba(180,188,210,0)');e.addColorStop(.75,'rgba(180,188,210,0)');e.addColorStop(1,`rgba(180,188,210,${.32*D})`);ctx.fillStyle=e;ctx.fillRect(0,0,VW,VH);
+ // v11.3: GÖRÜŞ DAİRESİ — sisli oyuncu yalnızca karakterinin çevresindeki daireyi görür, haritanın geri kalanı zifiri karanlık.
+ // Sırası gelen sisli oyuncu bu ekranı görüyorsa tam karanlık; izleyenlerde (rakipler / bilgisayar turu) kısmi karartma, böylece maçı takip edebilirler.
+ const c=g.active,s=c&&c.alive?g.w2s(c.x,c.y-14):{x:VW/2,y:VH/2},me=g.humanTurn(),D=(me?1:.62)*k,R=Math.max(95,175*g.cam.zoom),t=g.time,rr=R*(1+Math.sin(t*2.1)*.025);ctx.save();
+ const dk=ctx.createRadialGradient(s.x,s.y,rr*.62,s.x,s.y,rr*1.18);dk.addColorStop(0,'rgba(4,5,12,0)');dk.addColorStop(.55,`rgba(4,5,12,${D*.75})`);dk.addColorStop(1,`rgba(4,5,12,${D})`);ctx.fillStyle=dk;ctx.fillRect(0,0,VW,VH);
+ // dairenin kenarında hafif süzülen pus halkası
+ ctx.globalAlpha=.5*k;ctx.strokeStyle='rgba(190,200,225,.35)';ctx.lineWidth=10;ctx.setLineDash([22,16]);ctx.lineDashOffset=-t*14;ctx.beginPath();ctx.arc(s.x,s.y,rr*.98,0,Math.PI*2);ctx.stroke();ctx.setLineDash([]);ctx.globalAlpha=1;
  if(k>.5&&c){ctx.globalAlpha=Math.min(1,(k-.5)*2);ctx.font='800 13px "Baloo 2",sans-serif';ctx.textAlign='center';const txt='PUS BULUTU · '+c.team.label,w=ctx.measureText(txt).width+22,y=g.dm?86:28;ctx.fillStyle='rgba(30,34,52,.72)';ctx.beginPath();ctx.roundRect(VW/2-w/2,y-17,w,24,12);ctx.fill();ctx.fillStyle='#dfe5f5';ctx.fillText(txt,VW/2,y)}
  ctx.restore()}
 function drawScreenOverlay(g,dt){
@@ -3266,7 +3382,7 @@ const LOAD={tm:0,raf:0,ready:false,done:true,dur:2.4,
 // ================= v8: PROFİL, İLERLEME, ALTIN, KOSTÜM, GÖREV, BAŞARIM =================
 // v9: kayıt şeması v2 (v8 = v1). Anahtar adı aynı kaldı → eski kayıtlar korunur. Yedek: bp_profile_bak
 // Not: localStorage yalnızca bu cihaz/tarayıcıda saklanır; cihazlar arası senkronizasyon veya bulut kaydı YOKTUR.
-const SAVE_KEY='bp_profile',SAVE_BAK='bp_profile_bak',SAVE_VER=3,APP_VER='11.0.0';
+const SAVE_KEY='bp_profile',SAVE_BAK='bp_profile_bak',SAVE_VER=3,APP_VER='11.3.0';
 // Kozmetik katalog — tamamen görsel; oyun gücünü etkilemez. price: altın, ach: başarımla açılır
 const COSCAT=[['hat','Şapka'],['helmet','Kask'],['glasses','Gözlük'],['neck','Boyun'],['outfit','Kostüm'],['pattern','Renk & Desen'],['fx','Zafer Efekti']];
 const COS={
@@ -3323,7 +3439,7 @@ const MISS=[
 const META={p:null,
  fresh(){const owned={};for(const k in COS)for(const it of COS[k])if(it.price===0)owned[k+':'+it.id]=1;
   // v11: gems (elmas), starter (ilk karakter), cm (karakter başına maç), frame/avatar (profil), inv (avantaj paketleri), daily (günlük fırsat), hist (son maçlar), iap (işlenmiş ödemeler)
-  return{v:SAVE_VER,name:'Oyuncu',level:1,xp:0,gold:100,gems:0,stats:{},maps:{},owned,outfits:{},ach:{},mis:{},species:'monkey',settings:{},starter:'',legacy:0,cm:{},frame:'none',avatar:'',inv:{ammo:0,xpb:0},useBoost:false,daily:{d:'',got:{}},hist:[],iap:{}}},
+  return{v:SAVE_VER,name:'Oyuncu',level:1,xp:0,gold:100,gems:0,stats:{},maps:{},owned,outfits:{},ach:{},mis:{},species:'monkey',settings:{},starter:'',legacy:0,cm:{},frame:'none',avatar:'',inv:{ammo:0,xpb:0},useBoost:false,daily:{d:'',got:{}},hist:[],iap:{},unc:{}}}, // v11.3: unc = tamamlanmış ama ödülü henüz alınmamış görev/başarım kimlikleri
  // v9: dayanıklı yükleme — bozuk ana kayıt → yedek kayıt → yeni profil; şema göçü + alan doğrulama
  load(){const rd=k=>{try{const s=localStorage.getItem(k);if(!s)return{s:null,p:null};const p=JSON.parse(s);return{s,p:p&&typeof p==='object'&&!Array.isArray(p)?p:null}}catch(e){return{s:'x',p:null}}};
   let m=rd(SAVE_KEY),p=m.p;this.recovered=false;
@@ -3342,7 +3458,8 @@ const META={p:null,
   for(const k in p.cm)if(!SPECIES[k]||!Number.isFinite(+p.cm[k]))delete p.cm[k];
   p.name=String(p.name||'Oyuncu').slice(0,14)||'Oyuncu';if(!SPECIES[p.species])p.species='monkey';
   for(const k in p.stats)if(!Number.isFinite(+p.stats[k]))delete p.stats[k];else p.stats[k]=+p.stats[k];
-  for(const k of['owned','ach','mis','maps'])for(const q in p[k])if(!p[k][q])delete p[k][q];
+  for(const k of['owned','ach','mis','maps','unc'])for(const q in p[k])if(!p[k][q])delete p[k][q];
+  for(const q in p.unc)if(!(p.mis[q]||p.ach[q]))delete p.unc[q];
   for(const sp in p.outfits)if(!SPECIES[sp]||typeof p.outfits[sp]!=='object'||!p.outfits[sp])delete p.outfits[sp];
   for(const k in f.owned)p.owned[k]=1;return p},
  save(){clearTimeout(this.st);this.st=setTimeout(()=>this.flush(),150)},
@@ -3369,9 +3486,14 @@ const META={p:null,
    for(const sp of SPK)if(!(p.legacy&&['rabbit','monkey','bear','bee','tiger','fox'].includes(sp))&&this.unlockLv(sp)===p.level)this.note('🎉 Yeni karakter açıldı: '+SPECIES[sp].name,SPECIES[sp].trait,'#7cff6b')}if(up&&!this.run){LVLUP.show(up)}XPBOX.render();return up},
  note(t,s,c){if(this.run)this.run.rew.push({t,s});else TOAST.show(t,s,c)},
  check(){const p=this.p;
-  for(const a of ACH)if(!p.ach[a.id]&&this.val(a.stat)>=a.goal){p.ach[a.id]=Date.now();this.addGold(a.gold);if(a.xp)this.addXP(a.xp);this.note('🏆 Başarım: '+a.name,a.desc+` · +${a.gold} altın`+(a.unl?` · Açıldı: ${a.unl}`:''),'#ffd23f')}
-  for(const m of MISS)if(!p.mis[m.id]&&this.val(m.stat)>=m.goal){p.mis[m.id]=Date.now();this.addGold(m.gold);this.addXP(m.xp);this.note('✅ Görev tamamlandı: '+m.name,`+${m.xp} XP · +${m.gold} altın`,'#7cff6b')}
+  // v11.3: tamamlanma anı aynı (koşullar değişmedi; başarım kostüm kilidi hemen açılır). Altın/XP ödülü artık Görevler ekranındaki ÖDÜLÜ AL ile alınır.
+  for(const a of ACH)if(!p.ach[a.id]&&this.val(a.stat)>=a.goal){p.ach[a.id]=Date.now();p.unc[a.id]=1;this.note('🏆 Başarım: '+a.name,a.desc+` · Ödül: +${a.gold} altın`+(a.unl?` · Açıldı: ${a.unl}`:''),'#ffd23f')}
+  for(const m of MISS)if(!p.mis[m.id]&&this.val(m.stat)>=m.goal){p.mis[m.id]=Date.now();p.unc[m.id]=1;this.note('✅ Görev tamamlandı: '+m.name,`Ödülünü Görevler'den al · +${m.xp} XP · +${m.gold} altın`,'#7cff6b')}
   MENUPROF.render();XPBOX.render()},
+ // ödül alma — unc kaydı önce silinir, böylece aynı ödül ikinci kez verilemez
+ claim(id){const p=this.p;if(!p.unc[id])return null;const it=MISS.find(m=>m.id===id)||ACH.find(a=>a.id===id);delete p.unc[id];if(!it)return null;this.addGold(it.gold);if(it.xp)this.addXP(it.xp);this.check();this.flush();return it},
+ wuse(id){const s=this.p.stats,k='wu_'+id;s[k]=(s[k]||0)+1;this.save()}, // v11.3: silah kullanım sayacı (profil → en çok kullanılan silahlar)
+ uncN(){return Object.keys(this.p.unc).length},
  unlocked(cat,it){if(this.p.owned[cat+':'+it.id])return true;if(it.ach&&this.p.ach[it.ach])return true;return false},
  outfitFor(sp){const o=this.p.outfits[sp]||{};const r={};for(const[k]of COSCAT){const def=COS[k][0].id;let v=o[k]||def;const it=COS[k].find(i=>i.id===v);if(!it||!this.unlocked(k,it))v=def;r[k]=v}return r},
  equip(sp,cat,id){(this.p.outfits[sp]=this.p.outfits[sp]||{})[cat]=id;this.save()},
@@ -3422,20 +3544,85 @@ const REWARD={raf:0,play(el,s){cancelAnimationFrame(this.raf);if(!s){el.innerHTM
 const MENUPROF={render(){const p=META.p;if(!p||!$('mpLv'))return;$('mpLv').textContent=p.level;$('mpNm').textContent=p.name;$('mpGold').textContent=p.gold;$('mpXp').style.width=(p.xp/META.need(p.level)*100)+'%';
  $('mpGem').textContent=p.gems;const av=$('mAv'),asp=SPECIES[p.avatar]&&META.canUse(p.avatar)?p.avatar:MENU.species;av.src=portrait(asp,'#2f9bff');av.className='tav'+(p.frame&&p.frame!=='none'?' fr-'+p.frame:''); // v11: avatar + çerçeve + elmas
  try{CHSEL.show(CHSEL.view)}catch(e){}if($('pbRow')){$('pbRow').classList.toggle('hidden',!p.inv.ammo);$('pbN').textContent=p.inv.ammo;$('pbUse').checked=!!p.useBoost&&p.inv.ammo>0}
- const nq=MISS.filter(m=>!p.mis[m.id]).length;$('mqN').textContent=nq;$('mqN').style.display=nq?'':'none'}};
+ try{if(!$('profile').classList.contains('hidden'))PROF.render()}catch(e){} // v11.3: mağazadan dönünce profil güncel
+ const uc=META.uncN(),nq=uc||MISS.filter(m=>!p.mis[m.id]).length;$('mqN').textContent=uc?'!'+uc:nq;$('mqN').classList.toggle('claim',!!uc);$('mqN').style.display=nq?'':'none'}}; // v11.3: alınmamış ödül varsa sayaç "!n" ve parlar
 
 // ---- profil ekranı ----
-function openProfile(){const p=META.p,s=k=>META.val(k);$('pfName').value=p.name;$('pfLv').textContent=p.level;$('pfXp').textContent=`${p.xp} / ${META.need(p.level)} XP`;$('pfXpB').style.width=(p.xp/META.need(p.level)*100)+'%';$('pfGold').textContent=p.gold;
- const total=Object.values(COS).reduce((a,l)=>a+l.length,0),own=Object.entries(COS).reduce((a,[k,l])=>a+l.filter(it=>META.unlocked(k,it)).length,0);
- const rows=[['Oynanan maç',s('matches')],['Galibiyet',s('wins')],['Mağlubiyet',s('losses')],['Eliminasyon',s('kills')],['İsabetli tur',s('hits')],['Hayatta kalma rekoru',s('survBest')+'. dalga'],['Kurtarılma',s('rescues')],['Oynanan harita',s('mapsCount')+' / 6'],['Açılan kostüm',own+' / '+total],['Başarım',Object.keys(p.ach).length+' / '+ACH.length],['Görev',Object.keys(p.mis).length+' / '+MISS.length],['Toplam kazanılan altın',s('goldEarned')]];
- $('pfStats').innerHTML=rows.map(([a,b])=>`<div><small>${a}</small><b>${b}</b></div>`).join('');PROFAV.draw();$('profile').classList.remove('hidden')}
-const PROFAV={draw(){const c=$('pfAv'),d=Math.min(2,devicePixelRatio||1);c.width=96*d;c.height=96*d;const x=c.getContext('2d');x.setTransform(d,0,0,d,0,0);x.translate(48,70);x.scale(1.9,1.9);drawAnimal(x,SPECIES[MENU.species],MENU.species,'#ff4d5a',{facing:1,t:1,cos:META.outfitFor(MENU.species),pose:'win'})}};
+// v11.3: Tropik Macera profil ekranı — tüm değerler META'daki gerçek verilerden okunur (uydurma/sabit değer yok)
+// ortak ikon paleti: [emoji, açık renk, koyu renk, gölge]
+const QPAL={blue:['#7fc4ff','#3a7fe0','#2459b8'],gold:['#ffe27a','#ffb21f','#c47a0a'],green:['#8ff06b','#2fb14a','#1d7a33'],red:['#ff9a8a','#e8453c','#a8261f'],purple:['#c9a4ff','#8a4dff','#5a2fb0'],teal:['#7ff0e0','#1fb7a6','#137a70'],brown:['#e0b07a','#a8692f','#6b3f17'],grey:['#d8d2c4','#9a907c','#6e6656']};
+const QICON={wins:['🏆','gold'],kills:['💥','red'],iceUse:['❄️','teal'],frozen:['🧊','teal'],mapsCount:['🗺️','brown'],shieldBlocks:['🛡️','blue'],shieldAbs:['🛡️','blue'],hits:['🎯','red'],training:['🎓','blue'],survBest:['💀','purple'],mineHits:['🧨','brown'],stickyHits:['🍯','gold'],play6:['👥','blue'],wins6:['👑','gold'],heals:['❤️','red'],matches:['🏁','grey'],sharp:['🔭','teal'],multikill:['⚡','gold'],flawless:['✨','purple'],rescues:['🛟','teal'],level:['⭐','gold'],goldEarned:['💰','gold'],bought:['🛍️','purple']};
+const qIco=(k,extra)=>{const[e,c]=QICON[k]||['🎯','blue'],P=QPAL[c];return`<div class="qic" style="--c1:${P[0]};--c2:${P[1]};--c3:${P[2]}">${e}${extra||''}</div>`};
+const PROF={pane:'stats',
+ open(pane){$('profile').classList.remove('hidden');this.render();this.show(pane||'stats');PROFAV.start()},
+ close(){const n=$('pfName').value.trim().slice(0,14);if(n&&n!==META.p.name)META.p.name=n;META.save();MENUPROF.render();$('profile').classList.add('hidden');PROFAV.stop()},
+ show(pane){if(pane==='rew'){SFX.ui();openQuests(META.uncN()?this.firstUncTab():'mis');return}this.pane=pane;for(const el of document.querySelectorAll('#pfBody .pfpane'))el.classList.toggle('hidden',el.dataset.p!==pane);for(const b of document.querySelectorAll('#pfNav button'))b.classList.toggle('on',b.dataset.p===pane);$('pfBody').scrollTop=0;if(pane==='edit')this.renderEdit()},
+ firstUncTab(){return MISS.some(m=>META.p.unc[m.id])?'mis':'ach'},
+ avSp(){const p=META.p;return SPECIES[p.avatar]&&META.canUse(p.avatar)?p.avatar:MENU.species},
+ render(){const p=META.p,s=k=>META.val(k),n=META.need(p.level),fmt=v=>(+v||0).toLocaleString('tr-TR');
+  $('pfNm').textContent=p.name;if(document.activeElement!==$('pfName'))$('pfName').value=p.name;$('pfLv').textContent=p.level;$('pfXpB').style.width=Math.min(100,p.xp/n*100)+'%';$('pfXp').textContent=`${fmt(p.xp)} / ${fmt(n)} XP · sonraki seviyeye ${fmt(n-p.xp)} XP`;
+  $('pfGold').textContent=fmt(p.gold);$('pfGem').textContent=fmt(p.gems);$('pfAvW').className='pfava'+(p.frame&&p.frame!=='none'?' fr-'+p.frame:'');
+  const uc=META.uncN();$('pfRewN').textContent=uc;$('pfRewN').classList.toggle('hidden',!uc);
+  const total=Object.values(COS).reduce((a,l)=>a+l.length,0),own=Object.entries(COS).reduce((a,[k,l])=>a+l.filter(it=>META.unlocked(k,it)).length,0);
+  const T=(ic,c,name,val)=>{const P=QPAL[c];return`<div class="pfst"><span class="si2" style="--c1:${P[0]};--c2:${P[1]};--c3:${P[2]}">${ic}</span><div><small>${name}</small><b>${val}</b></div></div>`};
+  const G=(h,arr)=>`<div class="pfgrp"><h4>${h}</h4><div class="pfgg">${arr.join('')}</div></div>`;
+  $('pfStats').innerHTML=
+   G('⚔️ Maç Performansı',[T('⚔️','blue','Oynanan maç',fmt(s('matches'))),T('🏆','gold','Galibiyet',fmt(s('wins'))),T('💀','grey','Mağlubiyet',fmt(s('losses'))),T('💥','red','Eliminasyon',fmt(s('kills')))])+
+   G('🎯 Oyun Becerileri',[T('🎯','red','İsabetli tur',fmt(s('hits'))),T('👑','purple','Hayatta kalma rekoru',s('survBest')+'. dalga'),T('🛟','teal','Kurtarılma',fmt(s('rescues')))])+
+   G('🎒 Koleksiyon ve İlerleme',[T('🗺️','brown','Oynanan harita',s('mapsCount')+' / 6'),T('👕','purple','Açılan kostüm',own+' / '+total),T('⭐','gold','Başarım',Object.keys(p.ach).length+' / '+ACH.length),T('📜','brown','Görev',Object.keys(p.mis).length+' / '+MISS.length),T('💰','gold','Toplam kazanılan altın',fmt(s('goldEarned')))]);
+  // en çok kullanılan silahlar — gerçek atış sayaçlarından (wu_<silah>)
+  const wu=WEAPONS.map(w=>({w,n:p.stats['wu_'+w.id]||0})).filter(o=>o.n>0).sort((a,b)=>b.n-a.n),tot=wu.reduce((a,o)=>a+o.n,0);
+  $('pfWeap').innerHTML=tot>=3?wu.slice(0,3).map((o,i)=>`<div class="pfw"><span class="wi2">${wIcon(o.w.id)}<em>${i+1}</em></span><b>%${Math.round(o.n/tot*100)}</b><small>${o.w.name} · ${o.n} atış</small></div>`).join('')+(wu.length<3?'<div class="pfwe">Farklı silahlar denedikçe liste dolacak.</div>':'')
+   :`<div class="pfw ph"><span class="wi2">❔</span><small>—</small></div><div class="pfw ph"><span class="wi2">❔</span><small>—</small></div><div class="pfw ph"><span class="wi2">❔</span><small>—</small></div><div class="pfwe">Henüz yeterli veri yok · birkaç atış yap, favori silahların burada görünsün.</div>`;
+  this.renderCol()},
+ renderCol(){const p=META.p,cur=MENU.species,eq=META.outfitFor(cur);
+  const chars=SPK.map(sp=>{const ok=META.canUse(sp),on=sp===cur;return`<button class="pfit${on?' on':''}${ok?'':' lk'}" data-sp="${sp}" type="button">${on?'<em>SEÇİLİ</em>':ok?'':`<em class="lv">🔒 Sv ${META.unlockLv(sp)}</em>`}<img src="${portrait(sp,'#2f9bff')}" alt=""><span>${SPECIES[sp].name}</span>${ok?`<small>Ustalık ${META.charLv(sp)}</small>`:''}</button>`}).join('');
+  const nOk=SPK.filter(sp=>META.canUse(sp)).length;
+  const cats=COSCAT.map(([k,nm])=>{const l=COS[k],o=l.filter(it=>META.unlocked(k,it)).length;return`<div class="pfcb"><b>${nm}</b><div class="qbar"><i style="width:${o/l.length*100}%"></i></div><span>${o}/${l.length}</span></div>`}).join('');
+  const eqL=COSCAT.map(([k,nm])=>{const it=COS[k].find(i=>i.id===eq[k]);return it&&it.id!==COS[k][0].id?`<span>${nm}: ${it.name}</span>`:''}).filter(Boolean).join('')||'<span>Varsayılan görünüm</span>';
+  const acc=[];for(const[k]of COSCAT)for(const it of COS[k])if((it.ach||it.gem)&&META.unlocked(k,it))acc.push(`<span class="ac">${it.gem?'💎':'🏆'} ${it.name}</span>`);
+  const frs=FRAMES.filter(f=>f.id!=='none'&&p.owned['frame:'+f.id]).map(f=>`<span class="ac">🖼️ ${f.name}</span>`);
+  $('pfCol').innerHTML=`<div class="pfsec"><h4>🐾 Karakterler · ${nOk} / ${SPK.length}</h4><div class="pfgrid">${chars}</div><small class="pfhint">Açık bir karaktere dokun → aktif karakter olur. Kilitliler seviye atladıkça açılır.</small></div>
+   <div class="pfsec"><h4>👕 ${SPECIES[cur].name} · kullanılan kostüm</h4><div class="pfeq">${eqL}</div><div style="margin-top:8px"><button class="tpbtn gold" id="pfWard" type="button">✨ GARDIROBU AÇ</button></div></div>
+   <div class="pfsec"><h4>🧺 Kostüm koleksiyonu</h4>${cats}</div>
+   <div class="pfsec"><h4>💠 Özel aksesuarlar ve çerçeveler</h4><div class="pfeq">${acc.concat(frs).join('')||'<span>Henüz yok · başarımlar ve elmas mağazası özel parçalar açar</span>'}</div></div>`;
+  for(const b of $('pfCol').querySelectorAll('[data-sp]'))b.onclick=()=>{const sp=b.dataset.sp;if(!META.canUse(sp)){SFX.tick();TOAST.show('🔒 '+SPECIES[sp].name,`Seviye ${META.unlockLv(sp)}'de açılır (şu an Sv ${META.p.level})`,'#ffd23f');return}
+   SFX.ui();MENU.species=sp;META.p.species=sp;META.save();try{saveMenu()}catch(e){}try{CHSEL.show(sp)}catch(e){}MENUPROF.render();this.render()};
+  $('pfWard').onclick=()=>{SFX.ui();this.close();WARD.open()}},
+ renderEdit(){const p=META.p,av=p.avatar||'';
+  $('pfAvList').innerHTML=`<button class="pfit${!av?' on':''}" data-av="" type="button">${!av?'<em>SEÇİLİ</em>':''}<img src="${portrait(MENU.species,'#2f9bff')}" alt=""><span>Aktif karakter</span></button>`+SPK.map(sp=>{const ok=META.canUse(sp),on=av===sp;return`<button class="pfit${on?' on':''}${ok?'':' lk'}" data-av="${sp}" type="button">${on?'<em>SEÇİLİ</em>':ok?'':`<em class="lv">🔒 Sv ${META.unlockLv(sp)}</em>`}<img src="${portrait(sp,'#2f9bff')}" alt=""><span>${SPECIES[sp].name}</span></button>`}).join('');
+  $('pfFrList').innerHTML=FRAMES.filter(f=>!(f.season&&!p.owned['frame:'+f.id]&&new Date(f.season)<Date.now())).map(f=>{const own=f.id==='none'||p.owned['frame:'+f.id],on=(p.frame||'none')===f.id;return`<button class="pfit${on?' on':''}" data-fr="${f.id}" type="button">${on?'<em>SEÇİLİ</em>':own?'':`<em class="pr">${f.gem?'💎 '+f.gem:'🪙 '+f.price}</em>`}<img class="tav${f.id!=='none'?' fr-'+f.id:''}" src="${portrait(this.avSp(),'#2f9bff')}" alt="" style="border-radius:12px"><span>${f.name}</span></button>`}).join('');
+  for(const b of $('pfAvList').querySelectorAll('[data-av]'))b.onclick=()=>{const sp=b.dataset.av;if(sp&&!META.canUse(sp)){SFX.tick();TOAST.show('🔒 '+SPECIES[sp].name,`Seviye ${META.unlockLv(sp)}'de açılır`,'#ffd23f');return}SFX.ui();p.avatar=sp;META.save();MENUPROF.render();this.render();this.renderEdit();PROFAV.draw()};
+  for(const b of $('pfFrList').querySelectorAll('[data-fr]'))b.onclick=()=>{const f=FRAMES.find(x=>x.id===b.dataset.fr);if(f.id==='none'||p.owned['frame:'+f.id]){SFX.ui();p.frame=f.id;META.save();MENUPROF.render();this.render();this.renderEdit()}else{SFX.ui();SHOP.open('prof')}}},
+ saveName(){const n=$('pfName').value.trim().slice(0,14);if(!n){SFX.tick();return}META.p.name=n;META.save();MENUPROF.render();this.render();SFX.heal();TOAST.show('✏️ Ad kaydedildi',n,'#7cff6b');try{if(NET.ws&&NET.ws.readyState===1)NET.profile()}catch(e){}}};
+function openProfile(pane){PROF.open(pane)}
+// profil avatarı: seçili avatar karakteri (yoksa aktif karakter) kostümüyle, hafif nefes alma animasyonu
+const PROFAV={raf:0,draw(t){const c=$('pfAv');if(!c)return;const sz=c.clientWidth||96,d=Math.min(2,devicePixelRatio||1);if(c.width!==Math.round(sz*d)){c.width=c.height=Math.round(sz*d)}const x=c.getContext('2d'),sp=PROF.avSp(),k=sz/96;x.setTransform(d,0,0,d,0,0);x.clearRect(0,0,sz,sz);x.translate(48*k,82*k);x.scale(2.1*k,2.1*k);drawAnimal(x,SPECIES[sp],sp,'#ff4d5a',{facing:1,t:(t||0)/1000,cos:META.outfitFor(sp),pose:'idle'})},
+ start(){cancelAnimationFrame(this.raf);const loop=t=>{if($('profile').classList.contains('hidden'))return;try{this.draw(t)}catch(e){}this.raf=requestAnimationFrame(loop)};this.raf=requestAnimationFrame(loop)},stop(){cancelAnimationFrame(this.raf)}};
 
-// ---- görevler & başarımlar ekranı ----
-function openQuests(tab){tab=tab||'mis';const p=META.p;for(const b of document.querySelectorAll('#qTabs button'))b.classList.toggle('on',b.dataset.t===tab);
- const list=tab==='mis'?MISS:ACH,done=tab==='mis'?p.mis:p.ach;
- $('qList').innerHTML=list.map(it=>{const v=Math.min(it.goal,META.val(it.stat)),ok=!!done[it.id];return`<div class="qi${ok?' ok':''}"><div class="qic">${ok?'✔':tab==='mis'?'🎯':'🏆'}</div><div class="qtx"><b>${it.name}</b><small>${it.desc}${it.unl?' · <i>Açar: '+it.unl+'</i>':''}</small><div class="qbar"><i style="width:${v/it.goal*100}%"></i></div></div><div class="qrw">${v}/${it.goal}<small>+${it.gold}🪙${it.xp?' · +'+it.xp+' XP':''}</small></div></div>`}).join('');
+// ---- v11.3: görevler & başarımlar ekranı (Tropik Macera) ----
+// görev koşulları ve istatistik kaynakları değişmedi; yalnızca sunum + ÖDÜLÜ AL akışı eklendi
+const QUESTS={tab:'mis',fil:'all'};
+function openQuests(tab){tab=tab||QUESTS.tab||'mis';QUESTS.tab=tab;const p=META.p;for(const b of document.querySelectorAll('#qTabs button')){b.classList.toggle('on',b.dataset.t===tab);const l=b.dataset.t==='mis'?MISS:ACH,n=l.filter(it=>p.unc[it.id]).length,em=b.querySelector('em');em.textContent=n;em.classList.toggle('hidden',!n)}
+ const list=tab==='mis'?MISS:ACH,done=tab==='mis'?p.mis:p.ach,stOf=it=>{const v=Math.min(it.goal,META.val(it.stat));return done[it.id]?'done':v>0?'prog':'lock'};
+ const nd=list.filter(it=>done[it.id]).length,unc=list.filter(it=>p.unc[it.id]),left=list.filter(it=>!done[it.id]),lg=left.reduce((a,it)=>a+it.gold,0),lx=left.reduce((a,it)=>a+(it.xp||0),0);
+ $('qSum').innerHTML=`<div class="qsum"><div class="qsn"><b>${nd}/${list.length}</b><small>${tab==='mis'?'GÖREV':'BAŞARIM'}</small></div><div class="qst">${nd===list.length?'Hepsi tamamlandı! 🎉':tab==='mis'?'Görev ilerlemen':'Başarım ilerlemen'}<small>${unc.length?`${unc.length} ödül seni bekliyor!`:left.length?`Kalan ödüller: 🪙 ${lg.toLocaleString('tr-TR')}${lx?' · '+lx.toLocaleString('tr-TR')+' XP':''}`:'Tüm ödüller alındı'}</small></div><div class="qsb"><i style="width:${nd/list.length*100}%"></i></div>${unc.length>1?'<button class="tpbtn gold" id="qAll" type="button">TÜMÜNÜ AL</button>':''}</div>`;
+ const fl=$('qFil');fl.classList.toggle('hidden',tab!=='ach');if(tab!=='ach')QUESTS.fil='all';
+ if(tab==='ach'){const cnt=f=>f==='all'?list.length:list.filter(it=>stOf(it)===f).length;fl.innerHTML=[['all','Tümü'],['prog','Devam ediyor'],['done','Tamamlandı'],['lock','Kilitli']].map(([f,n])=>`<button data-f="${f}" class="${QUESTS.fil===f?'on':''}" type="button">${n}<b>${cnt(f)}</b></button>`).join('');for(const b of fl.querySelectorAll('button'))b.onclick=()=>{SFX.ui();QUESTS.fil=b.dataset.f;openQuests('ach')}}
+ // sıralama: alınacak ödül → devam eden → başlanmamış → alınmış (mevcut liste sırası grup içinde korunur)
+ const rank=it=>p.unc[it.id]?0:stOf(it)==='prog'?1:stOf(it)==='lock'?2:3;
+ const shown=list.filter(it=>QUESTS.fil==='all'||stOf(it)===QUESTS.fil).map((it,i)=>({it,i})).sort((a,b)=>rank(a.it)-rank(b.it)||a.i-b.i).map(o=>o.it);
+ $('qList').innerHTML=shown.length?shown.map(it=>{const v=Math.min(it.goal,META.val(it.stat)),st=stOf(it),rdy=!!p.unc[it.id];
+  const btn=st==='done'?(rdy?`<button class="qcl" data-claim="${it.id}" type="button">ÖDÜLÜ AL</button>`:'<span class="qgot">✔ ALINDI</span>'):'';
+  return`<div class="qc ${st==='lock'&&tab!=='ach'?'prog':st}${rdy?' ready':''}" data-id="${it.id}">${qIco(it.stat,st==='done'?'<span class="qok">✔</span>':st==='lock'&&tab==='ach'?'<span class="qlk">🔒</span>':'')}<div class="qtx"><b>${it.name}</b><small>${it.desc}</small>${it.unl?`<span class="qul">🎁 Açar: ${it.unl}</span>`:''}<div class="qpr"><div class="qbar"><i style="width:${v/it.goal*100}%"></i></div><span>${v}/${it.goal}</span></div></div><div class="qrw"><span class="qchip g">🪙 +${it.gold}</span>${it.xp?`<span class="qchip x">XP +${it.xp}</span>`:''}${btn}</div></div>`}).join(''):'<div class="qempty">Bu filtrede gösterilecek bir şey yok.</div>';
+ for(const b of $('qList').querySelectorAll('[data-claim]'))b.onclick=e=>{e.stopPropagation();qClaim([b.dataset.claim])};
+ if($('qAll'))$('qAll').onclick=()=>qClaim(unc.map(it=>it.id));
  $('quests').classList.remove('hidden')}
+// ödül alma: kart parlar, altın/XP simgeleri üst bara doğru uçar; META.claim her kimliği yalnızca bir kez öder
+function qClaim(ids){let g=0,x=0,n=0;for(const id of ids){const card=$('qList').querySelector(`[data-id="${id}"]`),it=META.claim(id);if(!it)continue;n++;g+=it.gold;x+=it.xp||0;
+  if(card){card.classList.add('flash');const r=card.getBoundingClientRect();for(let i=0;i<7;i++){const s=document.createElement('span');s.className='qfly';s.textContent=i%3===2?'⭐':'🪙';s.style.left=(r.right-70+Math.random()*40)+'px';s.style.top=(r.top+r.height/2-10+Math.random()*16)+'px';s.style.setProperty('--dx',(-40+Math.random()*80)+'px');s.style.setProperty('--dy',(-90-Math.random()*70)+'px');s.style.animationDelay=(i*.05)+'s';document.body.append(s);setTimeout(()=>s.remove(),1300)}}}
+ if(!n)return;SFX.win();TOAST.show(n>1?`🎁 ${n} ödül alındı`:'🎁 Ödül alındı',`+${g} altın${x?' · +'+x+' XP':''}`,'#7cff6b');
+ setTimeout(()=>{openQuests(QUESTS.tab);if(!$('profile').classList.contains('hidden'))PROF.render()},650)}
 
 // ---- gardırop (kostüm + mağaza) ----
 const WARD={cat:'hat',sp:'monkey',raf:0,
@@ -3570,8 +3757,12 @@ $('bMenu').onclick=()=>{endRun();if(window.NET)NET.leave(true);LOAD.cancel();MUS
 $('bSkip').onclick=()=>game.skipCine();
 $('bTrain').onclick=beginTrain;$('bSurv').onclick=beginSurv;$('bWard').onclick=()=>{SFX.init();SFX.ui();WARD.open()};$('bQuest').onclick=()=>{SFX.init();SFX.ui();openQuests('mis')};$('mProf').onclick=()=>{SFX.init();SFX.ui();openProfile()};
 $('wdClose').onclick=()=>WARD.close();$('wdPrev').onclick=()=>WARD.spin(-1);$('wdNext').onclick=()=>WARD.spin(1);
-$('pfClose').onclick=()=>{const n=$('pfName').value.trim().slice(0,14);if(n)META.p.name=n;META.save();MENUPROF.render();$('profile').classList.add('hidden')};
-$('qClose').onclick=()=>$('quests').classList.add('hidden');for(const b of document.querySelectorAll('#qTabs button'))b.onclick=()=>openQuests(b.dataset.t);
+$('pfClose').onclick=()=>{SFX.ui();PROF.close()};
+for(const b of document.querySelectorAll('#pfNav button'))b.onclick=()=>{SFX.ui();PROF.show(b.dataset.p)};
+$('pfNmB').onclick=$('pfAvEd').onclick=()=>{SFX.ui();PROF.show('edit');if(document.activeElement)document.activeElement.blur()};
+$('pfNmSave').onclick=()=>PROF.saveName();$('pfName').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();PROF.saveName();$('pfName').blur()}});
+for(const b of document.querySelectorAll('[data-pshop]'))b.onclick=()=>{SFX.ui();SHOP.open(b.dataset.pshop)};
+$('qClose').onclick=()=>{$('quests').classList.add('hidden');if(!$('profile').classList.contains('hidden'))PROF.render()};for(const b of document.querySelectorAll('#qTabs button'))b.onclick=()=>{SFX.ui();if(b.dataset.t!==QUESTS.tab)QUESTS.fil='all';openQuests(b.dataset.t);$('qList').scrollTop=0};
 $('tutDone').onclick=()=>$('bMenu').onclick();
 if(META.isNew){META.p.species=MENU.species;META.save()}else if(SPECIES[META.p.species])MENU.species=META.p.species;
 if(!META.canUse(MENU.species)){MENU.species=META.p.starter||'monkey';META.p.species=MENU.species;META.save()} // v11: kilitli karakter aktif kalamaz
@@ -3674,7 +3865,7 @@ addEventListener('pagehide',()=>META.flush());addEventListener('beforeunload',()
 (function(){const App=window.Capacitor&&window.Capacitor.Plugins&&window.Capacitor.Plugins.App;if(!App||!App.addListener)return;let armed=0;
  const twice=(msg,fn)=>{const now=Date.now();if(now-armed<2200){armed=0;fn()}else{armed=now;TOAST.show(msg,'Onaylamak için geri tuşuna tekrar bas','#9be7ff')}};
  App.addListener('backButton',()=>{
-  for(const[id,close]of[['help',()=>$('bHelpClose').onclick()],['profile',()=>$('pfClose').onclick()],['quests',()=>$('qClose').onclick()],['wardrobe',()=>WARD.close()],['settings',()=>$('stClose').onclick()],['shop',()=>SHOP.close()],['play',()=>$('plClose').onclick()]])if(!$(id).classList.contains('hidden')){close();return}
+  for(const[id,close]of[['help',()=>$('bHelpClose').onclick()],['shop',()=>SHOP.close()],['quests',()=>$('qClose').onclick()],['wardrobe',()=>WARD.close()],['profile',()=>$('pfClose').onclick()],['settings',()=>$('stClose').onclick()],['play',()=>$('plClose').onclick()]])if(!$(id).classList.contains('hidden')){close();return}
   if(!$('mchat').classList.contains('hidden')){CHAT.toggle(false);return} // v11
   if(!$('ultiMenu').classList.contains('hidden')){game.ui.closePanels();return}
   if(game.state==='cine'){game.skipCine();return}
@@ -3772,7 +3963,7 @@ const NET={ws:null,id:null,token:null,room:null,seat:-1,host:false,inMatch:false
   }},
  // ---- istemci ----
  clientFire(g){const p=g.active;if(!p||!g.canAct()||!g.humanTurn())return;const w=g.weapon;if(w.target||p.team.ammo[w.id]===0)return;
-  this.cmd({k:'fire',wp:WEAPONS.indexOf(w),pw:g.power,aim:p.aim,f:p.facing});COMPASS.fire=.5;COMPASS.fp=clamp(g.power,0,1);COMPASS.fa=p.aim;COMPASS.ff=p.facing;
+  this.cmd({k:'fire',wp:WEAPONS.indexOf(w),pw:g.power,aim:p.aim,f:p.facing});try{META.wuse(w.id)}catch(e){}/* v11.3: online istemci kendi silah kullanımını sayar */COMPASS.fire=.5;COMPASS.fp=clamp(g.power,0,1);COMPASS.fa=p.aim;COMPASS.ff=p.facing;
   g.aiming=false;g.power=0;g.state='flight';g.input.cancel();SFX.launch()},
  clientStep(g,dt){
   if(g.state==='loading'||(g.state==='cine'&&g.cine)||g.state==='menu'||g.state==='over'){g.netCli=false;g.step(dt);g.netCli=true;return}
@@ -3977,7 +4168,7 @@ const STARTER={need(){return!META.p.starter&&!META.p.legacy},
 const NETDOT={tick(){const e=$('mNet');if(!e)return;const on=navigator.onLine!==false,ws=window.NET&&NET.ws&&NET.ws.readyState===1;e.className='tnet'+(!on?' off':ws?' ok':'');e.title=!on?'İnternet bağlantısı yok':ws?'Sunucuya bağlı':'İnternet var · sunucuya bağlı değil'}};
 setInterval(()=>NETDOT.tick(),2000);addEventListener('online',()=>NETDOT.tick());addEventListener('offline',()=>NETDOT.tick());NETDOT.tick();
 SETTINGS.init();if(STARTER.need())STARTER.open();
-window.__v11={CHAT,SHOP,IAP,SETTINGS,STARTER,CHSEL,scoreHtml}; // test/debug kancası (oynanışı etkilemez)
+window.__v11={CHAT,SHOP,IAP,SETTINGS,STARTER,CHSEL,scoreHtml,META,PROF,openQuests,get game(){return game}}; // test/debug kancası (oynanışı etkilemez)
 window.ONUI=ONUI;window.__WARD=WARD;$('bOnline').onclick=()=>ONUI.open();$('onClose').onclick=()=>{$('online').classList.add('hidden');if(NET.room&&!NET.inMatch){/* lobide kalmaya devam: arka planda oda korunur */}};
 $('onCreateBtn').onclick=()=>{ONUI.show('create');$('ocCap').innerHTML=[2,3,4,5,6,7,8].map(c=>`<button data-v="${c}"${c===4?' class="on"':''}>${c}</button>`).join('');ONUI.createMap=ONUI.createMap||'random';$('ocMapN').textContent=MAPNAME[ONUI.createMap];MAPCAR.build($('ocMapCar'),ONUI.createMap,id=>{ONUI.createMap=id;$('ocMapN').textContent=MAPNAME[id]})};
 seg('ocCap');seg('ocTurn');

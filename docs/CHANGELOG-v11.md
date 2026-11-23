@@ -1,5 +1,24 @@
 # BOOMPUFF 11.0.0 — Yeni ana menü, karakter ilerlemesi, mağaza, sohbet, 200 HP, skorbord
 
+## 11.3.0 — Görevler/Başarımlar ve Profil yeniden tasarımı (Tropik Macera)
+- **Silah kartı:** kartın tamamı (ikon, ad, çerçeve) silah menüsünü açar. Kart içeriği yalnızca değişince yeniden çiziliyor; önceden online anlık görüntülerde içerik sürekli yenilendiği için dokunuşlar kayboluyordu.
+- **Pus Bulutu:** sisli oyuncu artık yalnızca karakterinin çevresindeki daireyi görüyor; haritanın geri kalanı zifiri karanlık. Diğer oyuncular ve bilgisayar turu izlenirken karartma kısmi (%62), böylece maç takip edilebiliyor. Kurallar ve senkron değişmedi; efekt yalnızca ekran katmanında.
+- **Görevler & Başarımlar:** ahşap başlık plakası, Görevler/Başarımlar sekmeleri (alınmamış ödül sayacıyla), genel ilerleme kutusu (tamamlanan/toplam, ilerleme çubuğu, kalan ödüller, TÜMÜNÜ AL) ve başarım filtreleri (Tümü / Devam ediyor / Tamamlandı / Kilitli). Kartlarda istatistiğe göre renkli ikon, ilerleme çubuğu ile altın ve XP çipleri var.
+  - **ÖDÜLÜ AL akışı:** görev veya başarım tamamlanınca ödül bekler ve ekrandaki düğmeyle alınır (kart parlar, altınlar uçar). Kimlik önce `unc` listesinden silindiği için ödül ikinci kez alınamaz.
+  - Görev koşulları ve ödül miktarları değişmedi. Önceden otomatik alınmış ödüller ALINDI olarak görünür. Başarımla açılan kostüm kilidi eskisi gibi hemen açılır.
+- **Oyuncu Profili:**
+  - Üst alan: hareketli avatar ve profil çerçevesi, düzenlenebilir ad, büyük seviye rozeti, XP çubuğu ve kalan XP, altın/elmas (+ mağaza).
+  - İstatistikler üç kategoride ikonlu kartlarla gösteriliyor.
+  - EN ÇOK KULLANILAN SİLAHLAR: gerçek atış sayaçlarından (`stats.wu_<silah>`) ilk 3 silah; veri yoksa boş durum gösteriliyor.
+  - Alt menü:
+    - PROFİLİ DÜZENLE: ad, avatar, sahip olunan çerçeveler; alınmamış çerçeve mağazaya yönlendirir.
+    - İSTATİSTİKLER.
+    - KOLEKSİYON: karakterler (açık/kilitli, ustalık, dokununca aktif karakter olur), kullanılan kostüm, kategori bazında kostüm ilerlemesi, özel aksesuarlar/çerçeveler, Gardırop.
+    - ÖDÜLLERİM: alınmamış ödüller varsa Görevler ekranını açar.
+- Esc ile kapatma sırası: üstteki pencere önce kapanır (mağaza → görevler → gardırop → profil).
+- `APP_VER` 11.3.0, service worker önbelleği `boompuff-v11.3.0` (eski önbellek yenilenir).
+- Kayıt şeması aynı (v3). Yeni alan `unc:{}` sanitize ile eklenir; eski kayıtlar bozulmaz.
+
 ## 11.0.1 düzeltmeleri (kullanıcı geri bildirimi)
 - Ana menü referans düzene geçti: karakter ortada; solda Görevler/Profil/Fırsatlar (geri sayım), sağda Mağaza/Arkadaşlar/Modlar süzülen kutular; altta mod seçici + büyük **OYNA!** (seçili modu doğrudan başlatır).
 - Mağaza kartları: eşit yükseklik, görseller ve düğmeler aynı hizada.
