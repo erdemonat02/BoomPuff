@@ -1,6 +1,10 @@
 # BOOMPUFF — Devam notu (yeni sohbet için)
 
-**Durum (23.11.2026):** sürüm **11.3.0**: Görevler/Başarımlar ve Profil Tropik tasarım, ÖDÜLÜ AL akışı, sis görüş dairesi, silah kartı düzeltmesi (bkz. CHANGELOG-v11 "11.3.0"). Önceki sürüm 11.0.1 GitHub'a gönderildi (ec22c63); 11.3.0 henüz gönderilmedi. v10.1–10.6 "Kapsamlı Oyun Geliştirme" + v11 "Yeni Ana Menü / Karakter / Mağaza / Sohbet / 200 HP / Skorbord" tamamlandı.
+**Durum (23.11.2026):** sürüm **11.4.0**.
+- 11.4.0: resimli ana menü (Gemini arka planları, karakter taş kaidede, sağda geniş butonlar, taş yuvarlak butonlar).
+- 11.3.0: Görevler/Başarımlar ve Profil Tropik tasarım, ÖDÜLÜ AL akışı, sis görüş dairesi, silah kartı düzeltmesi.
+- Ayrıntılar CHANGELOG-v11'de.
+- 11.3.0 yerel depoda commit edildi (75c6090); gönderim (push) kullanıcıda. v10.1–10.6 "Kapsamlı Oyun Geliştirme" + v11 "Yeni Ana Menü / Karakter / Mağaza / Sohbet / 200 HP / Skorbord" tamamlandı.
 
 | Grup | Sürüm | İçerik | Ayrıntı |
 |---|---|---|---|

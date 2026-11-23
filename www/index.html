@@ -720,6 +720,49 @@ body.touch #tip{bottom:12px;left:calc(clamp(136px,38vmin,176px) + 54px);right:10
 @media (orientation:portrait){.tico{width:74px}.tico .tii{width:56px;height:56px;font-size:27px;border-radius:18px}.ttim{top:42px}.tcol{gap:12px}.tlogo{margin-top:40px;width:min(56vw,240px)}.tprof{flex:1 1 auto}.tpn>b{font-size:14px}.tav{width:40px;height:40px}.tcur{position:absolute;top:calc(100% + 6px);right:0}.ttop{position:relative}.tstagew{grid-template-columns:minmax(0,1fr);position:relative;max-height:46vh}.tarr{position:absolute;top:46%;z-index:2;width:38px;height:38px}#chPrev{left:-6px}#chNext{right:-6px}.ttim{top:-9px}}
 @media (orientation:portrait) and (max-width:380px){.tc{font-size:13px;height:32px}.tplus{width:24px;height:24px;font-size:17px}.tib{width:36px;height:36px}.tico{width:66px}.tico .tii{width:50px;height:50px;font-size:24px}.tico b{font-size:11px}}
 @media (orientation:landscape) and (max-height:500px){.tlogo{display:none}.tmenu{grid-template-rows:auto 0 minmax(0,1fr) auto!important}.tco{gap:8px}.tcol{gap:8px}.tico .tii{width:50px;height:50px;font-size:24px;border-radius:16px}.ttim{top:-9px}.tgo{height:50px;min-width:min(40vw,260px)}.tgo span{font-size:26px}.tplayw{flex-direction:row;justify-content:center;gap:12px}.tmode{max-width:36vw}.thero{gap:2px}.tname small{display:none}.tico b{font-size:11px}.tstagew{max-height:none}.tname b{font-size:20px}.tcust{min-height:34px;font-size:13px}}
+/* ===== v11.4: RESİMLİ ANA MENÜ (Gemini arka planı + taş kaide) =====
+   Tüm kurallar .mbgx altında: arka plan görseli yüklenip JS kaide konumunu hesaplayınca devreye girer; yüklenemezse eski menü aynen kalır.
+   JS değişkenleri: --px/--py kaidenin üst yüzey merkezi, --pw kaide genişliği, --cw/--chh karakter kutusu (px) */
+.tmenu.mbgx{background:#9fdcff var(--mbg) center/cover no-repeat}
+.tmenu.mbgx .tsky{display:none}
+.tmenu.mbgx .thero{position:static;display:block;pointer-events:none}
+.tmenu.mbgx .tstagew{display:contents}
+.tmenu.mbgx .tstage{position:absolute;left:calc(var(--px) - var(--cw)/2);top:calc(var(--py) - var(--chh));width:var(--cw);height:var(--chh);min-height:0;z-index:2;pointer-events:auto}
+.tmenu.mbgx .tstage .ptrait{top:-6px}.tmenu.mbgx .tcount{top:-4px;right:-10px}
+.tmenu.mbgx .tarr{position:absolute;top:calc(var(--py) - var(--chh)*.55);z-index:3;width:52px;height:52px;border-radius:16px;pointer-events:auto;color:#a8420a;background:linear-gradient(#ffe066,#ffb52e);border:3px solid #fff;box-shadow:0 4px 0 #c46a0a,0 6px 12px rgba(120,60,0,.3)}
+.tmenu.mbgx .tarr svg{width:26px;height:26px;stroke-width:4}
+.tmenu.mbgx #chPrev{left:calc(var(--px) - var(--cw)/2 - 60px)}.tmenu.mbgx #chNext{left:calc(var(--px) + var(--cw)/2 + 8px);right:auto}
+.tmenu.mbgx .tnamew{position:absolute;left:var(--px);top:calc(var(--py) + var(--pw)*.07);transform:translateX(-50%);z-index:3;display:flex;flex-direction:column;align-items:center;gap:5px;pointer-events:auto}
+.tmenu.mbgx .tname{flex-direction:row;align-items:center;gap:0;padding:3px 16px 3px 4px;border-radius:14px;background:linear-gradient(#2c3f6e,#1b2a4f);border:2px solid rgba(255,255,255,.5);box-shadow:0 4px 0 #0f1a33,0 6px 14px rgba(0,0,0,.3)}
+.tmenu.mbgx .tname b{font:400 21px/1 "Lilita One","Baloo 2",sans-serif;color:#fff;-webkit-text-stroke:0;text-shadow:none;letter-spacing:.5px;text-transform:uppercase;margin-left:8px;white-space:nowrap}
+.tshield{display:none}.tnamew{display:flex;flex-direction:column;align-items:center;gap:4px}.tnamew>small{font:800 13px "Baloo 2",sans-serif;color:#1d5f2a;background:rgba(255,255,255,.85);border-radius:9px;padding:0 9px}
+.tmenu.mbgx .tshield{display:flex;align-items:center;justify-content:center;width:38px;height:42px;margin:-8px 0 -8px -14px;clip-path:polygon(50% 0,100% 16%,100% 66%,50% 100%,0 66%,0 16%);background:linear-gradient(#ffd85a,#e07a10);font:400 19px/1 "Lilita One","Baloo 2",sans-serif;color:#fff;-webkit-text-stroke:3px #7a3a00;paint-order:stroke fill}
+.tmenu.mbgx #chLv{font:800 11.5px "Baloo 2",sans-serif;color:#fff;background:rgba(20,40,30,.55);border-radius:9px;padding:0 9px}
+.tmenu.mbgx .tcust{min-height:40px;padding:0 20px;background:linear-gradient(#a874ff,#7a45e0);color:#fff;border:2px solid rgba(255,255,255,.6);box-shadow:0 4px 0 #4e2aa0,0 6px 12px rgba(60,20,120,.3);font:400 17px "Lilita One","Baloo 2",sans-serif;letter-spacing:.5px}
+/* yuvarlak taş butonlar */
+.tmenu.mbgx .trnd .tii{border-radius:50%;background:radial-gradient(circle at 50% 30%,#d9d4c4,#a39d8a 60%,#857f6c);border:3px solid #6e6958;box-shadow:0 5px 0 #4f4b3e,0 8px 14px rgba(0,0,0,.3),inset 0 4px 0 #8fcf5a,inset 0 -3px 0 rgba(0,0,0,.15)}
+.tmenu.mbgx .trnd b{-webkit-text-stroke:3.5px #3d3a2e}.tmenu.mbgx .trnd .ttim{top:-4px;left:auto;right:-8px;transform:none;z-index:2}
+/* renkli geniş butonlar */
+.tmenu.mbgx .tshop{--bg:linear-gradient(#5aa8ff,#2f6fe0);--sh:#1c4aa8}.tmenu.mbgx .tprofb{--bg:linear-gradient(#b07bff,#7a45e0);--sh:#4e2aa0}.tmenu.mbgx .tquest{--bg:linear-gradient(#6ee26a,#2fb14a);--sh:#1d7a33}
+.tmenu.mbgx .tgo{background:linear-gradient(#ffe066,#ffb52e 55%,#ff8a1f)}
+.tmenu.mbgx .tgo span{display:flex;align-items:center;justify-content:center;gap:10px;font-size:28px;-webkit-text-stroke:5px #8a3a00}.tgoi{font-style:normal;font-size:.95em;-webkit-text-stroke:0;filter:drop-shadow(0 2px 0 rgba(0,0,0,.25))}
+/* --- yatay: sağda geniş butonlar, altta-solda yuvarlak taşlar, logo sağ altta --- */
+.tmenu.mbgx.mland{grid-template-columns:minmax(0,1fr) clamp(210px,27vw,330px)!important;grid-template-rows:auto minmax(0,1fr) auto auto minmax(0,1fr) auto!important;grid-template-areas:"top top" "hero ." "hero play" "hero tr" "hero ." "tl logo"!important;row-gap:8px}
+.tmenu.mbgx.mland .tplayw{align-items:stretch;padding:0}.tmenu.mbgx.mland .tgo{min-width:0;width:100%;height:clamp(50px,9vh,70px)}.tmenu.mbgx.mland .tgo span{font-size:clamp(17px,min(5.6vh,2.5vw),28px);white-space:nowrap;-webkit-text-stroke-width:4px}
+.tmenu.mbgx.mland .tcol.tr{align-items:stretch;justify-content:flex-start;gap:clamp(7px,1.4vh,12px)}
+.tmenu.mbgx.mland .twide{flex-direction:row;justify-content:center;gap:10px;width:100%;height:clamp(44px,7.4vh,58px);border-radius:18px;background:var(--bg);border:3px solid rgba(255,255,255,.85);box-shadow:0 5px 0 var(--sh),0 8px 14px rgba(0,0,0,.22),inset 0 3px 0 rgba(255,255,255,.35);animation:none}
+.tmenu.mbgx.mland .twide .tii{width:auto;height:auto;background:none;border:0;box-shadow:none;font-size:clamp(22px,3.6vh,30px)}
+.tmenu.mbgx.mland .twide b{font-size:clamp(16px,2.8vh,22px);-webkit-text-stroke:4px rgba(0,0,0,.35);letter-spacing:.6px}
+.tmenu.mbgx.mland .twide em{top:-8px;right:-6px}
+.tmenu.mbgx.mland .tcol.tl{flex-direction:row;justify-content:flex-start;align-items:flex-end;gap:clamp(8px,1.6vw,22px);max-width:calc(var(--px) - var(--pw)*.5 - 18px);padding-left:4px}
+.tmenu.mbgx.mland .tlogo{grid-area:logo;align-self:end;width:min(100%,260px);margin:0}
+@media (max-height:560px){.tmenu.mbgx.mland .tlogo{display:none}}
+@media (max-height:460px){.tmenu.mbgx #chLv{display:none}.tmenu.mbgx .tcust{min-height:32px;font-size:14px}.tmenu.mbgx .tname b{font-size:17px}.tmenu.mbgx .tarr{width:42px;height:42px}.tmenu.mbgx.mland .trnd .tii{width:46px;height:46px;font-size:22px}}
+/* --- dikey: solda taş butonlar, sağda renkli kutular, altta OYUNA KATIL --- */
+.tmenu.mbgx.mport .tcol{justify-content:flex-start;padding-top:4vh}
+.tmenu.mbgx.mport .twide .tii{background:var(--bg)}
+.tmenu.mbgx.mport .tgo{min-width:min(86vw,340px)}
+.tmenu.mbgx.mport .tarr{width:44px;height:44px}.tmenu.mbgx.mport #chPrev{left:calc(var(--px) - var(--cw)/2 - 46px)}.tmenu.mbgx.mport #chNext{left:calc(var(--px) + var(--cw)/2 + 2px)}
 /* OYUNA KATIL paneli (eski menü içeriği) */
 #play .mmodes{grid-template-columns:1fr 1fr}#play .monline{margin-top:6px}
 @media (orientation:landscape) and (min-width:560px){#play .mgrid{grid-template-areas:"logo map" "mode map" "players map" "diff map" "assist map" "btn btn"}}
@@ -884,22 +927,23 @@ document.getElementById('bootSkip').onclick=function(){window.__bootDone=1;var b
     <div class="tstagew"><button class="parr tarr" id="chPrev" aria-label="Önceki karakter"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
       <div class="tstage" id="chView"><canvas id="chCv"></canvas><div class="tlock hidden" id="chLock"><b>🔒</b><span id="chLockT">Sv 17'de açılır</span></div><span class="ptrait" id="chTrait"></span><span class="tcount" id="chCount">1/10</span></div>
       <button class="parr tarr" id="chNext" aria-label="Sonraki karakter"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button></div>
-    <div class="tname"><b id="chName">Maymun</b><small id="chLv">Karakter Sv 1</small></div>
-    <button class="tcust" id="bWard" type="button">✨ ÖZELLEŞTİR</button>
+    <div class="tnamew"><div class="tname"><span class="tshield" id="chShield">1</span><b id="chName">Maymun</b></div><small id="chLv">Karakter Sv 1</small>
+    <button class="tcust" id="bWard" type="button">👕 ÖZELLEŞTİR</button></div>
   </main>
-  <!-- v11.1: referans düzen — karakter ortada, yanlarda süzülen menü kutuları, altta mod seçici + büyük OYNA düğmesi -->
+  <!-- v11.4: referans düzen — karakter arka plandaki taş kaidede; sağda geniş butonlar (dikeyde renkli kutular), altta/solda yuvarlak taş butonlar -->
   <nav class="tcol tl" aria-label="Sol menü">
-    <button class="tico tquest" id="bQuest" type="button" style="--d:0s"><span class="tii">🏆</span><b>GÖREVLER</b><em id="mqN">0</em></button>
-    <button class="tico tprofb" id="bProf2" type="button" style="--d:.25s"><span class="tii">👤</span><b>PROFİL</b></button>
-    <button class="tico tdaily" id="bDaily" type="button" style="--d:.5s"><span class="tii">🎁</span><b>FIRSATLAR</b><i class="ttim" id="dailyT">--:--</i></button>
+    <button class="tico trnd tach" id="bAch" type="button" style="--d:0s"><span class="tii">🏅</span><b>BAŞARILAR</b></button>
+    <button class="tico trnd tfriends" id="bFriends" type="button" style="--d:.25s"><span class="tii">👥</span><b>ARKADAŞLAR</b></button>
+    <button class="tico trnd tdaily" id="bDaily" type="button" style="--d:.5s"><span class="tii">🎁</span><b>FIRSATLAR</b><i class="ttim" id="dailyT">--:--</i></button>
   </nav>
   <nav class="tcol tr" aria-label="Sağ menü">
-    <button class="tico tshop" id="bShop" type="button" style="--d:.12s"><span class="tii">🛒</span><b>MAĞAZA</b></button>
-    <button class="tico tfriends" id="bFriends" type="button" style="--d:.37s"><span class="tii">👥</span><b>ARKADAŞLAR</b></button>
-    <button class="tico tmodes" id="bPlay" type="button" style="--d:.62s"><span class="tii">🎮</span><b>MODLAR</b></button>
+    <button class="tico twide tshop" id="bShop" type="button" style="--d:.12s"><span class="tii">🛒</span><b>MAĞAZA</b></button>
+    <button class="tico twide tprofb" id="bProf2" type="button" style="--d:.37s"><span class="tii">👤</span><b>PROFİL</b></button>
+    <button class="tico twide tquest" id="bQuest" type="button" style="--d:.62s"><span class="tii">🏆</span><b>GÖREVLER</b><em id="mqN">0</em></button>
+    <button class="tico tmodes hidden" id="bPlay" type="button"><span class="tii">🎮</span><b>MODLAR</b></button>
   </nav>
   <div class="tplayw">
-    <button class="tgo" id="bQuick" type="button"><span>OYNA!</span></button>
+    <button class="tgo" id="bQuick" type="button"><span><i class="tgoi">⚔️</i>OYUNA KATIL</span></button>
   </div>
 </div>
 <div id="play" class="overlay mbg hidden">
@@ -3236,10 +3280,18 @@ const CHSEL={view:'monkey',
  order(){return SPK.slice().sort((a,b)=>META.unlockLv(a)-META.unlockLv(b)||SPK.indexOf(a)-SPK.indexOf(b))},
  show(sp){this.view=sp;const ok=META.canUse(sp),L=this.order();$('chName').textContent=SPECIES[sp].name;$('chTrait').textContent=SPECIES[sp].short;
   $('chLv').textContent=ok?`Karakter Sv ${META.charLv(sp)}`+(sp===MENU.species?' · Aktif':''):`🔒 Sv ${META.unlockLv(sp)}'de açılır`;
+  $('chShield').textContent=ok?META.charLv(sp):'🔒';
   $('chLock').classList.toggle('hidden',ok);$('chLockT').textContent=`Seviye ${META.unlockLv(sp)}'de açılır`;$('chCount').textContent=(L.indexOf(sp)+1)+'/'+L.length;$('bWard').disabled=!ok;$('bWard').style.opacity=ok?1:.55}};
 function drawCharPreview(t){let ok;try{ok=META.canUse(CHSEL.view)}catch(e){return} // ilk kare META yüklenmeden önce çalışabilir
  const[w,h,d]=sizeCv(chCv);if(!w)return;const c=chX;c.setTransform(d,0,0,d,0,0);c.clearRect(0,0,w,h);
- const sp=CHSEL.view,sc=Math.min((h-34)/56,w/46), /* başın üstü + platform payı: ~56 birim */bob=Math.sin(t*2)*2.5,k=chSwap>0?chSwap/.26:0,sl=chDir*k*k*60,px=w/2,py=h-26-sc*8+bob;
+ const sp=CHSEL.view,k=chSwap>0?chSwap/.26:0,sl=chDir*k*k*60;
+ if(window.__mbgOn){ // v11.4: karakter arka plandaki taş kaidenin üstünde durur (platform çizilmez); kutu tabanı = kaide yüzeyi
+  const sc=Math.min((h-6)/50,w/40),px=w/2,fy=h-3,br=1+Math.sin(t*3)*.02;
+  c.fillStyle='rgba(40,50,30,.28)';c.beginPath();c.ellipse(px,fy,15*sc,3.6*sc,0,0,7);c.fill();
+  c.save();c.globalAlpha=(1-k)*(ok?1:.92);c.translate(px+sl,fy-15.5*sc);if(!ok)c.filter='grayscale(.85) brightness(.75)';c.scale(sc,sc*br);
+  drawAnimal(c,SPECIES[sp],sp,'#ff4d5a',{facing:1,t,blink:(t%3.4)<.12,look:[Math.cos(t*.7)*.6,.2],wave:chWaveT>0&&ok,grit:false,idle:true,cos:ok&&window.__meta?window.__meta.outfitFor(sp):null});
+  c.restore();return}
+ const sc=Math.min((h-34)/56,w/46), /* başın üstü + platform payı: ~56 birim */bob=Math.sin(t*2)*2.5,px=w/2,py=h-26-sc*8+bob;
  // ışık hüzmesi + platform (çimen kaplı yüzen ada)
  const lg=c.createRadialGradient(px,py-30*sc,4,px,py-30*sc,Math.min(44*sc,w/2,py-30*sc));lg.addColorStop(0,'rgba(255,255,210,.55)');lg.addColorStop(1,'rgba(255,255,210,0)');c.fillStyle=lg;c.fillRect(0,0,w,h);
  c.save();c.translate(px,py);const R=Math.min(w*.36,30*sc);
@@ -3252,6 +3304,24 @@ function drawCharPreview(t){let ok;try{ok=META.canUse(CHSEL.view)}catch(e){retur
  const br=1+Math.sin(t*3)*.02;c.scale(sc,sc*br);
  drawAnimal(c,SPECIES[sp],sp,'#ff4d5a',{facing:1,t,blink:(t%3.4)<.12,look:[Math.cos(t*.7)*.6,.2],wave:chWaveT>0&&ok,grit:false,idle:true,cos:ok&&window.__meta?window.__meta.outfitFor(sp):null});
  c.restore()}
+// v11.4: RESİMLİ ANA MENÜ — ekran oranına göre yatay/dikey arka plan seçilir (cover, ortalı); taş kaidenin görseldeki konumu
+// ekrana çevrilip CSS değişkenlerine yazılır, karakter ve isim plakası oraya yerleşir. Görsel yüklenemezse eski menü kalır.
+const MBG={on:false,img:{},
+ SRC:{land:{u:'assets/menu/menu_bg_land.webp',x:.4985,y:.632,w:.29},port:{u:'assets/menu/menu_bg_port.webp',x:.502,y:.655,w:.56}},
+ load(kind){if(this.img[kind])return this.img[kind];const im=new Image();im.decoding='async';im.onload=()=>this.layout();im.onerror=()=>{im.bad=1;this.layout()};im.src=this.SRC[kind].u;return this.img[kind]=im},
+ layout(){const m=$('menu');if(!m)return;const r=m.getBoundingClientRect(),vw=r.width,vh=r.height;if(!vw||!vh)return;
+  const kind=vw/vh>=.85?'land':'port',S=this.SRC[kind],im=this.load(kind);
+  if(!im.complete||im.bad||!im.naturalWidth){if(im.bad){this.on=false;window.__mbgOn=false;m.classList.remove('mbgx')}return}
+  const W=im.naturalWidth,H=im.naturalHeight,s=Math.max(vw/W,vh/H),ox=(vw-W*s)/2,oy=(vh-H*s)/2,px=ox+S.x*W*s,py=oy+S.y*H*s,pw=S.w*W*s;
+  m.style.setProperty('--mbg',`url("${S.u}")`);m.classList.add('mbgx');m.classList.toggle('mland',kind==='land');m.classList.toggle('mport',kind==='port');if(!this.on||this.kind!==kind){this.on=true;this.kind=kind;window.__mbgOn=true;requestAnimationFrame(()=>this.layout())}
+  // karakter kutusu: kaideye oranlı; üst barın/logonun altına ve dikeyde yan sütunların arasına sığacak kadar
+  const top=$('menu').querySelector('.ttop').getBoundingClientRect(),lg=$('logoCv').getBoundingClientRect(),lim=Math.max(top.bottom,kind==='port'&&lg.height?lg.bottom:0)-r.top+(kind==='port'?26:22);
+  let cw=Math.min(pw*(kind==='land'?.5:.52),280),chh=cw*1.22;
+  if(kind==='port'){const L=m.querySelector('.tcol.tl').getBoundingClientRect(),R=m.querySelector('.tcol.tr').getBoundingClientRect();if(L.width&&R.width)cw=Math.min(cw,R.left-L.right-20);chh=cw*1.22}
+  if(py-chh<lim){chh=Math.max(70,py-lim);cw=Math.min(cw,chh/1.22)}
+  for(const[k,v]of[['--px',px],['--py',py],['--pw',pw],['--cw',cw],['--chh',chh]])m.style.setProperty(k,v.toFixed(1)+'px')}};
+addEventListener('resize',()=>MBG.layout());try{new ResizeObserver(()=>MBG.layout()).observe($('menu'))}catch(e){}
+setTimeout(()=>MBG.layout(),0);
 let chTapT=0;
 function setChar(dir){const L=CHSEL.order(),i=L.indexOf(CHSEL.view),sp=L[(i+dir+L.length)%L.length];chSwap=.26;chDir=-dir;chWaveT=1.1;chTapT=Date.now();
  if(META.canUse(sp)){MENU.species=sp;META.p.species=sp;META.save();saveMenu();try{if(window.NET&&NET.ws&&NET.ws.readyState===1)NET.profile()}catch(e){}}
@@ -3382,7 +3452,7 @@ const LOAD={tm:0,raf:0,ready:false,done:true,dur:2.4,
 // ================= v8: PROFİL, İLERLEME, ALTIN, KOSTÜM, GÖREV, BAŞARIM =================
 // v9: kayıt şeması v2 (v8 = v1). Anahtar adı aynı kaldı → eski kayıtlar korunur. Yedek: bp_profile_bak
 // Not: localStorage yalnızca bu cihaz/tarayıcıda saklanır; cihazlar arası senkronizasyon veya bulut kaydı YOKTUR.
-const SAVE_KEY='bp_profile',SAVE_BAK='bp_profile_bak',SAVE_VER=3,APP_VER='11.3.0';
+const SAVE_KEY='bp_profile',SAVE_BAK='bp_profile_bak',SAVE_VER=3,APP_VER='11.4.0';
 // Kozmetik katalog — tamamen görsel; oyun gücünü etkilemez. price: altın, ach: başarımla açılır
 const COSCAT=[['hat','Şapka'],['helmet','Kask'],['glasses','Gözlük'],['neck','Boyun'],['outfit','Kostüm'],['pattern','Renk & Desen'],['fx','Zafer Efekti']];
 const COS={
@@ -4157,7 +4227,7 @@ const MODEUI={txt(){const m=val('sMode'),D={easy:'Kolay',normal:'Normal',hard:'Z
  tick(){const n=new Date(),m=new Date(n);m.setHours(24,0,0,0);const s=Math.max(0,(m-n)/1000|0),h=s/3600|0,mi=(s%3600)/60|0;$('dailyT').textContent=`${h}s ${String(mi).padStart(2,'0')}dk`}};
 MODEUI.upd();MODEUI.tick();setInterval(()=>MODEUI.tick(),30000);
 $('plClose').onclick=()=>{$('play').classList.add('hidden');MODEUI.upd()};
-$('bQuick').onclick=()=>$('bPlay').onclick();
+$('bQuick').onclick=()=>$('bPlay').onclick();$('bAch').onclick=()=>{SFX.init();SFX.ui();QUESTS.fil='all';openQuests('ach')}; // v11.4: Başarılar → Görevler ekranının Başarımlar sekmesi
 $('bDaily').onclick=()=>SHOP.open('daily');
 $('bFriends').onclick=()=>{SFX.init();SFX.ui();ONUI.open()};
 $('bProf2').onclick=()=>$('mProf').onclick();

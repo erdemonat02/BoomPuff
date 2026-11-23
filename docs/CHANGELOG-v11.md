@@ -1,5 +1,20 @@
 # BOOMPUFF 11.0.0 — Yeni ana menü, karakter ilerlemesi, mağaza, sohbet, 200 HP, skorbord
 
+## 11.4.0 — Resimli ana menü (referans düzen)
+- **Arka plan:** kullanıcının Gemini'de ürettiği iki görsel eklendi: `www/assets/menu/menu_bg_land.webp` (16:9) ve `menu_bg_port.webp` (9:16). Ekran oranı ≥ 0,85 ise yatay, değilse dikey görsel `cover` olarak kullanılıyor.
+- **Karakter kaidede:** `MBG.layout()` taş kaidenin görseldeki konumunu ekran koordinatına çeviriyor (`--px/--py/--pw`). Karakter, oklar ve isim plakası buna göre yerleşiyor; ekran boyutu değişince yeniden hesaplanıyor. Kodla çizilen yüzen ada, bu modda yerini kaidenin üstündeki gölgeye bırakıyor.
+- **İsim plakası:** karakter ustalık seviyesi kalkanı (kilitliyse 🔒) + koyu plaka içinde ad. Altında mor ÖZELLEŞTİR düğmesi.
+- **Yatay ekran:**
+  - Sağda geniş butonlar: OYUNA KATIL (sarı, en büyük), MAĞAZA (mavi), PROFİL (mor), GÖREVLER (yeşil, sayaçlı).
+  - Sol altta yuvarlak taş butonlar: BAŞARILAR, ARKADAŞLAR, FIRSATLAR (geri sayımlı).
+  - Yükseklik 560 px'in üstündeyse logo sağ altta.
+- **Dikey ekran:** solda taş butonlar, sağda renkli kutular, altta OYUNA KATIL.
+- **Butonlar:**
+  - BAŞARILAR, Görevler ekranını Başarımlar sekmesinde açar.
+  - MODLAR kutusu kaldırıldı; OYUNA KATIL aynı paneli açtığı için gizli tutuluyor (`#bPlay`).
+- **Yedek davranış:** görsel yüklenemezse eski menü değişmeden kalıyor; tüm yeni kurallar `.mbgx` sınıfına bağlı.
+- `APP_VER` 11.4.0, service worker önbelleği `boompuff-v11.4.0`.
+
 ## 11.3.0 — Görevler/Başarımlar ve Profil yeniden tasarımı (Tropik Macera)
 - **Silah kartı:** kartın tamamı (ikon, ad, çerçeve) silah menüsünü açar. Kart içeriği yalnızca değişince yeniden çiziliyor; önceden online anlık görüntülerde içerik sürekli yenilendiği için dokunuşlar kayboluyordu.
 - **Pus Bulutu:** sisli oyuncu artık yalnızca karakterinin çevresindeki daireyi görüyor; haritanın geri kalanı zifiri karanlık. Diğer oyuncular ve bilgisayar turu izlenirken karartma kısmi (%62), böylece maç takip edilebiliyor. Kurallar ve senkron değişmedi; efekt yalnızca ekran katmanında.

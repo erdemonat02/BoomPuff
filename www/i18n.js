@@ -158,6 +158,8 @@ const EN={
 '🤖 Bilgisayara karşı · # oyuncu · Kolay':'🤖 Vs computer · # players · Easy','🤖 Bilgisayara karşı · # oyuncu · Normal':'🤖 Vs computer · # players · Normal','🤖 Bilgisayara karşı · # oyuncu · Zor':'🤖 Vs computer · # players · Hard',
 '👥 Yerel çok oyunculu · # oyuncu':'👥 Local multiplayer · # players','⚔️ 1v1 Ölüm Maçı · # sn · Kolay':'⚔️ 1v1 Deathmatch · # s · Easy','⚔️ 1v1 Ölüm Maçı · # sn · Normal':'⚔️ 1v1 Deathmatch · # s · Normal','⚔️ 1v1 Ölüm Maçı · # sn · Zor':'⚔️ 1v1 Deathmatch · # s · Hard',
 'Sunucu (gelişmiş) · otomatik — arkadaşlarına adres göndermen gerekmez':'Server (advanced) · automatic — no need to send friends an address','Sunucu (gelişmiş) · özel adres':'Server (advanced) · custom address',
+// v11.4: resimli ana menü
+'BAŞARILAR':'ACHIEVEMENTS','👕 ÖZELLEŞTİR':'👕 CUSTOMIZE',
 // v11.3: görevler & başarımlar + profil yeniden tasarımı
 'ÖDÜLÜ AL':'CLAIM','✔ ALINDI':'✔ CLAIMED','TÜMÜNÜ AL':'CLAIM ALL','GÖREV':'MISSIONS','BAŞARIM':'ACHIEV.','Görev ilerlemen':'Mission progress','Başarım ilerlemen':'Achievement progress','Hepsi tamamlandı! 🎉':'All complete! 🎉',
 '# ödül seni bekliyor!':'# rewards waiting!','Tüm ödüller alındı':'All rewards claimed','Kalan ödüller: 🪙 #':'Remaining rewards: 🪙 #','Kalan ödüller: 🪙 # · # XP':'Remaining rewards: 🪙 # · # XP',
