@@ -1,5 +1,13 @@
 # BOOMPUFF 11.0.0 — Yeni ana menü, karakter ilerlemesi, mağaza, sohbet, 200 HP, skorbord
 
+## 11.8.0 — Sıra odağı ve menzil
+- **Sıra odağı (`Game.turnFocus`):** her yeni turda kamera sırası gelen oyuncuya yakınlaşıyor (oyuncunun yakınlaştırma ayarının 1,8 katı, en az 1,7, en fazla 2,6). Yaklaşık 1,35 sn bekliyor, sonra 0,85 sn'de oyuncunun normal görünümüne geri açılıyor.
+  - Nişan almaya başlanır, kamera elle kaydırılır ya da atış yapılırsa odak hemen bitiyor.
+  - Yalnızca görüntüyü etkiliyor; oda sahibi ve istemci kendi ekranında ayrı hesaplıyor, senkron gerekmiyor.
+  - Ölüm Maçı'nda devre dışı.
+- **Menzil (`RANGE_K=1.15`):** tüm fırlatılan silahların en yüksek atış hızı ×1,15 (ör. Roket 960 → 1104), menzil yaklaşık %32 arttı. Nişan önizlemesi, atış kompası ve yapay zekâ aynı değeri kullanıyor.
+- `APP_VER` 11.8.0, service worker önbelleği `boompuff-v11.8.0`, `server/package.json` 11.8.0.
+
 ## 11.7.0 — Yeni silah seti, arayüz ikonları, maç içi arka planlar (Gemini)
 - **Ham görseller ve araç:** Gemini sayfaları `www/assets/*/_kaynak/` içinde, yalnızca yerelde (`.gitignore`). Kesme aracı geçici bir C# betiği: eflatun (#FF00FF) anahtar, kenardan taşkın doldurma, kapalı boşlukların temizlenmesi, yumuşak kenar ve renk sızıntısı giderme, kırpma.
 - **Silahlar (`assets/weapons/v2/`):** 11 silahın tamamı için elde tutulan görsel (`held/<id>.png`, en fazla 192 px) ve ikon (`icons/<id>.png`, 128 px).

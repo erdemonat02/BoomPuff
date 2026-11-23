@@ -1,5 +1,5 @@
 // BOOMPUFF v9 — çevrimdışı önbellek (yalnızca tarayıcı/PWA sürümünde kullanılır; Capacitor uygulamasında dosyalar zaten yereldir)
-const CACHE = 'boompuff-v11.7.0';
+const CACHE = 'boompuff-v11.8.0';
 const CORE = ['./', './index.html', './manifest.webmanifest', './icons/icon-192.png', './icons/icon-512.png', './icons/icon-maskable-512.png', './net-config.js', './i18n.js', './chat-filter.js', './fonts/fonts.css'];
 self.addEventListener('install', e => { e.waitUntil(caches.open(CACHE).then(c => c.addAll(CORE)).then(() => self.skipWaiting())); });
 self.addEventListener('activate', e => {

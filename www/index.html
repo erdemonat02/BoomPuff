@@ -1170,6 +1170,8 @@ const WEAPONS=[
  // ---- v10.2 ----
  {id:'bolt',name:'Şimşek',ammo:1,target:'bolt',radius:34,damage:36,force:380,carve:.7,desc:'Seçtiğin noktaya gökten yıldırım düşer · tam isabette 36 hasar · rüzgârdan etkilenmez'},
 ];
+// v11.8: menzil artışı — en yüksek atış hızı ×1,15 (menzil hızın karesiyle büyür → ≈ %32 daha uzun atış). Nişan önizlemesi, kompas ve yapay zekâ aynı değeri kullanır.
+const RANGE_K=1.15;for(const w of WEAPONS)if(w.maxS)w.maxS=Math.round(w.maxS*RANGE_K);
 // v8: oyuncu sayısına göre dünya genişliği (yükseklik sabit; kamera ve arazi buna göre ölçeklenir)
 const MAPSCALE={2:1,3:1.15,4:1.35,5:1.55,6:1.7,7:1.7,8:1.7}; // v10: 7–8 oyuncu (online) 6 oyunculuk genişliği kullanır
 const PLACE_T=10; // v10: başlangıç konumlandırma süresi (sn) — yerel ve online
@@ -2453,7 +2455,14 @@ class Game{
   for(const c of this.clouds){c.x+=(c.v+(this.wind||0)*25)*dt;const cw=CFG.W+1000;if(c.x>cw)c.x=-900;if(c.x<-900)c.x=cw}
   this.cam.shake=Math.max(0,this.cam.shake-dt*30)}
  baseZoom(){const vw=VW,vh=VH;return vw>=vh?vh/600:vw/430}
- updateCamera(dt){const cam=this.cam;cam.zoom=this.baseZoom()*cam.user;let tx=cam.x,ty=cam.y;
+ // v11.8: SIRA ODAĞI — her yeni turda kamera sırası gelen oyuncuya yakınlaşır (~1,3 sn), sonra oyuncunun normal görünümüne geri açılır.
+ // Yalnızca görüntü (oda sahibi ve istemcide ayrı çalışır, senkron gerektirmez). Oyuncu nişan alır, kamerayı sürükler ya da atış yapılırsa hemen biter.
+ turnFocus(dt){const cam=this.cam,ok=this.active&&this.active.alive&&(this.state==='intro'||this.state==='aim')&&!this.dm;
+  if(ok&&this._ft!==this.turnNo){this._ft=this.turnNo;this.focus={t:0,base:cam.user}}
+  const F=this.focus;if(!F)return;F.t+=dt;const T1=1.35,T2=2.2;
+  if(F.t>=T2||!ok||cam.manual||this.aiming||this.projs.length){cam.user=F.base;this.focus=null;return}
+  const zin=Math.min(2.6,Math.max(F.base*1.8,1.7)),e=t=>t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2,u=F.t<.45?e(F.t/.45):F.t<T1?1:1-e((F.t-T1)/(T2-T1));cam.user=F.base+(zin-F.base)*u}
+ updateCamera(dt){const cam=this.cam;this.turnFocus(dt);cam.zoom=this.baseZoom()*cam.user;let tx=cam.x,ty=cam.y;
   if(!cam.manual){if(this.state==='quake'&&this.crater){tx=this.crater.x;ty=this.crater.y+80}else if(this.projs.length){let sx=0,sy=0;for(const p of this.projs){sx+=p.x;sy+=Math.max(p.y,-100)}tx=sx/this.projs.length;ty=sy/this.projs.length}else if(this.active&&this.active.alive){tx=this.active.x;ty=this.active.y-40}
    const k=1-Math.pow(.0015,dt);cam.x=lerp(cam.x,tx,k);cam.y=lerp(cam.y,ty,k)}this.clampCam()}
  clampCam(){const cam=this.cam,vw=VW/cam.zoom,vh=VH/cam.zoom;const minX=vw/2-150,maxX=CFG.W-vw/2+150;cam.x=minX>maxX?CFG.W/2:clamp(cam.x,minX,maxX);
@@ -3521,7 +3530,7 @@ const LOAD={tm:0,raf:0,ready:false,done:true,dur:2.4,
 // ================= v8: PROFİL, İLERLEME, ALTIN, KOSTÜM, GÖREV, BAŞARIM =================
 // v9: kayıt şeması v2 (v8 = v1). Anahtar adı aynı kaldı → eski kayıtlar korunur. Yedek: bp_profile_bak
 // Not: localStorage yalnızca bu cihaz/tarayıcıda saklanır; cihazlar arası senkronizasyon veya bulut kaydı YOKTUR.
-const SAVE_KEY='bp_profile',SAVE_BAK='bp_profile_bak',SAVE_VER=3,APP_VER='11.7.0';
+const SAVE_KEY='bp_profile',SAVE_BAK='bp_profile_bak',SAVE_VER=3,APP_VER='11.8.0';
 // Kozmetik katalog — tamamen görsel; oyun gücünü etkilemez. price: altın, ach: başarımla açılır
 const COSCAT=[['hat','Şapka'],['helmet','Kask'],['glasses','Gözlük'],['neck','Boyun'],['outfit','Kostüm'],['pattern','Renk & Desen'],['fx','Zafer Efekti']];
 const COS={

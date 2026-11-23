@@ -1,6 +1,8 @@
 # BOOMPUFF — Devam notu (yeni sohbet için)
 
-**Durum (23.11.2026):** sürüm **11.4.0**.
+**Durum (23.11.2026):** sürüm **11.8.0**. Ayrıntılar CHANGELOG-v11'de (11.3–11.8).
+- Yayın akışı: `boompuff-v10` → `C:\Users\erdem.onat\Desktop\BoomPuff` deposuna kopyala → commit → kullanıcı GitHub Desktop'tan push eder → Render kurar. Her sürümde `server/package.json` sürümü artırılıyor, böylece Render kurulumu kesin tetikleniyor.
+- Gemini ham görselleri `www/assets/*/_kaynak/` içinde, yalnızca yerelde.
 - 11.4.0: resimli ana menü (Gemini arka planları, karakter taş kaidede, sağda geniş butonlar, taş yuvarlak butonlar).
 - 11.3.0: Görevler/Başarımlar ve Profil Tropik tasarım, ÖDÜLÜ AL akışı, sis görüş dairesi, silah kartı düzeltmesi.
 - Ayrıntılar CHANGELOG-v11'de.
