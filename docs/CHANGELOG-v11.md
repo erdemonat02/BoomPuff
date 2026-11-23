@@ -1,5 +1,19 @@
 # BOOMPUFF 11.0.0 — Yeni ana menü, karakter ilerlemesi, mağaza, sohbet, 200 HP, skorbord
 
+## 11.5.0 — Oynanış revizeleri
+- **Son vuruş tekrarı:** artık ölümü gerçekten içeren kayıt oynatılıyor.
+  - Hata: mermisiz anlık patlamalar (Şimşek, mayın) kayıt başlatmıyordu. Bu yüzden bir önceki turun kaydı oynatılıyordu; bu da çoğu zaman ölen oyuncunun kendi atışıydı.
+  - Düzeltme: her patlama gerekirse kaydı başlatıyor (`recStart`). Önceki tura ait kayıt yalnızca içinde birinin öldüğü görülüyorsa oynatılıyor; böyle bir kayıt yoksa tekrar gösterilmiyor.
+- **Silah seçimi oyuncu bazlı:** sıra geçerken her karakterin son silahı `lastW` içinde saklanıyor ve sırası gelince o silahla başlıyor. Cephanesi bittiyse Roket'e dönüyor. Online'da oda sahibi hesaplıyor, istemciye anlık görüntüyle geliyor.
+- **Kaçış süresi:** insan oyuncu atış yaptıktan sonra en fazla 2 sn yürüyüp zıplayabiliyor (karakterin üstünde "KAÇ!" yazıyor). Kalan tur süresi 2 sn'den azsa o kadar; süre bittiyse kaçış yok.
+  - Bu sırada tekrar ateş edilemiyor, silah gizli kalıyor.
+  - Tur, kaçış bitmeden geçmiyor.
+  - Online: `rt` anlık görüntüde gönderiliyor; istemci kaçış sırasında yürüme ve zıplama girdisi gönderebiliyor, oda sahibi uyguluyor.
+  - Bilgisayar ve eğitim modunda kaçış yok.
+- **Sohbet baloncuğu:** maç sırasında gelen mesaj, emoji ya da hızlı mesaj, gönderenin karakterinin üstünde 5 sn konuşma baloncuğu olarak görünüyor (en fazla 2 satır).
+- **Ana menü:** karakter tuvaline üstten %32 pay verildi; tavşan kulakları ve boğa boynuzları kesilmiyor. Özellik etiketi kulakların üstüne alındı.
+- `APP_VER` 11.5.0, service worker önbelleği `boompuff-v11.5.0`, `server/package.json` 11.5.0 (Render kurulumunu tetiklemesi için).
+
 ## 11.4.0 — Resimli ana menü (referans düzen)
 - **Arka plan:** kullanıcının Gemini'de ürettiği iki görsel eklendi: `www/assets/menu/menu_bg_land.webp` (16:9) ve `menu_bg_port.webp` (9:16). Ekran oranı ≥ 0,85 ise yatay, değilse dikey görsel `cover` olarak kullanılıyor.
 - **Karakter kaidede:** `MBG.layout()` taş kaidenin görseldeki konumunu ekran koordinatına çeviriyor (`--px/--py/--pw`). Karakter, oklar ve isim plakası buna göre yerleşiyor; ekran boyutu değişince yeniden hesaplanıyor. Kodla çizilen yüzen ada, bu modda yerini kaidenin üstündeki gölgeye bırakıyor.
