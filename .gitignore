@@ -12,3 +12,5 @@ keystore.properties
 # v11: işlenmiş ödeme kaydı ve hizmet hesabı anahtarları depoya girmez
 server/data/
 *service-account*.json
+# v11.7: Gemini ham görselleri (yalnızca yerel)
+www/assets/**/_kaynak/

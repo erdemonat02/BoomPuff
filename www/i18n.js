@@ -159,7 +159,7 @@ const EN={
 '👥 Yerel çok oyunculu · # oyuncu':'👥 Local multiplayer · # players','⚔️ 1v1 Ölüm Maçı · # sn · Kolay':'⚔️ 1v1 Deathmatch · # s · Easy','⚔️ 1v1 Ölüm Maçı · # sn · Normal':'⚔️ 1v1 Deathmatch · # s · Normal','⚔️ 1v1 Ölüm Maçı · # sn · Zor':'⚔️ 1v1 Deathmatch · # s · Hard',
 'Sunucu (gelişmiş) · otomatik — arkadaşlarına adres göndermen gerekmez':'Server (advanced) · automatic — no need to send friends an address','Sunucu (gelişmiş) · özel adres':'Server (advanced) · custom address',
 // v11.5
-'KAÇ!':'RUN!',
+'KAÇ!':'RUN!','ÖZELLEŞTİR':'CUSTOMIZE',
 // v11.4: resimli ana menü
 'BAŞARILAR':'ACHIEVEMENTS','👕 ÖZELLEŞTİR':'👕 CUSTOMIZE',
 // v11.3: görevler & başarımlar + profil yeniden tasarımı

@@ -689,6 +689,15 @@ body.touch #tip{bottom:12px;left:calc(clamp(136px,38vmin,176px) + 54px);right:10
 .tcur{display:flex;gap:6px;margin-left:auto;min-width:0}
 .tc{display:flex;align-items:center;gap:4px;height:36px;padding:0 3px 0 8px;border-radius:14px;background:rgba(22,40,80,.72);color:#fff;font:800 15px/1 "Baloo 2",sans-serif;box-shadow:inset 0 -2px 0 rgba(0,0,0,.25)}
 .tc i{font-style:normal}.tc b{min-width:28px}
+/* v11.7: Gemini arayüz ikonları (assets/ui) */
+.uico{display:inline-block;width:1.25em;height:1.25em;object-fit:contain;vertical-align:middle;pointer-events:none;-webkit-user-drag:none}
+.tc i{display:flex;align-items:center}.tc i .uico{width:24px;height:24px;filter:drop-shadow(0 1px 1px rgba(0,0,0,.3))}
+.tico .tii .uico{width:74%;height:74%;filter:drop-shadow(0 2px 1px rgba(0,0,0,.25))}
+.tmenu.mbgx.mland .twide .tii .uico{width:clamp(28px,4.6vh,38px);height:clamp(28px,4.6vh,38px)}
+.tmenu.mbgx .trnd .tii .uico{width:64%;height:64%}
+.tgoi .uico{width:1.15em;height:1.15em}.tcust .uico{width:22px;height:22px;margin-right:6px}
+.tib .uico{width:28px;height:28px}#bChat .uico{width:22px;height:22px}#bChatF .ic .uico{width:22px;height:22px}
+.ub{display:grid;grid-template-columns:auto 1fr;column-gap:8px;align-items:center}.ub .ubi{grid-row:span 2;width:38px;height:38px;object-fit:contain}.ub small{grid-column:2}
 .tplus{width:28px;height:28px;border-radius:10px;background:linear-gradient(#7cff6b,#2fc46a);color:#fff;font:900 20px/1 "Baloo 2",sans-serif;box-shadow:0 2px 0 #1d8a45}
 .ticons{display:flex;gap:6px;align-items:center}
 .tib{width:40px;height:40px;border-radius:14px;background:rgba(255,255,255,.92);color:#22324d;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 0 #2a8ac8;font:800 13px "Baloo 2",sans-serif}.tib svg{width:24px;height:24px}
@@ -881,7 +890,7 @@ document.getElementById('bootSkip').onclick=function(){window.__bootDone=1;var b
   <div id="windbox"><small>Rüzgâr <span id="wval">0</span></small><div class="wbar"><i id="wfill"></i></div><small id="clock"></small></div>
   <div id="tr">
     <button class="sb lo" id="bZo" title="Uzaklaş (PageDown)">−</button><button class="sb lo" id="bZi" title="Yakınlaş (PageUp)">+</button><button class="sb" id="bHelp" title="Yardım">?</button>
-    <button class="sb hidden" id="bChat" title="Sohbet" type="button">💬<em></em></button><button class="sb" id="bMusic" title="Müzik (N)">♪</button><button class="sb" id="bMute" title="Ses (M)"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 9h4l5-4v14l-5-4H4z"/><path id="mwave" d="M16 8q3 4 0 8M18.5 5.5q5 6.5 0 13" stroke="currentColor" stroke-width="2" fill="none"/></svg></button>
+    <button class="sb hidden" id="bChat" title="Sohbet" type="button"><img class="uico" src="assets/ui/i_chat.png" alt="" draggable="false"><em></em></button><button class="sb" id="bMusic" title="Müzik (N)">♪</button><button class="sb" id="bMute" title="Ses (M)"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 9h4l5-4v14l-5-4H4z"/><path id="mwave" d="M16 8q3 4 0 8M18.5 5.5q5 6.5 0 13" stroke="currentColor" stroke-width="2" fill="none"/></svg></button>
     <button class="sb lo" id="bFull" title="Tam ekran"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5"/></svg></button>
     <button class="sb" id="bMenu" title="Ana menü">✕</button>
   </div>
@@ -907,7 +916,7 @@ document.getElementById('bootSkip').onclick=function(){window.__bootDone=1;var b
   <div id="cards"></div>
   <div id="wpanel" class="pe"><button id="bWeap" type="button" aria-label="Silah seç"></button><div id="wpop" class="hidden"><div class="wph"><b>SİLAHLAR</b><small>Bir silah seç · klavyede 1–0</small></div><div id="wslots"></div></div></div>
   <div id="ctrl">
-   <div id="defBox" class="pe"><button class="db heal off" id="bHeal" data-kind="heal" title="+50 HP — maç başına 1 kez (H)"><img src="assets/powers/health_50_icon.png" alt="+50 HP" draggable="false"><span class="dc">1</span></button><button class="db shield off" id="bShield" data-kind="shield" title="Enerji kalkanı — %50 hasar emer, maç başına 1 kez (J)"><img src="assets/powers/shield_icon.png" alt="Kalkan" draggable="false"><span class="dc">1</span></button></div>
+   <div id="defBox" class="pe"><button class="db heal off" id="bHeal" data-kind="heal" title="+50 HP — maç başına 1 kez (H)"><img src="assets/ui/p_health.png" alt="+50 HP" draggable="false"><span class="dc">1</span></button><button class="db shield off" id="bShield" data-kind="shield" title="Enerji kalkanı — %50 hasar emer, maç başına 1 kez (J)"><img src="assets/ui/p_shield.png" alt="Kalkan" draggable="false"><span class="dc">1</span></button></div>
    <div id="ultiBox" class="pe"><div class="useg" id="useg"><i></i><i></i><i></i></div><button id="bUlti">ULTİ</button></div></div>
 </div>
 
@@ -926,8 +935,8 @@ document.getElementById('bootSkip').onclick=function(){window.__bootDone=1;var b
       <path d="M0 420 V372 Q260 340 600 356 T1200 360 V420Z" fill="#7cd85e"/><path d="M0 420 V392 Q300 376 600 388 T1200 386 V420Z" fill="#4fb84a"/></svg></div>
   <header class="ttop">
     <button class="tprof" id="mProf" title="Oyuncu profili"><img id="mAv" class="tav" alt=""><span class="tpn"><b id="mpNm">Oyuncu</b><span class="tlvl"><em>SV <b id="mpLv">1</b></em><i class="mxp"><i id="mpXp"></i></i></span></span></button>
-    <div class="tcur"><span class="tc gold"><i>🪙</i><b id="mpGold">0</b><button class="tplus" data-shop="gold" aria-label="Altın satın al">+</button></span><span class="tc gem"><i>💎</i><b id="mpGem">0</b><button class="tplus" data-shop="gem" aria-label="Elmas satın al">+</button></span></div>
-    <div class="ticons"><span class="tnet" id="mNet" title="Bağlantı durumu" role="status"><i></i></span><button id="bLang" class="tib" type="button" aria-label="Dil / Language"><b id="bLangT">TR</b></button><button class="tib" id="bSet" type="button" aria-label="Ayarlar"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.4 13a7.5 7.5 0 0 0 0-2l2.1-1.6-2-3.5-2.5 1a7.4 7.4 0 0 0-1.7-1L15 3h-4l-.4 2.8a7.4 7.4 0 0 0-1.7 1l-2.5-1-2 3.5L6.6 11a7.5 7.5 0 0 0 0 2l-2.1 1.6 2 3.5 2.5-1c.5.4 1.1.7 1.7 1L11 21h4l.4-2.8c.6-.3 1.2-.6 1.7-1l2.5 1 2-3.5zM13 15.5a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7z"/></svg></button></div>
+    <div class="tcur"><span class="tc gold"><i><img class="uico" src="assets/ui/i_gold.png" alt="" draggable="false"></i><b id="mpGold">0</b><button class="tplus" data-shop="gold" aria-label="Altın satın al">+</button></span><span class="tc gem"><i><img class="uico" src="assets/ui/i_gem.png" alt="" draggable="false"></i><b id="mpGem">0</b><button class="tplus" data-shop="gem" aria-label="Elmas satın al">+</button></span></div>
+    <div class="ticons"><span class="tnet" id="mNet" title="Bağlantı durumu" role="status"><i></i></span><button id="bLang" class="tib" type="button" aria-label="Dil / Language"><b id="bLangT">TR</b></button><button class="tib" id="bSet" type="button" aria-label="Ayarlar"><img class="uico" src="assets/ui/i_gear.png" alt="" draggable="false"></button></div>
   </header>
   <canvas id="logoCv" class="tlogo" role="img" aria-label="BOOMPUFF"></canvas>
   <main class="thero">
@@ -935,22 +944,22 @@ document.getElementById('bootSkip').onclick=function(){window.__bootDone=1;var b
       <div class="tstage" id="chView"><canvas id="chCv"></canvas><div class="tlock hidden" id="chLock"><b>🔒</b><span id="chLockT">Sv 17'de açılır</span></div><span class="ptrait" id="chTrait"></span><span class="tcount" id="chCount">1/10</span></div>
       <button class="parr tarr" id="chNext" aria-label="Sonraki karakter"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button></div>
     <div class="tnamew"><div class="tname"><span class="tshield" id="chShield">1</span><b id="chName">Maymun</b></div><small id="chLv">Karakter Sv 1</small>
-    <button class="tcust" id="bWard" type="button">👕 ÖZELLEŞTİR</button></div>
+    <button class="tcust" id="bWard" type="button"><img class="uico" src="assets/ui/i_shirt.png" alt="" draggable="false">ÖZELLEŞTİR</button></div>
   </main>
   <!-- v11.4: referans düzen — karakter arka plandaki taş kaidede; sağda geniş butonlar (dikeyde renkli kutular), altta/solda yuvarlak taş butonlar -->
   <nav class="tcol tl" aria-label="Sol menü">
-    <button class="tico trnd tach" id="bAch" type="button" style="--d:0s"><span class="tii">🏅</span><b>BAŞARILAR</b></button>
-    <button class="tico trnd tfriends" id="bFriends" type="button" style="--d:.25s"><span class="tii">👥</span><b>ARKADAŞLAR</b></button>
-    <button class="tico trnd tdaily" id="bDaily" type="button" style="--d:.5s"><span class="tii">🎁</span><b>FIRSATLAR</b><i class="ttim" id="dailyT">--:--</i></button>
+    <button class="tico trnd tach" id="bAch" type="button" style="--d:0s"><span class="tii"><img class="uico" src="assets/ui/i_medal.png" alt="" draggable="false"></span><b>BAŞARILAR</b></button>
+    <button class="tico trnd tfriends" id="bFriends" type="button" style="--d:.25s"><span class="tii"><img class="uico" src="assets/ui/i_friends.png" alt="" draggable="false"></span><b>ARKADAŞLAR</b></button>
+    <button class="tico trnd tdaily" id="bDaily" type="button" style="--d:.5s"><span class="tii"><img class="uico" src="assets/ui/i_gift.png" alt="" draggable="false"></span><b>FIRSATLAR</b><i class="ttim" id="dailyT">--:--</i></button>
   </nav>
   <nav class="tcol tr" aria-label="Sağ menü">
-    <button class="tico twide tshop" id="bShop" type="button" style="--d:.12s"><span class="tii">🛒</span><b>MAĞAZA</b></button>
-    <button class="tico twide tprofb" id="bProf2" type="button" style="--d:.37s"><span class="tii">👤</span><b>PROFİL</b></button>
-    <button class="tico twide tquest" id="bQuest" type="button" style="--d:.62s"><span class="tii">🏆</span><b>GÖREVLER</b><em id="mqN">0</em></button>
+    <button class="tico twide tshop" id="bShop" type="button" style="--d:.12s"><span class="tii"><img class="uico" src="assets/ui/i_shop.png" alt="" draggable="false"></span><b>MAĞAZA</b></button>
+    <button class="tico twide tprofb" id="bProf2" type="button" style="--d:.37s"><span class="tii"><img class="uico" src="assets/ui/i_profile.png" alt="" draggable="false"></span><b>PROFİL</b></button>
+    <button class="tico twide tquest" id="bQuest" type="button" style="--d:.62s"><span class="tii"><img class="uico" src="assets/ui/i_trophy.png" alt="" draggable="false"></span><b>GÖREVLER</b><em id="mqN">0</em></button>
     <button class="tico tmodes hidden" id="bPlay" type="button"><span class="tii">🎮</span><b>MODLAR</b></button>
   </nav>
   <div class="tplayw">
-    <button class="tgo" id="bQuick" type="button"><span><i class="tgoi">⚔️</i>OYUNA KATIL</span></button>
+    <button class="tgo" id="bQuick" type="button"><span><i class="tgoi"><img class="uico" src="assets/ui/i_swords.png" alt="" draggable="false"></i>OYUNA KATIL</span></button>
   </div>
 </div>
 <div id="play" class="overlay mbg hidden">
@@ -1006,7 +1015,7 @@ document.getElementById('bootSkip').onclick=function(){window.__bootDone=1;var b
   </div>
 </div>
 <!-- v11: maç içi sohbet (yalnızca online) — oyun kontrollerinin üstüne binmez: sol üstte, alt bar ve joystick'ten uzakta -->
-<button id="bChatF" class="hidden" type="button" aria-label="Sohbet"><span class="ic">💬</span><span>SOHBET</span><em id="bChatN">0</em></button>
+<button id="bChatF" class="hidden" type="button" aria-label="Sohbet"><span class="ic"><img class="uico" src="assets/ui/i_chat.png" alt="" draggable="false"></span><span>SOHBET</span><em id="bChatN">0</em></button>
 <div id="mfeed" class="hidden" aria-live="polite"></div>
 <div id="mchat" class="hidden" role="dialog" aria-label="Maç sohbeti"><div class="mch"><b>💬 SOHBET</b><button type="button" id="mcClose" aria-label="Sohbeti kapat">✕</button></div><div class="chlog" id="mcLog"></div><div class="chq" id="mcQ"></div><div class="chemo" id="mcEmo"></div><form class="chin" id="mcForm"><input id="mcIn" maxlength="120" placeholder="Mesaj yaz…" autocomplete="off" enterkeyhint="send"><button type="submit">Gönder</button></form></div>
 
@@ -1076,7 +1085,7 @@ document.getElementById('bootSkip').onclick=function(){window.__bootDone=1;var b
         <button class="pfnm" id="pfNmB" type="button"><b id="pfNm">Oyuncu</b><i>✏️</i></button>
         <div class="pflvl"><span class="pfbadge"><small>SEVİYE</small><b id="pfLv">1</b></span><div class="pfxpw"><div class="pfxp"><i id="pfXpB"></i></div><small id="pfXp"></small></div></div>
       </div>
-      <div class="pfcur"><span class="tc gold"><i>🪙</i><b id="pfGold">0</b><button class="tplus" data-pshop="gold" aria-label="Altın satın al">+</button></span><span class="tc gem"><i>💎</i><b id="pfGem">0</b><button class="tplus" data-pshop="gem" aria-label="Elmas satın al">+</button></span></div>
+      <div class="pfcur"><span class="tc gold"><i><img class="uico" src="assets/ui/i_gold.png" alt="" draggable="false"></i><b id="pfGold">0</b><button class="tplus" data-pshop="gold" aria-label="Altın satın al">+</button></span><span class="tc gem"><i><img class="uico" src="assets/ui/i_gem.png" alt="" draggable="false"></i><b id="pfGem">0</b><button class="tplus" data-pshop="gem" aria-label="Elmas satın al">+</button></span></div>
     </div>
     <div class="pfbody" id="pfBody">
       <div class="pfpane" data-p="stats"><div id="pfStats"></div><div class="pfweap"><h4>🔥 EN ÇOK KULLANILAN SİLAHLAR</h4><div id="pfWeap"></div></div></div>
@@ -2617,7 +2626,7 @@ class UI{
  updateUlti(){const g=this.g,team=g.active?.team;if(!team)return;const u=team.ulti;this.$('useg').querySelectorAll('i').forEach((el,i)=>el.classList.toggle('f',i<u));
   this.$('bUlti').classList.toggle('ready',u>=3&&!team.ai)}
  toggleUlti(){const g=this.g,team=g.active?.team;if(!team||team.ai)return;if(team.ulti<3){this.tip('ULTİ için 3 isabetli tur gerekli ('+team.ulti+'/3)');return}if(!g.canAct())return;SFX.ui();this.$('ultiMenu').classList.toggle('hidden')}
- buildUlti(){this.$('ultiMenu').innerHTML=ULTIS.map(u=>`<button class="ub" data-u="${u.id}"><b>${u.name}</b><small>${u.desc}</small></button>`).join('');for(const b of this.$('ultiMenu').querySelectorAll('.ub'))b.onclick=()=>this.g.useUlti(b.dataset.u);this.$('bUlti').onclick=()=>this.toggleUlti()}
+ buildUlti(){this.$('ultiMenu').innerHTML=ULTIS.map(u=>`<button class="ub" data-u="${u.id}"><img class="ubi" src="assets/ui/u_${u.id}.png" alt="" draggable="false" onerror="this.remove()"><b>${u.name}</b><small>${u.desc}</small></button>`).join('');for(const b of this.$('ultiMenu').querySelectorAll('.ub'))b.onclick=()=>this.g.useUlti(b.dataset.u);this.$('bUlti').onclick=()=>this.toggleUlti()}
  closePanels(){this.$('ultiMenu').classList.add('hidden');this.weapPop(false)}
  // v11.1: silah seçimi açılır ızgarada; altta yalnızca seçili silah (ikon, ad, cephane) görünür
  weapPop(v){const p=this.$('wpop');if(!p)return;const open=v==null?p.classList.contains('hidden'):!!v;p.classList.toggle('hidden',!open);this.$('bWeap').classList.toggle('open',open)}
@@ -2671,13 +2680,18 @@ class UI{
 // ================= v10: SİLAH / GÜÇ GÖRSEL PAKETİ =================
 // assets/weapons/{icons,projectiles,held}/ ve assets/powers/ altındaki PNG'ler (kaynak: tools/weapon-art.js).
 // Görsel yüklenemezse oyun v9'daki çizimlere geri düşer (oyun asla görselsiz kalmaz).
+// v11.7: yeni silah seti (Gemini, karakter tarzında) — elde tutulan görsel + ikon tüm 11 silah için; bombalar uçarken de aynı görseli kullanır
+const V2W={rocket:1,heavy:1,cluster:1,grenade:1,sticky:1,ice:1,push:1,bouncy:1,mine:1,air:1,bolt:1},V2P={grenade:1,sticky:1,ice:1,push:1,bouncy:1,mine:1};
+// elde tutma: w = çizim genişliği (dünya px), ax/ay = görselde elin geldiği nokta (oran), fixed = nişana göre dönmez
+const HELDCFG={rocket:{w:37,ax:.16,ay:.3},heavy:{w:41,ax:.16,ay:.3},cluster:{w:37,ax:.16,ay:.3},grenade:{w:17,ax:-.1,ay:.5},sticky:{w:17,ax:-.1,ay:.5},ice:{w:17,ax:-.1,ay:.5},push:{w:17,ax:-.1,ay:.5},bouncy:{w:17,ax:-.1,ay:.5},mine:{w:22,ax:-.05,ay:.4},air:{w:14,ax:-.2,ay:.6,fixed:1},bolt:{w:26,ax:-.05,ay:.9,fixed:1}};
 const ART={N:{rocket:'rocket',grenade:'grenade',heavy:'heavy_missile',cluster:'cluster_rocket',air:'air_strike',push:'push_bomb',sticky:'sticky_bomb',ice:'ice_bomb',mine:'land_mine',bouncy:'bouncy_bomb',bomb:'air_strike_bomb',bomblet:'cluster_bomblet'},
  c:{},LAUNCH:{rocket:1,heavy:1,cluster:1},
- src(kind,id){const n=this.N[id];if(kind==='power')return`assets/powers/${id}_icon.png`;if(!n)return null;
+ src(kind,id){const n=this.N[id];if(kind==='power')return id==='health_50'?'assets/ui/p_health.png':id==='shield'?'assets/ui/p_shield.png':`assets/powers/${id}_icon.png`; // v11.7: yeni güç ikonları
+  if(V2W[id]&&(kind==='icon'||kind==='held'))return`assets/weapons/v2/${kind==='icon'?'icons':'held'}/${id}.png`;if(kind==='proj'&&V2P[id])return`assets/weapons/v2/held/${id}.png`;if(!n)return null;
   if(kind==='icon')return`assets/weapons/icons/${n}_icon.png`;if(kind==='held'&&this.LAUNCH[id])return`assets/weapons/held/${n}_launcher.png`;if(id==='air')return null;return`assets/weapons/projectiles/${n}_projectile.png`},
- load(kind,id){const k=kind+':'+id;if(k in this.c)return this.c[k];const s=this.src(kind,id);if(!s)return this.c[k]=null;const im=new Image();im.decoding='async';im.src=s;im.onerror=()=>{im.bad=1};return this.c[k]=im},
+ load(kind,id){const k=kind+':'+id;if(k in this.c)return this.c[k];const s=this.src(kind,id);if(!s)return this.c[k]=null;const im=new Image();im.decoding='async';im.src=s;im._v2=s.includes('/v2/');im.onerror=()=>{im.bad=1};return this.c[k]=im},
  img(kind,id){const im=this.load(kind,id);return im&&im.complete&&!im.bad&&im.naturalWidth?im:null},
- preload(){for(const id in this.N)for(const k of['icon','proj','held'])if(!(k==='icon'&&(id==='bomb'||id==='bomblet')))this.load(k,id);this.load('power','health_50');this.load('power','shield')}};
+ preload(){for(const id in this.N)for(const k of['icon','proj','held'])if(!(k==='icon'&&(id==='bomb'||id==='bomblet')))this.load(k,id);this.load('icon','bolt');this.load('held','bolt');this.load('power','health_50');this.load('power','shield')}};
 ART.preload();
 // mermi çizim genişlikleri (px, dünya birimi; görsel oranı 2:1) — eski çizimlerle aynı ölçekte
 const PROJW={rocket:34,heavy:46,cluster:34,bomb:28,bomblet:20,grenade:30,push:28,sticky:30,ice:30,mine:30,bouncy:28};
@@ -2884,11 +2898,14 @@ function drawFighter(c,g){
   ctx.strokeStyle='#ff4d5a';ctx.lineWidth=1.5;ctx.beginPath();ctx.moveTo(c.x,c.y-32);ctx.lineTo(c.x+Math.sin(g.time*3)*4,c.y-70);ctx.stroke();ctx.fillStyle='#ff4d5a';ctx.beginPath();ctx.ellipse(c.x+Math.sin(g.time*3)*4,c.y-84,11,14,0,0,7);ctx.fill();ctx.restore()}
  if(act&&g.aiming&&g.power>.05){glowAt(ctx,c.x,c.y-4,24+g.power*22,`rgba(255,${200-Math.round(g.power*10)*14},80,.6)`,.35+g.power*.5)}
  // v10.2: yürürken/zıplarken silah gizlenir; durunca ya da nişan alırken yumuşakça (≈0,15 sn) geri gelir
- const gunOn=act&&g.state==='aim'&&!g.weapon.target&&!g.targeting&&(g.aiming||(c.onGround&&!c.walkDir));c.gunA=(c.gunA||0)+((gunOn?1:0)-(c.gunA||0))*(gunOn?.28:.4);if(c.gunA<.04)c.gunA=gunOn?c.gunA:0;
- if(act&&(g.state==='aim')&&!g.weapon.target&&!g.targeting&&c.gunA>.03){const dx=Math.cos(c.aim)*c.facing,dy=Math.sin(c.aim),mk2=(c.megaK||1)*(.55+.45*c.gunA);ctx.save();ctx.globalAlpha=c.gunA;ctx.translate(c.x,c.y+2);ctx.scale(mk2,mk2);ctx.rotate(Math.atan2(dy,dx));
-  // v10: elde tutulan silah — silah görsel paketinden (yoksa v9 basit çizimi)
-  const id=g.weapon.id,him=ART.img('held',id);if(him){const L=id==='heavy'?40:34;ctx.drawImage(him,-8,-L*.27,L,L*.54)}
-  else{ctx.fillStyle=id==='heavy'?'#3a404e':'#4b5262';ctx.fillRect(-4,-3.5,id==='heavy'?30:24,id==='heavy'?8:7);ctx.fillStyle=id==='push'?'#b57aff':id==='cluster'?'#ff8a3d':'#ffd23f';ctx.fillRect(id==='heavy'?24:18,-4.5,5,9)}ctx.restore()}}
+ const HC=HELDCFG[g.weapon.id],tgtOk=!g.weapon.target||(HC&&HC.fixed); // v11.7: telsiz ve şimşek asası (hedefli silahlar) da elde görünür
+ const gunOn=act&&g.state==='aim'&&tgtOk&&!g.targeting&&(g.aiming||(c.onGround&&!c.walkDir));c.gunA=(c.gunA||0)+((gunOn?1:0)-(c.gunA||0))*(gunOn?.28:.4);if(c.gunA<.04)c.gunA=gunOn?c.gunA:0;
+ if(act&&(g.state==='aim')&&tgtOk&&!g.targeting&&c.gunA>.03){const dy=Math.sin(c.aim),mk2=(c.megaK||1)*(.55+.45*c.gunA);ctx.save();ctx.globalAlpha=c.gunA;ctx.translate(c.x,c.y+2);ctx.scale(mk2,mk2);
+  // v11.7: yeni silah görselleri — sola bakarken aynalanır (sap hep aşağıda kalır), nişan açısına döner; sabit tutulanlar (telsiz/asa) dönmez
+  const id=g.weapon.id,him=ART.img('held',id);
+  if(him&&HC&&him._v2){if(c.facing<0)ctx.scale(-1,1);if(!HC.fixed)ctx.rotate(Math.atan2(dy,Math.cos(c.aim)));const dw=HC.w,dh=dw*him.naturalHeight/him.naturalWidth;ctx.drawImage(him,-HC.ax*dw,-HC.ay*dh,dw,dh)}
+  else if(him){ctx.rotate(Math.atan2(dy,Math.cos(c.aim)*c.facing));const L=id==='heavy'?40:34;ctx.drawImage(him,-8,-L*.27,L,L*.54)}
+  else{ctx.rotate(Math.atan2(dy,Math.cos(c.aim)*c.facing));ctx.fillStyle=id==='heavy'?'#3a404e':'#4b5262';ctx.fillRect(-4,-3.5,id==='heavy'?30:24,id==='heavy'?8:7);ctx.fillStyle=id==='push'?'#b57aff':id==='cluster'?'#ff8a3d':'#ffd23f';ctx.fillRect(id==='heavy'?24:18,-4.5,5,9)}ctx.restore()}}
 // v11.5: sohbet baloncuğu — isim etiketinin üstünde, en fazla 2 satır (uzun mesaj kısaltılır), 5 sn sonra solar
 function drawChatBubble(c,yb){const B=c.chatB;if(!B)return;const left=B.until-performance.now();if(left<=0){c.chatB=null;return}
  ctx.save();ctx.globalAlpha=Math.min(1,left/400);ctx.font='700 13px "Baloo 2",sans-serif';ctx.textAlign='center';
@@ -2967,7 +2984,8 @@ function drawProjectile(pr){drawTrail(pr);
  ctx.save();ctx.translate(pr.x,pr.y);const id=pr.w.id;if(pr.sc)ctx.scale(pr.sc,pr.sc); // v10: Mega Atış mermisi büyük
  // v10: görsel paketteki mermi çizimi (yönlü mermiler hız yönüne döner, bombalar kendi etrafında döner)
  {const im=ART.img('proj',id);if(im){const w=PROJW[id]||28,dir=id==='rocket'||id==='heavy'||id==='cluster'||id==='bomb'||id==='bomblet';ctx.save();
-   if(dir)ctx.rotate(Math.atan2(pr.vy,pr.vx));else if(!pr.stuck)ctx.rotate(pr.t*(id==='bouncy'?10:id==='mine'?6:5));ctx.drawImage(im,-w/2,-w/4,w,w/2);ctx.restore();
+   if(dir)ctx.rotate(Math.atan2(pr.vy,pr.vx));else if(!pr.stuck)ctx.rotate(pr.t*(id==='bouncy'?10:id==='mine'?6:5));
+   if(im._v2){const ar=im.naturalWidth/im.naturalHeight,S=w*.8,dw=ar>=1?S:S*ar,dh=ar>=1?S/ar:S;ctx.drawImage(im,-dw/2,-dh/2,dw,dh)}else ctx.drawImage(im,-w/2,-w/4,w,w/2);ctx.restore(); // v11.7: yeni bomba görselleri oranı korunarak
    ctx.font='800 12px "Baloo 2",sans-serif';ctx.textAlign='center';ctx.lineWidth=3;ctx.strokeStyle='#000';
    if(id==='sticky'&&pr.stuck){const s=Math.max(0,pr.w.stickFuse-(pr.t-pr.t0));ctx.fillStyle=Math.sin(pr.t*30)>0?'#ff4d5a':'#ffd23f';ctx.beginPath();ctx.arc(0,-8,2.2,0,7);ctx.fill();ctx.strokeText(s.toFixed(1),0,-13);ctx.fillStyle='#fff';ctx.fillText(s.toFixed(1),0,-13)}
    else if(id==='bouncy'){const r=Math.max(0,pr.w.maxBounce-(pr.bounces||0));ctx.fillStyle='#ffd23f';ctx.strokeText('↯'+r,0,-12);ctx.fillText('↯'+r,0,-12)}
@@ -2986,7 +3004,7 @@ function drawProjectile(pr){drawTrail(pr);
   if(pr.w.fuse){ctx.rotate(-pr.t*8);ctx.font='800 13px "Baloo 2",sans-serif';ctx.textAlign='center';ctx.fillStyle='#fff';ctx.strokeStyle='#000';ctx.lineWidth=3;const s=Math.max(0,Math.ceil(pr.w.fuse-pr.t));ctx.strokeText(s,0,-12);ctx.fillText(s,0,-12)}}
  ctx.restore()}
 // v8: mayın, elenme animasyonu ve konumlandırma katmanı
-function drawMine(m,g){ctx.save();ctx.translate(m.x,m.y);const mi=ART.img('proj','mine');if(mi)ctx.drawImage(mi,-15,-11,30,15);else{ctx.fillStyle='#3a404e';ctx.beginPath();ctx.ellipse(0,1,10,3.5,0,0,7);ctx.fill();ctx.fillStyle='#59606e';ctx.beginPath();ctx.arc(0,0,7.5,Math.PI,0);ctx.fill();ctx.strokeStyle=OL;ctx.lineWidth=1.2;ctx.stroke()}
+function drawMine(m,g){ctx.save();ctx.translate(m.x,m.y);const mi=ART.img('proj','mine');if(mi&&mi._v2){const dh=26*mi.naturalHeight/mi.naturalWidth;ctx.drawImage(mi,-13,4-dh,26,dh)}else if(mi)ctx.drawImage(mi,-15,-11,30,15);else{ctx.fillStyle='#3a404e';ctx.beginPath();ctx.ellipse(0,1,10,3.5,0,0,7);ctx.fill();ctx.fillStyle='#59606e';ctx.beginPath();ctx.arc(0,0,7.5,Math.PI,0);ctx.fill();ctx.strokeStyle=OL;ctx.lineWidth=1.2;ctx.stroke()}
  ctx.strokeStyle=m.team?m.team.color:'#fff';ctx.lineWidth=1.6;ctx.beginPath();ctx.arc(0,0,9,Math.PI*1.1,Math.PI*1.9);ctx.stroke();
  const on=m.trig>=0?Math.sin(g.time*40)>0:m.arm>0?false:Math.sin(g.time*4)>.3;ctx.fillStyle=m.arm>0?'#7cff6b':on?'#ff3b4e':'#5a1d22';ctx.beginPath();ctx.arc(0,-6,2.2,0,7);ctx.fill();if(on)glowAt(ctx,0,-6,12,'rgba(255,60,70,.8)',.8);ctx.restore()}
 function drawDying(d,g){const c=d.c,k=d.t/1.4;ctx.save();
@@ -3062,18 +3080,27 @@ function drawDecor(d,g,X){const ctx=X||MCTX;ctx.save();ctx.translate(d.x,d.y);co
   case'msign':{ctx.fillStyle='#2a2440';ctx.fillRect(-2,-44,4,44);ctx.fillStyle='#14102a';ctx.beginPath();ctx.roundRect(-20,-62,40,20,5);ctx.fill();ctx.shadowColor='#3ff6ff';ctx.shadowBlur=10;ctx.strokeStyle='#3ff6ff';ctx.lineWidth=2;ctx.stroke();ctx.shadowBlur=0;ctx.fillStyle='#3ff6ff';ctx.font='800 11px "Baloo 2",sans-serif';ctx.textAlign='center';ctx.fillText('METRO',0,-48);break}
  }ctx.restore()}
 
+// v11.7: maç içi resimli arka planlar (assets/maps/bg_<harita>.jpg); ilk istekte yüklenir, gelince yumuşak geçiş
+const MAPBG={},MAPBG_IDS={jungle:1,volcano:1,city:1,ice:1,desert:1,harbor:1};let MAPBG_NEAR=true;
+function mapBg(id){if(!MAPBG_IDS[id])return null;let im=MAPBG[id];if(!im){im=MAPBG[id]=new Image();im.decoding='async';im.onload=()=>{im._t=performance.now()};im.src='assets/maps/bg_'+id+'.jpg'}return im.complete&&im.naturalWidth?im:null}
 function render(g,dt){
  const d=cv.dpr,vw=VW,vh=VH,cam=g.cam,z=cam.zoom||g.baseZoom(),M=g.map;
  ctx.setTransform(d,0,0,d,0,0);
  const sky=ctx.createLinearGradient(0,0,0,vh);sky.addColorStop(0,M.sky[0]);sky.addColorStop(.55,M.sky[1]);sky.addColorStop(1,M.sky[2]);ctx.fillStyle=sky;ctx.fillRect(0,0,vw,vh);
+ // v11.7: resimli uzak arka plan (Gemini) — ekranı kaplar, kamerayla yavaşça kayar (parallax). Yüklenince eski gökyüzü/güneş/ay/bulut/uzak katman çizilmez.
+ const bgi=mapBg(g.mapId),bga=bgi?clamp((performance.now()-(bgi._t||0))/600,0,1):0;
+ if(bga>0){const iw=bgi.naturalWidth,ih=bgi.naturalHeight,s=Math.max(vw/iw,vh/ih)*1.22,ex=iw*s-vw,ey=ih*s-vh,kx=clamp(cam.x/CFG.W,0,1),ky=clamp((cam.y-200)/(CFG.H-400),0,1);
+  ctx.globalAlpha=bga;ctx.drawImage(bgi,-ex*kx,-ey*(.25+.5*ky),iw*s,ih*s);ctx.globalAlpha=1}
+ if(bga<1){
  if(M.night){ctx.fillStyle='#fff';for(let i=0;i<80;i++){const x=(hash2(i,1)*vw*1.4-cam.x*.02)%vw,y=hash2(i,2)*vh*.6;ctx.globalAlpha=.4+.6*Math.abs(Math.sin(g.time+i));ctx.fillRect(x,y,1.5,1.5)}ctx.globalAlpha=1;
   if(M.moon)drawMoon(ctx,vw*.8-(cam.x-1200)*.03,vh*.17,Math.min(44,vh*.07),M);else{ctx.fillStyle='#f4f0ff';ctx.beginPath();ctx.arc(vw*.78,vh*.16,30,0,7);ctx.fill();ctx.fillStyle=M.sky[0];ctx.beginPath();ctx.arc(vw*.78+12,vh*.16-8,26,0,7);ctx.fill()}}
  if(M.sun)drawSun(ctx,vw*.8-(cam.x-1200)*.04,vh*.16,M,g.time);
+ }
  const shx=(Math.random()-.5)*cam.shake,shy=(Math.random()-.5)*cam.shake;
  const P=(par)=>ctx.setTransform(d*z,0,0,d*z,d*(vw/2-cam.x*z*par+shx),d*(vh/2-cam.y*z*par+shy));
- P(.3);if(!M.night&&M.sun)for(const c of g.clouds){ctx.fillStyle=M.hot?'rgba(255,244,220,.5)':'rgba(255,255,255,.85)';ctx.beginPath();ctx.arc(c.x,c.y,30*c.s,0,7);ctx.arc(c.x+32*c.s,c.y-14*c.s,36*c.s,0,7);ctx.arc(c.x+70*c.s,c.y,28*c.s,0,7);ctx.fill()}
- if(M.embers){for(const c of g.clouds){ctx.fillStyle='rgba(40,20,26,.28)';ctx.beginPath();ctx.arc(c.x,c.y,40*c.s,0,7);ctx.arc(c.x+40*c.s,c.y-10*c.s,46*c.s,0,7);ctx.arc(c.x+90*c.s,c.y,36*c.s,0,7);ctx.fill()}}
- if(g.bg){const bw=CFG.W+1600;P(.45);ctx.drawImage(g.bg[0],-1200,-600,bw,2000);P(.7);ctx.drawImage(g.bg[1],-1200,-600,bw,2000)} // v8: arka plan dünya genişliğine yayılır
+ P(.3);if(bga<1&&!M.night&&M.sun)for(const c of g.clouds){ctx.fillStyle=M.hot?'rgba(255,244,220,.5)':'rgba(255,255,255,.85)';ctx.beginPath();ctx.arc(c.x,c.y,30*c.s,0,7);ctx.arc(c.x+32*c.s,c.y-14*c.s,36*c.s,0,7);ctx.arc(c.x+70*c.s,c.y,28*c.s,0,7);ctx.fill()}
+ if(bga<1&&M.embers){for(const c of g.clouds){ctx.fillStyle='rgba(40,20,26,.28)';ctx.beginPath();ctx.arc(c.x,c.y,40*c.s,0,7);ctx.arc(c.x+40*c.s,c.y-10*c.s,46*c.s,0,7);ctx.arc(c.x+90*c.s,c.y,36*c.s,0,7);ctx.fill()}}
+ if(g.bg){const bw=CFG.W+1600;if(bga<1){P(.45);ctx.globalAlpha=1-bga;ctx.drawImage(g.bg[0],-1200,-600,bw,2000);ctx.globalAlpha=1}if(MAPBG_NEAR){P(.7);ctx.drawImage(g.bg[1],-1200,-600,bw,2000)}} // v8: arka plan dünya genişliğine yayılır
  P(1);if(!g.terrain)return;
  ctx.drawImage(g.terrain.back,0,0);
  // v9: ekran dışı dekorlar çizilmez (büyük 6 oyunculu haritalarda kare süresini düşürür)
@@ -3494,7 +3521,7 @@ const LOAD={tm:0,raf:0,ready:false,done:true,dur:2.4,
 // ================= v8: PROFİL, İLERLEME, ALTIN, KOSTÜM, GÖREV, BAŞARIM =================
 // v9: kayıt şeması v2 (v8 = v1). Anahtar adı aynı kaldı → eski kayıtlar korunur. Yedek: bp_profile_bak
 // Not: localStorage yalnızca bu cihaz/tarayıcıda saklanır; cihazlar arası senkronizasyon veya bulut kaydı YOKTUR.
-const SAVE_KEY='bp_profile',SAVE_BAK='bp_profile_bak',SAVE_VER=3,APP_VER='11.6.0';
+const SAVE_KEY='bp_profile',SAVE_BAK='bp_profile_bak',SAVE_VER=3,APP_VER='11.7.0';
 // Kozmetik katalog — tamamen görsel; oyun gücünü etkilemez. price: altın, ach: başarımla açılır
 const COSCAT=[['hat','Şapka'],['helmet','Kask'],['glasses','Gözlük'],['neck','Boyun'],['outfit','Kostüm'],['pattern','Renk & Desen'],['fx','Zafer Efekti']];
 const COS={

@@ -1,5 +1,26 @@
 # BOOMPUFF 11.0.0 — Yeni ana menü, karakter ilerlemesi, mağaza, sohbet, 200 HP, skorbord
 
+## 11.7.0 — Yeni silah seti, arayüz ikonları, maç içi arka planlar (Gemini)
+- **Ham görseller ve araç:** Gemini sayfaları `www/assets/*/_kaynak/` içinde, yalnızca yerelde (`.gitignore`). Kesme aracı geçici bir C# betiği: eflatun (#FF00FF) anahtar, kenardan taşkın doldurma, kapalı boşlukların temizlenmesi, yumuşak kenar ve renk sızıntısı giderme, kırpma.
+- **Silahlar (`assets/weapons/v2/`):** 11 silahın tamamı için elde tutulan görsel (`held/<id>.png`, en fazla 192 px) ve ikon (`icons/<id>.png`, 128 px).
+  - `HELDCFG` her silah için çizim genişliğini ve el noktasını tanımlıyor.
+  - Sola bakarken silah aynalanıyor, sap hep aşağıda kalıyor.
+  - Hava Saldırısı telsizi ve Şimşek asası artık elde görünüyor; bunlar nişan açısıyla dönmüyor.
+  - Bombalar uçarken de yeni görseli kullanıyor (oranı korunarak); yerdeki mayın da yeni görselde.
+  - Silah menüsü ve alt bar ikonları yeni sette.
+- **Arayüz ikonları (`assets/ui/`, 128 px):**
+  - Ana menü düğmeleri (Başarılar, Arkadaşlar, Fırsatlar, Mağaza, Profil, Görevler).
+  - Altın ve elmas (menü ve profil), Ayarlar dişlisi, OYUNA KATIL kılıçları, ÖZELLEŞTİR tişörtü.
+  - Sohbet düğmeleri.
+  - Ulti menüsü (Meteor, Şifa, Işınlanma, Mega Atış, Pus Bulutu).
+  - +50 HP ve Kalkan güç düğmeleri.
+  - Cephane Paketi (`i_ammo`) ve XP Desteği (`i_xp`) ikonları hazır, ama mağazada henüz kullanılmıyor.
+- **Maç içi arka planlar (`assets/maps/bg_<harita>.jpg`, 2400 px, 110–190 KB):**
+  - Gökyüzü, güneş, ay, yıldızlar, bulutlar ve uzak katman yerine resim çiziliyor. Resim ekranı kaplıyor ve kamerayla yavaşça kayıyor (parallax).
+  - Yakın tepe katmanı (`MAPBG_NEAR`) duruyor.
+  - Resim yüklenene kadar eski çizim görünüyor, sonra 0,6 sn'lik geçiş yapılıyor.
+- `APP_VER` 11.7.0, service worker önbelleği `boompuff-v11.7.0`, `server/package.json` 11.7.0.
+
 ## 11.6.0 — Harita yükleme ekranı görselleri
 - `www/assets/maps/load_<harita>.webp` (jungle, volcano, city, ice, desert, harbor; Gemini, 16:9) maç öncesi yükleme ekranında kodla çizilen sahnenin yerini alıyor.
   - Görsel inene kadar eski sahne görünüyor, inince 0,45 sn'lik geçişle görsele dönüyor. Yavaş yakınlaşma (Ken Burns) uygulanıyor.
